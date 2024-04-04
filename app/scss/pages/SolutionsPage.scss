@@ -1,0 +1,132 @@
+.solution-blocks-section {
+  position: relative;
+  padding-block-start: calc(2rem + 1vw);
+  @media (width < 768px) {
+    padding: 0;
+  }
+
+  .solution-block {
+    position: relative;
+    padding-block: calc(1rem + 2vw);
+    &:is(.even) {
+      background-color: #F3F3F3;
+      @media (prefers-color-scheme: dark) {
+        background-color: #09186c;
+      }
+    }
+
+    .image {
+      position: relative;
+      max-width: 500px;
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: url('/assets/images/solution-block-image-pattern.png');
+        background-position: center;
+        background-size: cover;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      text-wrap: balance;
+      @media (width < 768px) {
+        gap: 0.5rem;
+        margin-block-start: 1rem;
+      }
+      @media (width > 768px) {
+        &:is(.odd) {
+          align-items: flex-end;
+          text-align: end;
+        }
+      }
+    }
+  }
+}
+
+.providers-section {
+  position: relative;
+  padding-block: calc(2rem + 1.5vw);
+  &:not(.payment-providers-section) {
+    background-color: var(--bs-primary);
+    color: var(--bs-white);
+  }
+
+  .providers-list {
+    --grid-columns: 5;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-block-start: 2rem;
+    &__item {
+      border: 1px solid rgba(var(--bs-white-rgb), 0.1);
+      height: 80px;
+      padding-block: 0.8rem;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    @media (width < 768px) {
+      --grid-columns: 3;
+    }
+  }
+}
+
+.amadeus-online-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--bs-primary);
+  background-image: url('/assets/images/typeing-bg.png');
+  background-size: cover;
+  background-position: center;
+  isolation: isolate;
+  padding-block: calc(2rem + 1vw);
+  color: var(--bs-white);
+  
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(-15deg, var(--bs-secondary), var(--bs-primary));
+    z-index: -1;
+    opacity:  0.75;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    text-wrap: balance;
+  }
+  .image {
+    position: relative;
+    max-width: 550px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  @media (width < 768px) {
+    .row {
+      gap: 1.5rem;
+    }
+  }
+
+}

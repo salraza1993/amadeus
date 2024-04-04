@@ -1,0 +1,11 @@
+.text{
+  &-primary {
+    color: var(--bs-primary) !important;
+  }
+  &-secondary {
+    color: var(--bs-secondary) !important;
+  }
+  &-body-color {
+    color: var(--bs-body-color) !important;
+  }
+}

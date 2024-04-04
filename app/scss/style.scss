@@ -1,0 +1,125 @@
+@import '/app/scss/variables';
+@import '/app/scss/classes';
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  
+}
+
+body {
+  background-color: var(--bs-base-bg);
+  padding-block-start: var(--bs-header-height);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+.btn {
+  border-radius: 0;
+  padding-inline: calc(1rem + 0.75vw);
+
+  &-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #0b5ed7;
+    --bs-btn-hover-border-color: #0a58ca;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #0a58ca;
+    --bs-btn-active-border-color: #0a53be;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-bg: var(--bs-primary);
+    --bs-btn-border-color: var(--bs-primary);
+    --bs-btn-disabled-bg: var(--bs-primary);
+    --bs-btn-disabled-border-color: var(--bs-primary);
+    @media (prefers-color-scheme: dark) {
+      --bs-btn-bg: var(--bs-secondary);
+      --bs-btn-border-color: var(--bs-secondary);
+      --bs-btn-disabled-bg: var(--bs-secondary);
+      --bs-btn-disabled-border-color: var(--bs-secondary);
+    }
+  }
+
+  &-secondary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--bs-secondary);
+    --bs-btn-border-color: var(--bs-secondary);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--bs-primary);
+    --bs-btn-hover-border-color: var(--bs-primary);
+    --bs-btn-focus-shadow-rgb: 130, 138, 145;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--bs-primary);
+    --bs-btn-active-border-color: var(--bs-primary);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: var(--bs-secondary);
+    --bs-btn-disabled-border-color: var(--bs-secondary);
+  }
+}
+
+
+.hero-banner-container {
+  --hero-banner-height: 600px;
+  position: relative;
+  width: 100%;
+  height: var(--hero-banner-height);
+  isolation: isolate;
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(var(--bs-black-rgb), 0.5);
+    background-image: url('/assets/images/overlay-lines-light.png');
+    background-size: auto 100%;
+    opacity: 0.8;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .content {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    padding: 5vw;
+    color: var(--bs-white);
+    .title-heading {
+      max-width: 550px;
+    }
+
+  }
+ 
+  @media (width < 1200px) {
+    --hero-banner-height: auto;
+  }
+  @media (width < 768px) {
+    .container { padding: 0; }
+    .content {
+      display: flex;
+      align-items: flex-end;
+    }
+    --hero-banner-height: auto;
+  }
+
+}
+
+@media (width < 1200px) {
+  .container {
+    max-width: 100%;
+    padding-inline: 5vw;
+  }
+}

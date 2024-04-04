@@ -1,0 +1,44 @@
+:root {
+  // ========= custom class ========= //
+  --bs-base-bg: #f7f7f7;
+  --bs-base-bg-rgb: 239, 244, 249;
+  --bs-body-color: #313131;
+  --bs-body-color-rgb: 49, 49, 49;
+  --bs-transparent: transparent;
+
+  --bs-primary: #000835;
+  --bs-primary-rgb: 0, 8, 53;
+
+  --bs-secondary: #3a8bff;
+  --bs-secondary-rgb: 58, 139, 255;
+
+  --bs-border-radius: 0.3rem;
+  --bs-header-bg: var(--bs-transparent);
+  --bs-header-height: 85px;
+  --bs-max-z-index: 10;
+  --bs-border-color: var(--bs-secondary--20);
+  --bs-transition: all 0.3s ease-in;
+  --bs-whatsapp-color: #41A200;
+  
+}
+@media (width < 768px) {
+  :root {
+    --bs-header-height: 55px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bs-base-bg: var(--bs-primary);
+    --bs-base-bg-rgb: 7, 39, 62;
+    --bs-body-color: #CFD9E2;
+    --bs-body-color-rgb: 207, 217, 226;
+    --bs-whatsapp-color: #86D650;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
