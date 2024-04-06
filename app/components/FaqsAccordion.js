@@ -33,29 +33,27 @@ function FaqsAccordion() {
 
   const accordionHandler = (acc) => {
     setSelectedAccordion(acc);
-  }
+  };
 
-  return <div class="accordion-container">
+  return <div className="accordion-container">
     <h2 className='fs-1 m-0 text-left'>FAQs</h2>
     <hr className="mb-4" />
     {
       accordions.map((accordion, index) => {
-        return <>
-          <div class={selectedAccordion === index ? "accordion-block is-opened": "accordion-block"} key={index}>
-            <div class="accordion-block__header" onClick={() => accordionHandler(index)}>
-              <h5>{index + 1}. { accordion.title }</h5>
-              <i class="fa-solid fa-angle-down"></i>
-            </div>
-            <div class="accordion-block__body">
-              <div class="__inner">
-                <p>{ accordion.description }</p>
-              </div>
+        return <div className={selectedAccordion === index ? "accordion-block is-opened" : "accordion-block"} key={index}>
+          <div className={selectedAccordion === index ? "accordion-block__header is-opened" : "accordion-block__header"} onClick={() => accordionHandler(index)}>
+            <h5>{index + 1}. {accordion.title}</h5>
+            <i className="fa-solid fa-angle-down"></i>
+          </div>
+          <div className="accordion-block__body">
+            <div className="__inner">
+              <p>{accordion.description}</p>
             </div>
           </div>
-        </>
+        </div>;
       })
     }
   </div>;
 }
 
-export default FaqsAccordion
+export default FaqsAccordion;

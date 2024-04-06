@@ -2,6 +2,8 @@ import '@/app/scss/pages/ResourcesPage.scss';
 import HeroBanner from "../components/HeroBanner";
 import FaqsAccordion from '../components/FaqsAccordion';
 import Link from 'next/link';
+import VideoOverlay from '../components/VideoOverlay';
+import ResourcesVideoSection from '../components/ResourcesVideoSection';
 
 export default function Resources() {
   const heroBannerHeading = "Learn How Amadeus Online Suite Can Elevate Your Business"
@@ -9,15 +11,7 @@ export default function Resources() {
   
   return <>
     <HeroBanner image={heroBannerImage} heading={heroBannerHeading} />
-    <section className="video-section">
-      <div className="container">
-        <h2 className='fs-1 mb-4'>Explore Amadeus Online Suite</h2>
-        <div className="video-container">
-          <img src="/assets/images/video-thumbnail.png" alt="" />
-          <span className="icon"><img src="/assets/images/video-icon.svg" alt="" /></span>
-        </div>
-      </div>
-    </section>
+    <ResourcesVideoSection />
     
     <section className="browse-content-section">
       <div className="container">
@@ -77,22 +71,22 @@ export default function Resources() {
         <div className="download-container">
           <div className="download-card">
             <small>Amadeus Online Suite</small>
-            <h4>Sales sheet -  Travel Engine</h4>
+            <h5>Sales sheet -  Travel Engine</h5>
             <a href="" className='download-button'>Download Now <i className="fa-solid fa-download"></i></a>
           </div>
           <div className="download-card">
             <small>Amadeus Online Suite</small>
-            <h4>Sales sheet -  Business to Business</h4>
+            <h5>Sales sheet -  Business to Business</h5>
             <a href="" className='download-button'>Download Now <i className="fa-solid fa-download"></i></a>
           </div>
           <div className="download-card">
             <small>Amadeus Online Suite</small>
-            <h4>Sales Sheet - Mobile App</h4>
+            <h5>Sales Sheet - Mobile App</h5>
             <a href="" className='download-button'>Download Now <i className="fa-solid fa-download"></i></a>
           </div>
           <div className="download-card">
             <small>Amadeus Online Suite</small>
-            <h4>What’s New</h4>
+            <h5>What’s New</h5>
             <a href="" className='download-button'>Download Now <i className="fa-solid fa-download"></i></a>
           </div>
         </div>
@@ -125,6 +119,7 @@ export default function Resources() {
         </div>
       </div>
     </section>
+
 
   </>;
 }

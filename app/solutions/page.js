@@ -1,6 +1,8 @@
 import '@/app/scss/pages/SolutionsPage.scss';
 import HeroBanner from "../components/HeroBanner";
 import bannerImage from "/public/assets/images/solution-hero-banner.png";
+import ProvidersCarousel from '../components/ProvidersCarousel';
+import PaymentProvidersCarousel from '../components/PaymentProvidersCarousel';
 
 export default function Solutions() {
   const solutionBlocks = [
@@ -34,26 +36,6 @@ export default function Solutions() {
     },
   ];
 
-  const providersList = [
-    '/assets/images/provide-logo-1.png',
-    '/assets/images/provide-logo-2.png',
-    '/assets/images/provide-logo-3.png',
-    '/assets/images/provide-logo-4.png',
-    '/assets/images/provide-logo-5.png',
-    '/assets/images/provide-logo-1.png',
-    '/assets/images/provide-logo-2.png',
-    '/assets/images/provide-logo-3.png',
-    '/assets/images/provide-logo-4.png',
-    '/assets/images/provide-logo-5.png',
-  ];
-  const paymentProvidersList = [
-    '/assets/images/payment-provider-1.png',
-    '/assets/images/payment-provider-2.png',
-    '/assets/images/payment-provider-3.png',
-    '/assets/images/payment-provider-4.png',
-    '/assets/images/payment-provider-5.png',
-  ];
-
   return <>
     <HeroBanner heading="Complete travel eco-system at your finger tips" />
     
@@ -62,7 +44,7 @@ export default function Solutions() {
         solutionBlocks.map((block, index) => {
           return <div className={index % 2 === 0 ? "solution-block odd" : 'solution-block even'} key={index}>
             <div className="container">
-              <div className={index % 2 === 0 ? "row" : 'row flex-row-reverse'}>
+              <div className={index % 2 === 0 ? "row g-4" : 'row g-4 flex-row-reverse'}>
                 <div className="col-12 col-lg-6 d-flex justify-content-center">
                   <div className="image">
                     <img src={block.image} alt="" />
@@ -87,15 +69,7 @@ export default function Solutions() {
       <div className="container">
         <div className="providers-container">
           <h2 className='text-center'>Connect to multiple travel providers with Amadeus Online Suite.</h2>
-          <ul className="providers-list">
-            {
-              providersList.map((provider, index) => {
-                return <li className="providers-list__item" key={index}>
-                  <img src={provider} alt="" />
-                </li>
-              })
-            }
-          </ul>
+          <ProvidersCarousel />
         </div>
       </div>
     </section>
@@ -104,15 +78,7 @@ export default function Solutions() {
       <div className="container">
         <div className="providers-container">
           <h2 className='text-center'>A World of Payment Solutions to Grow Your Revenues</h2>
-          <ul className="providers-list">
-            {
-              paymentProvidersList.map((provider, index) => {
-                return <li className="providers-list__item" key={index}>
-                  <img src={provider} alt="" />
-                </li>
-              })
-            }
-          </ul>
+          <PaymentProvidersCarousel />
         </div>
       </div>
     </section>

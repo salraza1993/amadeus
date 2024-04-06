@@ -1,5 +1,6 @@
 import '@/app/scss/pages/HomePage.scss';
 import Slider from './components/Slider';
+import Testimonial from './components/Testimonial';
 export default function Home() {
 
   const whyamadeusList = [
@@ -132,86 +133,7 @@ export default function Home() {
           <div className="testimonial-container">
             <h2 className='fs-1 text-center'>What Our Customers Say</h2>
             <div className="testimonial-card-container">
-              <div className="row">
-                <div className="col-4">
-                  <div className="testimonial-card">
-                    <div className="author-info">
-                      <div className="__image">
-                        <img src="/assets/images/testimonial-author-image-1.png" alt="" />
-                        <ul className="social-links">
-                          <li className="social-links__item">
-                            <a href="/"><i className="fa-brands fa-linkedin-in"></i></a>
-                          </li>
-                          <li className="social-links__item">
-                            <a href="/"><i className="fa-brands fa-facebook-f"></i></a>
-                          </li>
-                        </ul>
-                      </div>
-                      <div className="__name">
-                        <h4 className='mb-1'>Tom Hills</h4>
-                        <p>Marketing Manager</p>
-                      </div>
-                    </div>
-                    <div className="comment">
-                      <p>
-                        The Amadeus Online Suite platform is reliable, fast, and easy to use. I highly recommend it to anyone looking for a comprehensive travel solution and looking to Go-Live immediately.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-4">
-                  <div className="testimonial-card">
-                    <div className="author-info">
-                      <div className="__image">
-                        <img src="/assets/images/testimonial-author-image-1.png" alt="" />
-                        <ul className="social-links">
-                          <li className="social-links__item">
-                            <a href="/"><i className="fa-brands fa-linkedin-in"></i></a>
-                          </li>
-                          <li className="social-links__item">
-                            <a href="/"><i className="fa-brands fa-facebook-f"></i></a>
-                          </li>
-                        </ul>
-                      </div>
-                      <div className="__name">
-                        <h4 className='mb-1'>Tom Hills</h4>
-                        <p>Marketing Manager</p>
-                      </div>
-                    </div>
-                    <div className="comment">
-                      <p>
-                        The Amadeus Online Suite platform is reliable, fast, and easy to use. I highly recommend it to anyone looking for a comprehensive travel solution and looking to Go-Live immediately.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-4">
-                  <div className="testimonial-card">
-                    <div className="author-info">
-                      <div className="__image">
-                        <img src="/assets/images/testimonial-author-image-1.png" alt="" />
-                        <ul className="social-links">
-                          <li className="social-links__item">
-                            <a href="/"><i className="fa-brands fa-linkedin-in"></i></a>
-                          </li>
-                          <li className="social-links__item">
-                            <a href="/"><i className="fa-brands fa-facebook-f"></i></a>
-                          </li>
-                        </ul>
-                      </div>
-                      <div className="__name">
-                        <h4 className='mb-1'>Tom Hills</h4>
-                        <p>Marketing Manager</p>
-                      </div>
-                    </div>
-                    <div className="comment">
-                      <p>
-                        The Amadeus Online Suite platform is reliable, fast, and easy to use. I highly recommend it to anyone looking for a comprehensive travel solution and looking to Go-Live immediately.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <Testimonial />
             </div>
           </div>
         </div>
