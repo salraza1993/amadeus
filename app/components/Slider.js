@@ -4,6 +4,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+import ImageTag from './ImageTag';
 
 
 function Slider() {
@@ -55,7 +56,7 @@ function Slider() {
             return <SwiperSlide key={index}>
               <div className="slide" key={index}>
                 <div className="slide__image">
-                  <img src={slide.image} alt="" />
+                  <ImageTag src={slide.image} />
                 </div>
                 <div className="slide__content">
                   <h2 className='fs-1'>{slide.content.title}</h2>

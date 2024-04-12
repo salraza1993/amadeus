@@ -1,6 +1,7 @@
 import '@/app/scss/pages/HomePage.scss';
 import Slider from './components/Slider';
 import Testimonial from './components/Testimonial';
+import ImageTag from './components/ImageTag';
 export default function Home() {
 
   const whyamadeusList = [
@@ -39,7 +40,7 @@ export default function Home() {
               </div>
               <div className="col-12 col-lg-6 col-xl-6 d-flex justify-content-end">
                 <div className="image">
-                  <img src="/assets/images/home-about-img.jpg" alt="Home About Image" />
+                  <ImageTag src="/assets/images/home-about-img.jpg" />
                 </div>
               </div>
             </div>
@@ -83,18 +84,26 @@ export default function Home() {
             <div className="row">
               <div className="col-12 col-xl-6">
                 <div className="why-amadeus__image">
-                  <img src="/assets/images/model.png" alt="" />
+                  
+                  <ImageTag src="/assets/images/model.png" />
+
                   <ul className="points">
                     <li className="points__item">
-                      <span className="icon"><img src="/assets/images/icon-ticket.png" alt="" /></span>
+                      <span className="icon">
+                        <ImageTag src="/assets/images/icon-ticket.png" />
+                      </span>
                       <span>Flexible Payments</span>
                     </li>
                     <li className="points__item">
-                      <span className="icon"><img src="/assets/images/icon-clock.png" alt="" /></span>
+                      <span className="icon">
+                        <ImageTag src="/assets/images/icon-clock.png" />
+                      </span>
                       <span>Realtime</span>
                     </li>
                     <li className="points__item">
-                      <span className="icon"><img src="/assets/images/icon-revenue.png" alt="" /></span>
+                      <span className="icon">
+                        <ImageTag src="/assets/images/icon-revenue.png" />
+                      </span>
                       <span>Revenues</span>
                     </li>
                   </ul>
@@ -109,7 +118,7 @@ export default function Home() {
                       whyamadeusList.map((item, index) => {
                         return <li className="content-list__item" key={index}>
                           <span className="icon">
-                            <img src={item.icon} alt="" />
+                            <ImageTag src={item.icon} />
                           </span>
                           <div className="text">
                             <h5>{item.title}</h5>

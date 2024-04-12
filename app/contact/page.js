@@ -1,5 +1,6 @@
 import '@/app/scss/pages/Contact.scss';
 import HeroBanner from '../components/HeroBanner';
+import ImageTag from '../components/ImageTag';
 
 function Contact() {
   const heroBannerHeading = "Connect with our experts right away!";
@@ -11,7 +12,7 @@ function Contact() {
         <div className="container">
           <div className="contact-form-container">
             <div className="image">
-              <img src="/assets/images/contact-form-banner.png" alt="" />
+              <ImageTag src={"/assets/images/contact-form-banner.png"} />
             </div>
             <form action="" className="contact-form">
               <div className="input-block">
@@ -61,7 +62,7 @@ function Contact() {
                 <label htmlFor="privacyPolicy">
                   <small>
                     By submitting this form, I confirm that I have read and understand 
-                    <strong> amadeus’ Privacy Notice</strong>
+                    <strong> amadeus&#39; Privacy Notice</strong>
                   </small>
                   <span className='text-danger'>*</span>
                 </label>

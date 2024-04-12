@@ -5,6 +5,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+import ImageTag from './ImageTag';
 
 function Testimonial() {
   const testimonials = [
@@ -94,7 +95,7 @@ function Testimonial() {
           <div className="testimonial-card">
             <div className="author-info">
               <div className="__image">
-                <img src={testimonial.image} alt="" />
+                <ImageTag src={testimonial.image} />
                 <ul className="social-links">
                   <li className="social-links__item">
                     <a href={testimonial.linkedinPath}><i className="fa-brands fa-linkedin-in"></i></a>

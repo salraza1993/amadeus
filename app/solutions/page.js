@@ -3,8 +3,10 @@ import HeroBanner from "../components/HeroBanner";
 import bannerImage from "/public/assets/images/solution-hero-banner.png";
 import ProvidersCarousel from '../components/ProvidersCarousel';
 import PaymentProvidersCarousel from '../components/PaymentProvidersCarousel';
+import ImageTag from '../components/ImageTag';
 
 export default function Solutions() {
+  const heroBannerHeading = "Complete travel eco-system at your finger tips";
   const solutionBlocks = [
     {
       path: '',
@@ -37,7 +39,7 @@ export default function Solutions() {
   ];
 
   return <>
-    <HeroBanner heading="Complete travel eco-system at your finger tips" />
+    <HeroBanner image={bannerImage} heading={heroBannerHeading} />
     
     <section className="solution-blocks-section">
       {
@@ -47,7 +49,7 @@ export default function Solutions() {
               <div className={index % 2 === 0 ? "row g-4" : 'row g-4 flex-row-reverse'}>
                 <div className="col-12 col-lg-6 d-flex justify-content-center">
                   <div className="image">
-                    <img src={block.image} alt="" />
+                    <ImageTag src={block.image} alt="" />
                   </div>
                 </div>
                 <div className="col-12 col-lg-6 d-flex justify-content-center align-items-center">
@@ -97,7 +99,7 @@ export default function Solutions() {
           </div>
           <div className="col-12 col-lg-6 d-flex justify-content-end">
             <div className="image">
-              <img src="/assets/images/model-man.png" alt="" />
+              <ImageTag src="/assets/images/model-man.png" alt="" />
             </div>
           </div>
         </div>        

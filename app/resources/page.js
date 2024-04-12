@@ -2,8 +2,8 @@ import '@/app/scss/pages/ResourcesPage.scss';
 import HeroBanner from "../components/HeroBanner";
 import FaqsAccordion from '../components/FaqsAccordion';
 import Link from 'next/link';
-import VideoOverlay from '../components/VideoOverlay';
 import ResourcesVideoSection from '../components/ResourcesVideoSection';
+import ImageTag from '../components/ImageTag';
 
 export default function Resources() {
   const heroBannerHeading = "Learn How Amadeus Online Suite Can Elevate Your Business"
@@ -21,9 +21,9 @@ export default function Resources() {
             <div className="col-12 col-md-6 col-lg-4">
               <div className="browse-content-card">
                 <div className="__image">
-                  <img src="/assets/images/browse-image-1.png" alt="" />
+                  <ImageTag src={"/assets/images/browse-image-1.png"} />
                   <div className="icon">
-                    <img src="/assets/images/video-icon.svg" alt="" />
+                    <ImageTag width={'30px'} src={"/assets/images/video-icon.svg"} />
                     <small>Tap and Watch</small>
                   </div>
                 </div>
@@ -35,9 +35,9 @@ export default function Resources() {
             <div className="col-12 col-md-6 col-lg-4">
               <div className="browse-content-card">
                 <div className="__image">
-                  <img src="/assets/images/browse-image-2.png" alt="" />
+                  <ImageTag src={"/assets/images/browse-image-2.png"} />
                   <div className="icon">
-                    <img src="/assets/images/video-icon.svg" alt="" />
+                    <ImageTag width={'30px'} src={"/assets/images/video-icon.svg"} />
                     <small>Tap and Watch</small>
                   </div>
                 </div>
@@ -49,9 +49,9 @@ export default function Resources() {
             <div className="col-12 col-md-6 col-lg-4">
               <div className="browse-content-card">
                 <div className="__image">
-                  <img src="/assets/images/browse-image-1.png" alt="" />
+                  <ImageTag src={"/assets/images/browse-image-3.png"} />
                   <div className="icon">
-                    <img src="/assets/images/video-icon.svg" alt="" />
+                    <ImageTag width={'30px'} src={"/assets/images/video-icon.svg"} />
                     <small>Tap and Watch</small>
                   </div>
                 </div>
@@ -102,7 +102,7 @@ export default function Resources() {
             </div>
             <div className="col-12 col-lg-5">
               <div className="image">
-                <img src="/assets/images/faqs-image.png" alt="" />
+                <ImageTag src={"/assets/images/faqs-image.png"} />
               </div>
             </div>
           </div>

@@ -5,6 +5,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+import ImageTag from './ImageTag';
 
 function ProvidersCarousel() {
 
@@ -54,7 +55,7 @@ function ProvidersCarousel() {
             {
               providerItem.map((provider, index) => {
                 return <li className="providers-list__item" key={index}>
-                  <img src={provider} alt="" />
+                  <ImageTag src={provider} />
                 </li>;
               })
             }
