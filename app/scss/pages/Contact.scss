@@ -46,6 +46,7 @@
           background-color: var(--bs-white);
           border: 1px solid #ccc;
           padding-inline: 1rem;
+          color: var(--bs-dark);
           transition: var(--bs-transition);
           &:focus {
             outline-color: var(--bs-secondary);

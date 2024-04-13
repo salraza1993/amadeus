@@ -4,6 +4,8 @@ import bannerImage from "/public/assets/images/solution-hero-banner.png";
 import ProvidersCarousel from '../components/ProvidersCarousel';
 import PaymentProvidersCarousel from '../components/PaymentProvidersCarousel';
 import ImageTag from '../components/ImageTag';
+import SolutionsBlocks from '../components/SolutionsPage/SolutionsBlocks';
+import Solution4thSection from '../components/SolutionsPage/Solution4thSection';
 
 export default function Solutions() {
   const heroBannerHeading = "Complete travel eco-system at your finger tips";
@@ -39,34 +41,8 @@ export default function Solutions() {
   ];
 
   return <>
-    <HeroBanner image={bannerImage} heading={heroBannerHeading} />
-    
-    <section className="solution-blocks-section">
-      {
-        solutionBlocks.map((block, index) => {
-          return <div className={index % 2 === 0 ? "solution-block odd" : 'solution-block even'} key={index}>
-            <div className="container">
-              <div className={index % 2 === 0 ? "row g-4" : 'row g-4 flex-row-reverse'}>
-                <div className="col-12 col-lg-6 d-flex justify-content-center">
-                  <div className="image">
-                    <ImageTag src={block.image} alt="" />
-                  </div>
-                </div>
-                <div className="col-12 col-lg-6 d-flex justify-content-center align-items-center">
-                  <div className={index % 2 === 0 ? "content odd" : 'content even'}>
-                    <h2>{block.title}</h2>
-                    <h5>{block.subTitle}</h5>
-                    <p>{block.description}</p>
-                    <a href={block.path} className='btn btn-secondary btn-lg' >Discover More</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>;
-        })
-      }
-    </section>
-    
+    <HeroBanner image={bannerImage} heading={heroBannerHeading} />    
+    <SolutionsBlocks data={solutionBlocks} />    
     <section className="providers-section">
       <div className="container">
         <div className="providers-container">
@@ -85,26 +61,7 @@ export default function Solutions() {
       </div>
     </section>
 
-    <section className="amadeus-online-section">
-      <div className="container">
-        <div className="row align-items-center">
-          <div className="col-12 col-lg-6">
-            <div className="content">
-              <h2 className='fs-1'>Unlock your growth potential with Amadeus Online Suite today!</h2>
-              <p>
-                Experience powerful features, tailored content, and personalized services to maximize your market presence. 
-              </p>
-              <a href="/" className='btn btn-secondary btn-lg'>Get in touch</a>
-            </div>
-          </div>
-          <div className="col-12 col-lg-6 d-flex justify-content-end">
-            <div className="image">
-              <ImageTag src="/assets/images/model-man.png" alt="" />
-            </div>
-          </div>
-        </div>        
-      </div>
-    </section>
+    <Solution4thSection />
 
   </>;
 }
