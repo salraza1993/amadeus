@@ -71,7 +71,6 @@
           color: rgba(var(--bs-body-color-rgb), 0.75);
           transition: var(--bs-transition);
           font-size: var(--font-size-small);
-          font-family: var(--font-centra2-medium);
 
           &::after {
             content: '';
@@ -130,7 +129,6 @@
       gap: 0.6rem;
       flex-wrap: wrap;
       color: rgba(var(--bs-body-color-rgb), 0.75);
-      font-family: var(--font-centra2-medium);
       font-size: var(--font-size-small);
 
       a {

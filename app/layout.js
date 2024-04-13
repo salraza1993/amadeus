@@ -1,4 +1,14 @@
-import { Inter, Kanit } from "next/font/google";
+import {
+  amadeusLight,
+  amadeusLightItalic,
+  amadeusRegular,
+  amadeusRegularItalic,
+  amadeusMedium,
+  amadeusMediumItalic,
+  amadeusBold,
+  amadeusBoldItalic,
+  amadeusBlack,
+  amadeusBlackItalic } from "./../public/Fonts";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Head from "next/head";
@@ -23,12 +33,21 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="fav-icons/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="fav-icons/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="fav-icons/favicon-16x16.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
       </Head>
-      <body>
+      <body
+        className={`
+          ${amadeusLight.variable}
+          ${amadeusLightItalic.variable}
+          ${amadeusRegular.variable}
+          ${amadeusRegularItalic.variable}
+          ${amadeusMedium.variable}
+          ${amadeusMediumItalic.variable}
+          ${amadeusBold.variable}
+          ${amadeusBoldItalic.variable}
+          ${amadeusBlack.variable}
+          ${amadeusBlackItalic.variable}
+        `}>
         <Header />
           {children}
         <Footer />

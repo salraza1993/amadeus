@@ -33,8 +33,8 @@ export default function Home() {
             <div className="row align-items-center gy-4">
               <div className="col-12 col-lg-6 col-xl-6">
                 <div className="content">
-                  <h2 className='fs-1'>Grow Your Online Business With Us!</h2>
-                  <p>Amadeus Online Suite can get you online in weeks and has all the content you need to thrive and grow your business. With Mobile Apps, B2B and B2C versions, your are just a click away from business growth.</p>
+                  <h2 className='fs-1 font-amadeus-medium text-balance'>Grow Your Online Business With Us!</h2>
+                  <p className='text-balance'>Amadeus Online Suite can get you online in weeks and has all the content you need to thrive and grow your business. With Mobile Apps, B2B and B2C versions, your are just a click away from business growth.</p>
                   <a href="/" className='btn btn-primary btn-lg'>Find Out More</a>
                 </div>
               </div>
@@ -53,20 +53,20 @@ export default function Home() {
           <div className="counters-container">
             <ul className="counters">
               <li className="counters__list">
-                <h2 className='fs-1'>+195</h2>
+                <h2 className='font-amadeus-bold fs-1'>+195</h2>
                 <small>Travel Agency portals implemented</small>
               </li>
-              <li className="counters__list">
+              <li className="font-amadeus-bold counters__list">
                 <small>Live in</small>
-                <h2 className='fs-1'>+20</h2>
+                <h2 className='font-amadeus-bold fs-1'>+20</h2>
                 <small>Countries</small>
               </li>
-              <li className="counters__list">
-                <h2 className='fs-1'>+10</h2>
+              <li className="font-amadeus-bold counters__list">
+                <h2 className='font-amadeus-bold fs-1'>+10</h2>
                 <small>Flight Suppliers connected</small>
               </li>
-              <li className="counters__list">
-                <h2 className='fs-1'>+50K</h2>
+              <li className="font-amadeus-bold counters__list">
+                <h2 className='font-amadeus-bold fs-1'>+50K</h2>
                 <small>Hotel properties</small>
               </li>
               <li className="counters__list">
@@ -83,8 +83,7 @@ export default function Home() {
           <div className="why-amadeus-container">
             <div className="row">
               <div className="col-12 col-xl-6">
-                <div className="why-amadeus__image">
-                  
+                <div className="why-amadeus__image">                  
                   <ImageTag src="/assets/images/model.png" />
 
                   <ul className="points">
@@ -111,7 +110,7 @@ export default function Home() {
               </div>
               <div className="col-12 col-xl-6">
                 <div className="why-amadeus__content">
-                  <h2 className='fs-1 text-secondary'>Why Amadeus Online Suite?</h2>
+                  <h2 className='fs-1 text-secondary font-amadeus-medium text-balance'>Why Amadeus Online Suite?</h2>
                   <p>Amadeus Online Suite takes your business online in record time. With a community development model, you will benefit from the know-how of hundreds of online travel experts.</p>
                   <ul className="content-list">
                     {
@@ -140,7 +139,7 @@ export default function Home() {
       <section className="testimonial-section">
         <div className="container">
           <div className="testimonial-container">
-            <h2 className='fs-1 text-center'>What Our Customers Say</h2>
+            <h2 className='fs-1 text-center font-amadeus-medium'>What Our Customers Say</h2>
             <div className="testimonial-card-container">
               <Testimonial />
             </div>
@@ -151,7 +150,7 @@ export default function Home() {
       <section className="subscribe-section">
         <div className="container">
           <div className="subscribe-container">
-            <h2 className='fs-1'>Scaling your travel business the easy way</h2>
+            <h2 className='fs-1 font-amadeus-medium text-balance'>Scaling your travel business the easy way</h2>
             <h5>Stay Up To Date With Our New Product Features & Industry Best Practices </h5>
             <form action="" className='newsletterForm'>
               <input type="text" placeholder='Enter your email' />

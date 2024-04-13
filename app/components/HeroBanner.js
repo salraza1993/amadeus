@@ -3,7 +3,6 @@ import ImageTag from './ImageTag';
 
 function HeroBanner({ image = "assets/images/solution-hero-banner.png", heading = "Heading" }) {
   return <div className='hero-banner-container'>
-    {/* <Image src={image} fill={true} alt="" /> */}
     <ImageTag src={image} />
     <div className="content">
       <div className="container">

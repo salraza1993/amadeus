@@ -59,8 +59,8 @@ function Slider() {
                   <ImageTag src={slide.image} />
                 </div>
                 <div className="slide__content">
-                  <h2 className='fs-1'>{slide.content.title}</h2>
-                  <p>{slide.content.description}</p>
+                  <h2 className='fs-1 font-amadeus-bold text-balance'>{slide.content.title}</h2>
+                  <p className='text-balance'>{slide.content.description}</p>
                   <a href={slide.content.path} className='btn btn-light btn-lg' >Discover More</a>
                 </div>
               </div>

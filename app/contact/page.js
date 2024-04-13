@@ -28,7 +28,7 @@ function Contact() {
                 <input type="text" id='email' placeholder='Enter Email' />
               </div>
               <div className="input-block">
-                <label htmlFor="country">Email <span className='text-danger'>*</span></label>
+                <label htmlFor="country">Country <span className='text-danger'>*</span></label>
                 <select name="country" id="country">
                   <option value="" selected>-- Select country --</option>
                   <option value="Option">Option</option>

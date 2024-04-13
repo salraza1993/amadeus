@@ -16,13 +16,48 @@ body {
 body {
   background-color: var(--bs-base-bg);
   padding-block-start: var(--bs-header-height);
+  font-family: var(--amadeus--regular), var(--bs-body-font-family);
 }
 
 a {
   color: inherit;
   text-decoration: none;
 }
-
+.text-balance {
+  text-wrap: balance;
+}
+.font-amadeus {
+  &-light {
+    font-family: var(--amadeus--light) !important;
+  }
+  &-light-italic {
+    font-family: var(--amadeus--light-italic) !important;
+  }
+  &-regular {
+    font-family: var(--amadeus--regular) !important;
+  }
+  &-regular-italic {
+    font-family: var(--amadeus--regular-italic) !important;
+  }
+  &-medium {
+    font-family: var(--amadeus--medium) !important;
+  }
+  &-medium-italic {
+    font-family: var(--amadeus--medium-italic) !important;
+  }
+  &-bold {
+    font-family: var(--amadeus--bold) !important;
+  }
+  &-bold-italic {
+    font-family: var(--amadeus--bold-italic) !important;
+  }
+  &-black {
+    font-family: var(--amadeus--black) !important;
+  }
+  &-black-italic {
+    font-family: var(--amadeus--black-italic) !important;
+  }
+}
 
 .btn {
   border-radius: 0;
