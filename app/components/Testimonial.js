@@ -68,7 +68,7 @@ function Testimonial() {
   ];
   return <Swiper
     centeredSlides={true}
-    spaceBetween={10}
+    spaceBetween={30}
     loop={true}
     breakpoints={{
       640: {
@@ -81,12 +81,8 @@ function Testimonial() {
         slidesPerView: 3,
       },
     }}
-    autoplay={{
-      delay: 3000,
-      disableOnInteraction: false,
-    }}
     pagination={{ clickable: true }}    
-    modules={[Autoplay, Pagination]}
+    modules={[Pagination]}
     className="mySwiper"
   >
     {

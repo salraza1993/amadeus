@@ -13,6 +13,7 @@
       inset: 0;
       background-color: rgba(var(--bs-black-rgb), 0.25);
       z-index: 0;
+      pointer-events: none;
     }
     .icon {
       --icon-size: 70px;
@@ -123,6 +124,7 @@
 
       .download-button {
         margin-inline: auto;
+        margin-block-start: auto;
         display: inline-flex;
         gap: 0.5rem;
         color: var(--bs-secondary);
@@ -292,6 +294,7 @@
       font-size: 2rem;
       line-height: 2rem;
       display: flex;
+      align-items: center;
       justify-content: center;
       transition: var(--bs-transition);
       cursor: pointer;

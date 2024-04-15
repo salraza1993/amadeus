@@ -134,6 +134,7 @@
       padding: calc(1rem + 0.75vw);
       isolation: isolate;
       max-width: 550px;
+      width: 100%;
       margin-inline: auto;
 
       @media (width < 768px) {
@@ -290,17 +291,15 @@
               6.7px 22.3px 17.9px rgba(var(--bs-dark-rgb), 0.024),
               30px 100px 80px rgba(var(--bs-dark-rgb), 0.04);
             @media (width < 768px) { scale: 0.5; }
-             @keyframes beat {
-              to {
+              @keyframes beat {
+                to {
                 scale: 1.14;
-                rotate: 3deg;
               }
             }
             @media (width < 768px) {
               @keyframes beat {
                 to {
                   scale: 0.75;
-                  rotate: 3deg;
                 }
               }
             }
@@ -369,6 +368,7 @@
               justify-content: center;
               align-items: center;
               background-color: rgba(var(--bs-secondary-rgb), 0.08);
+              padding: 1.5rem;
             }
           }
           @media (width < 768px) {
@@ -414,14 +414,9 @@
         padding-inline: calc(1rem + 0.5vw);
         padding-block-end: calc(1rem + 0.5vw);
         width: 100%;
-        min-width: 300px;
+        // min-width: 300px;
         color: var(--bs-dark);
         margin-block: 65px;
-        box-shadow:
-          0px 6.7px 5.3px rgba(var(--bs-dark-rgb), 0.016),
-          0px 22.3px 17.9px rgba(var(--bs-dark-rgb), 0.024),
-          0px 100px 80px rgba(var(--bs-dark-rgb), 0.04);
-
         .author-info {
           --image-width: 150px;
           position: relative;
@@ -447,7 +442,7 @@
               inset-block-start: 0;
               inset-inline-start: 0;
               z-index: -1;
-              width: var(--image-width);
+              width: calc(var(--image-width) / 1.4);
               background-color: var(--bs-secondary);
               aspect-ratio: 1/1;
             }
@@ -465,10 +460,10 @@
               &__item {
                 width: 30px;
                 aspect-ratio: 1/1;
+                line-height: 33px;
                 border: 1px solid currentColor;
                 display: flex;
                 justify-content: center;
-                align-items: center;
                 transition: var(--bs-transition);
                 cursor: pointer;
 
@@ -484,10 +479,19 @@
       }
       .swiper .swiper-slide {
         @media (width > 767px) {
-          .testimonial-card { scale: 0.85; transition: scale 0.5s ease-in-out;}
+          .testimonial-card { 
+            // scale: 0.85; 
+            transition: scale 0.6s ease-in-out;
+            &:hover {
+              scale: 1.1;
+              box-shadow:
+                0px 6.7px 5.3px rgba(var(--bs-dark-rgb), 0.016),
+                0px 22.3px 17.9px rgba(var(--bs-dark-rgb), 0.024),
+                0px 100px 80px rgba(var(--bs-dark-rgb), 0.04);
+            }
+          }
           &:is(.swiper-slide-active) {
             .testimonial-card {
-              scale: 1.1;
             }
           }          
         }

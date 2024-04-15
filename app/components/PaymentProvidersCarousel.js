@@ -1,6 +1,6 @@
 "use client";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -42,10 +42,10 @@ function PaymentProvidersCarousel() {
     }}
     loop={true}
     autoplay={{
-      delay: 2500,
+      delay: 3000,
       disableOnInteraction: false,
     }}
-    modules={[Pagination]}
+    modules={[Autoplay, Pagination]}
     className="mySwiper"
   >
     {
