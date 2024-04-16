@@ -82,10 +82,10 @@
             color: var(--bs-white);
           }
           &:hover, &:is(.active) {
-            border-color: var(--bs-secondary);
             color: var(--bs-secondary);
           }
           &:is(.active) {
+            border-color: var(--bs-secondary);
             font-weight: 700;
           }
         }
