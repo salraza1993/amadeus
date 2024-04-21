@@ -94,7 +94,7 @@ export default function ContactForm() {
         const { id, label, placeholder, value, type, isError, errorMessage, isMandatory } = formData[key];
         {
           if (type === 'select') {
-            return <div className="input-block">
+            return <div className="input-block" key={id}>
               <label htmlFor="business">
                 { label }
                 { isMandatory && <span className='text-danger'> *</span> }
@@ -105,14 +105,14 @@ export default function ContactForm() {
             </div>
           }
           if (type === 'textarea') { 
-            return <div className="input-block">
+            return <div className="input-block" key={id}>
               <label htmlFor="comment">{label}</label>
               <textarea value={value} name="comment" id="comment" cols="30" rows="3" placeholder={placeholder}></textarea>
             </div>
           }
         }
         return (
-          <div className="input-block">
+          <div className="input-block" key={id}>
             <label htmlFor="fullName">
               {label}
               {isMandatory && <span className='text-danger'> *</span>}</label>
