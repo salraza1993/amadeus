@@ -22,7 +22,7 @@ import kanit from "./Fonts";
 
 
 export const metadata = {
-  title: "Welocome to Amedeos",
+  title: "Welcome to Amadeus",
   description: "Welcome to Amedeos",
 };
 

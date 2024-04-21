@@ -2,6 +2,8 @@ import '@/app/scss/pages/HomePage.scss';
 import Slider from './components/Slider';
 import Testimonial from './components/Testimonial';
 import ImageTag from './components/ImageTag';
+import Counter from './components/Counter';
+import HomeHeroVideo from './components/HomeHeroVideo';
 export default function Home() {
 
   const whyamadeusList = [
@@ -22,10 +24,56 @@ export default function Home() {
     },
   ];
 
+  const counterData = {
+    "counts": [
+      {
+        "id": "001",
+        "plusSymbol": "+",
+        "number": "195",
+        "textBefore": "",
+        "labelAfter": "Travel Agency portals implemented",
+        "duration": 2
+      },
+      {
+        "id": "002",
+        "plusSymbol": "+",
+        "labelBefore": "Live in",
+        "labelAfter": "Countries",
+        "number": "20",
+        "duration": 2
+      },
+      {
+        "id": "003",
+        "plusSymbol": "+",
+        "textBefore": "",
+        "labelAfter": "Flight Suppliers connected",
+        "number": "10",
+        "duration": 2
+      },
+      {
+        "id": "004",
+        "plusSymbol": "+",
+        "textBefore": "",
+        "labelAfter": "Hotel properties",
+        "number": "500000",
+        "duration": 2
+      },
+      {
+        "id": "005",
+        "plusSymbol": "+",
+        "textBefore": "",
+        "labelAfter": "Payment Gateways to choose from",
+        "number": "23",
+        "duration": 2
+      },
+    ]
+  }
+
 
   return (
     <>
-      <Slider />
+      <HomeHeroVideo />
+      {/* <Slider /> */}
       
       <section className="home-about-section">
         <div className="container">
@@ -52,27 +100,7 @@ export default function Home() {
         <div className="container">
           <div className="counters-container">
             <ul className="counters">
-              <li className="counters__list">
-                <h2 className='font-amadeus-bold fs-1'>+195</h2>
-                <small>Travel Agency portals implemented</small>
-              </li>
-              <li className="font-amadeus-bold counters__list">
-                <small>Live in</small>
-                <h2 className='font-amadeus-bold fs-1'>+20</h2>
-                <small>Countries</small>
-              </li>
-              <li className="font-amadeus-bold counters__list">
-                <h2 className='font-amadeus-bold fs-1'>+10</h2>
-                <small>Flight Suppliers connected</small>
-              </li>
-              <li className="font-amadeus-bold counters__list">
-                <h2 className='font-amadeus-bold fs-1'>+50K</h2>
-                <small>Hotel properties</small>
-              </li>
-              <li className="counters__list">
-                <h2 className='fs-1'>+23</h2>
-                <small>Payment Gateways to choose from</small>
-              </li>
+              {counterData.counts.map(count => <Counter key={count.id} data={count} />)}
             </ul>
           </div>
         </div>
@@ -120,7 +148,7 @@ export default function Home() {
                             <ImageTag src={item.icon} />
                           </span>
                           <div className="text">
-                            <h5>{item.title}</h5>
+                            <h5 className='fw-bold'>{item.title}</h5>
                             <p>{item.description}</p>
                           </div>
                         </li>;
