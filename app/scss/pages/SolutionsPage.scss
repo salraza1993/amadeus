@@ -63,7 +63,7 @@
 .providers-section {
   position: relative;
   padding-block: calc(2rem + 1.5vw);
-  
+
   @media (prefers-color-scheme: dark) {
     background-color: #09186c;
   }
@@ -132,10 +132,12 @@
       --grid-columns: 4;
       --logo-height: 70px;
     }
+
     @media (width < 768px) {
       --logo-height: 65px;
       --grid-columns: 3;
     }
+
     @media (width < 640px) {
       --logo-height: 60px;
       --grid-columns: 2;
@@ -148,6 +150,7 @@
   height: 80px;
   padding-block: 0.8rem;
   padding-inline: 0.8rem;
+
   @media (width < 768px) {
     max-width: 150px;
   }
@@ -205,3 +208,199 @@
   }
 
 }
+
+.sub-page-block {
+  position: relative;
+  width: 100%;
+
+  .block-title {
+    position: relative;
+    text-align: center;
+    max-width: 1000px;
+    text-wrap: balance;
+    margin-inline: auto;
+  }
+
+  &:is(.dark-bg) {
+    isolation: isolate;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-color: var(--bs-primary);
+
+      @media (prefers-color-scheme: dark) {
+        background-color: #09186c;
+      }
+    }
+
+    .b2b-block__content {
+      color: var(--bs-white);
+
+      .heading {
+        color: inherit;
+      }
+
+    }
+  }
+  .content-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+
+    &__item {
+      --icon-size: 100px;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+
+      .icon {
+        width: var(--icon-size);
+        height: var(--icon-size);
+        flex-shrink: 0;
+        border-radius: var(--icon-size);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    @media (width < 768px) {
+      flex-direction: row;
+      overflow-x: scroll;
+      width: 100vw;
+      margin-inline-start: -8vw;
+      padding-inline: 5vw;
+
+      &__item {
+        border-radius: 0.35rem;
+        flex-direction: column;
+        min-width: 250px;
+        border: 1px solid #999;
+        padding: 5vw;
+      }
+    }
+  }
+
+  &-1st {
+    padding-block-start: calc(1rem + 2vw);
+
+    &__container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: calc(1rem + 2vw);
+      text-align: center; 
+
+      img { max-width: 100%; }
+
+      .block__content {
+        max-width: 1000px;
+        text-wrap: balance;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+  }
+
+  &-2nd,
+  &-3rd,
+  &-4th,
+  &-5th {
+    padding-block: calc(1rem + 1.5vw);
+  }
+  &-5th {
+    padding-block: calc(1rem + 3vw);
+  }
+}
+
+.sub-page-last-block {
+  position: relative;
+  width: 100%;
+  padding-block: calc(2rem + 5vw);
+  background-color: var(--bs-primary);
+  
+  @media (prefers-color-scheme: dark) {
+    background-color: #09186c;
+  }
+  
+  .b2b-block {
+    &__image {
+      z-index: 0;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: rgba(var(--bs-black-rgb), 0.5);
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &__content {
+      position: relative;
+      z-index: 1;
+      color: var(--bs-white);
+      max-width: 900px;
+      margin-inline: auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      @media (width < 768px) {
+        padding-inline: 5vw;
+      }
+    }
+  }
+}
+
+.b2b-block {
+  &__image {
+    position: relative;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__content {
+    .heading {
+      color: var(--bs-primary);
+      margin-block-end: 1rem;
+    }
+
+    position: relative;
+    padding-inline: calc(1rem + 2vw);
+    @media (width < 768px) {
+      padding-inline: 0;      
+    }
+
+    @media (prefers-color-scheme: dark) {
+      color: var(--bs-white);
+
+      .heading {
+        color: inherit;
+      }
+    }
+  }
+}
+
+.sub-page-block {}

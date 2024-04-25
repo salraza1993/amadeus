@@ -1,7 +1,8 @@
-"use client"
+'use client';
 import React, { useRef } from 'react'
 import ImageTag from '../ImageTag';
 import { useInView } from "framer-motion";
+import { useRouter } from 'next/navigation';
 
 function BlockImage({ imageUrl }) {
   const ref = useRef(null);
@@ -20,6 +21,8 @@ function BlockImage({ imageUrl }) {
 function BlockContent({ title, subTitle, description, path, index }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { margin: "0px 0px -100px 0px", once: true });
+  const router = useRouter()
+
   return <div ref={ref}
     style={{
       transform: isInView ? "none" : "translateY(25%)",
@@ -31,6 +34,7 @@ function BlockContent({ title, subTitle, description, path, index }) {
     <h2>{title}</h2>
     <h5>{subTitle}</h5>
     <p>{description}</p>
+    
     <a href={path} className='btn btn-secondary btn-lg' >Discover More</a>
   </div>;
 }

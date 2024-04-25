@@ -11,7 +11,7 @@ export default function Solutions() {
   const heroBannerHeading = "Complete travel eco-system at your finger tips";
   const solutionBlocks = [
     {
-      path: '',
+      path: '/solutions/business-to-business',
       image: '/assets/images/solution-block-image-1.png',
       title: 'Business to Business',
       subTitle: 'Connect travel agency partners, sub agents and expand your reach cost effectively.',
@@ -25,7 +25,7 @@ export default function Solutions() {
       description: 'Amadeus Online B2C solution provides full power of the web. '
     },
     {
-      path: '',
+      path: 'ass',
       image: '/assets/images/solution-block-image-3.png',
       title: 'Tailored Made Online Travel Suite',
       subTitle: 'You have ambitions to become an OTA generating thousands of transactions a day from multiple countries.',

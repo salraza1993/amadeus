@@ -20,6 +20,13 @@ function ProvidersCarousel() {
       '/assets/images/providers-logos/provide-logo-6.png',
       '/assets/images/providers-logos/provide-logo-7.png',
       '/assets/images/providers-logos/provide-logo-8.png',
+      '/assets/images/providers-logos/provide-logo-9.png',
+      '/assets/images/providers-logos/provide-logo-10.png',
+    ],
+    [
+      '/assets/images/providers-logos/provide-logo-11.png',
+      '/assets/images/providers-logos/provide-logo-12.png',
+      '/assets/images/providers-logos/provide-logo-13.png',
     ],
   ];
 
