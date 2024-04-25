@@ -32,7 +32,7 @@ export default function Home() {
         "number": "195",
         "textBefore": "",
         "labelAfter": "Travel Agency portals implemented",
-        "duration": 2
+        "duration": 3
       },
       {
         "id": "002",
@@ -40,7 +40,7 @@ export default function Home() {
         "labelBefore": "Live in",
         "labelAfter": "Countries",
         "number": "20",
-        "duration": 2
+        "duration": 3
       },
       {
         "id": "003",
@@ -48,7 +48,7 @@ export default function Home() {
         "textBefore": "",
         "labelAfter": "Flight Suppliers connected",
         "number": "10",
-        "duration": 2
+        "duration": 3
       },
       {
         "id": "004",
@@ -56,7 +56,7 @@ export default function Home() {
         "textBefore": "",
         "labelAfter": "Hotel properties",
         "number": "500000",
-        "duration": 2
+        "duration": 3
       },
       {
         "id": "005",
@@ -64,7 +64,7 @@ export default function Home() {
         "textBefore": "",
         "labelAfter": "Payment Gateways to choose from",
         "number": "23",
-        "duration": 2
+        "duration": 3
       },
     ]
   }

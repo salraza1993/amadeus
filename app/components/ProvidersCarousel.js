@@ -5,34 +5,21 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import ImageTag from './ImageTag';
 
 function ProvidersCarousel() {
 
   const providersList = [
     [
-      '/assets/images/provide-logo-1.png',
-      '/assets/images/provide-logo-2.png',
-      '/assets/images/provide-logo-3.png',
-      '/assets/images/provide-logo-4.png',
-      '/assets/images/provide-logo-5.png',
-      '/assets/images/provide-logo-1.png',
-      '/assets/images/provide-logo-2.png',
-      '/assets/images/provide-logo-3.png',
-      '/assets/images/provide-logo-4.png',
-      '/assets/images/provide-logo-5.png',
-    ],
-    [
-      '/assets/images/provide-logo-1.png',
-      '/assets/images/provide-logo-2.png',
-      '/assets/images/provide-logo-3.png',
-      '/assets/images/provide-logo-4.png',
-      '/assets/images/provide-logo-5.png',
-      '/assets/images/provide-logo-1.png',
-      '/assets/images/provide-logo-2.png',
-      '/assets/images/provide-logo-3.png',
-      '/assets/images/provide-logo-4.png',
-      '/assets/images/provide-logo-5.png',
+      '/assets/images/providers-logos/provide-logo-1.png',
+      '/assets/images/providers-logos/provide-logo-2.png',
+      '/assets/images/providers-logos/provide-logo-3.png',
+      '/assets/images/providers-logos/provide-logo-4.png',
+      '/assets/images/providers-logos/provide-logo-5.png',
+      '/assets/images/providers-logos/provide-logo-6.png',
+      '/assets/images/providers-logos/provide-logo-7.png',
+      '/assets/images/providers-logos/provide-logo-8.png',
     ],
   ];
 
@@ -41,11 +28,12 @@ function ProvidersCarousel() {
       clickable: true,
     }}
     loop={true}
-    autoplay={{
-      delay: 3000,
-      disableOnInteraction: false,
-    }}
-    modules={[Autoplay, Pagination]}
+    navigation={true}
+    // autoplay={{
+    //   delay: 3000,
+    //   disableOnInteraction: false,
+    // }}
+    modules={[Pagination, Navigation]}
     className="mySwiper"
   >
     {

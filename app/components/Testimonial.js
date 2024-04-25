@@ -5,6 +5,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import ImageTag from './ImageTag';
 
 function Testimonial() {
@@ -70,6 +71,7 @@ function Testimonial() {
     centeredSlides={true}
     spaceBetween={30}
     loop={true}
+    navigation={true}
     breakpoints={{
       640: {
         slidesPerView: 1,
@@ -82,7 +84,7 @@ function Testimonial() {
       },
     }}
     pagination={{ clickable: true }}    
-    modules={[Pagination]}
+    modules={[Pagination, Navigation]}
     className="mySwiper"
   >
     {

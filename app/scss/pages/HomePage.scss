@@ -178,7 +178,7 @@
         &::before {
           inset-inline-start: calc(0px - 5vw);
         }
-        
+
         &::after {
           inset-inline-end: calc(0px - 5vw);
         }
@@ -544,6 +544,18 @@
         --swiper-pagination-color: var(--bs-secondary);
       }
 
+      .swiper-button-next,
+      .swiper-rtl .swiper-button-prev {
+        --swiper-navigation-sides-offset: 0px;
+        --swiper-navigation-size: 34px;
+      }
+      
+      .swiper-button-prev,
+      .swiper-rtl .swiper-button-next {
+        --swiper-navigation-sides-offset: 0px;
+        --swiper-navigation-size: 34px;
+      }
+
       @media (prefers-color-scheme: dark) {
         .swiper-pagination-bullet-active {
           --swiper-pagination-color: var(--bs-white);
@@ -662,7 +674,7 @@
     color: var(--bs-white);
     position: absolute;
     inset: 0;
-    background-color: rgba(var(--bs-black-rgb), 0.4);
+    background-color: rgba(var(--bs-black-rgb), 0.5);
     display: flex;
     align-items: center;
 
@@ -679,10 +691,16 @@
         gap: calc(1rem + 5vw);
       }
 
-      .heading {
+      .text {
         max-width: 600px;
-        font-size: clamp(1.25rem, 8vw, 2.5rem) !important;
-        line-height: normal !important;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .heading {
+          font-size: clamp(1.25rem, 8vw, 2.5rem) !important;
+          line-height: normal !important;
+        }
       }
 
       .play-icon {
