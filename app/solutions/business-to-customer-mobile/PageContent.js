@@ -9,7 +9,7 @@ import b2b3rdImage from "/public/assets/images/b2c-image-2nd.png";
 import b2b4thImage from "/public/assets/images/b2c-image-3rd.png";
 import b2b5thImage from "/public/assets/images/b2c-image-4th.png";
 import b2b6thImage from "/public/assets/images/b2c-image-5th.png";
-import b2bModelImage from "/public/assets/images/b2c-model-image.png";
+import b2bModelImage from "/public/assets/images/b2c-mobile-model-image.png";
 
 function useBlockInView() {
   const imageRef = useRef(null);
