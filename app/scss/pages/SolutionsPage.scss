@@ -102,6 +102,13 @@
       }
     }
   }
+  &:is(.payment-providers-section) {
+    .providers-list__item {
+      @media (prefers-color-scheme: dark) {
+        background-color: rgba(var(--bs-white-rgb), 0.9);
+      }
+    }
+  }
 
   .providers-list {
     --grid-columns: 5;

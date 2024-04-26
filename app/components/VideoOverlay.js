@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function VideoOverlay({ videoUrl = "https://www.w3schools.com/html/mov_bbb.mp4", sendDataToParent }) {
   const hideVideoHandler = () => {

@@ -93,17 +93,17 @@ function PageContent() {
         <div className="container">
           <div className="sub-page-block-2nd__container">
             <div className="row g-4">
-              <div className="col-12 col-lg-6 d-flex justify-content-center">
+              <div className="col-12 col-lg-7 pe-0 d-flex justify-content-center">
                 <div className="b2b-block__image" ref={block2nd.imageRef} style={{
                   transform: block2nd.imageInView ? "none" : "translateY(25%)",
                   opacity: block2nd.imageInView ? 1 : 0,
                   transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
                   transitionDelay: ".8s",
                 }}>
-                  <ImageTag src={b2b3rdImage} />
+                  <ImageTag src={b2b3rdImage} width={"100%"} />
                 </div>
               </div>
-              <div className="col-12 col-lg-6 d-flex justify-content-center align-items-center">
+              <div className="col-12 col-lg-5 d-flex justify-content-center align-items-center">
                 <div className="b2b-block__content" ref={block2nd.contentRef}
                   style={{
                     transform: block2nd.contentInView ? "none" : "translateY(25%)",
@@ -127,7 +127,7 @@ function PageContent() {
         <div className="container">
           <div className="sub-page-block-3rd__container">
             <div className="row g-4">
-              <div className="col-12 col-lg-6 d-flex justify-content-center align-items-center">
+              <div className="col-12 col-lg-5 d-flex justify-content-center align-items-center">
                 <div className="b2b-block__content" ref={block3rd.contentRef}
                   style={{
                     transform: block3rd.contentInView ? "none" : "translateY(25%)",
@@ -142,7 +142,7 @@ function PageContent() {
                   </div>
                 </div>
               </div>
-              <div className="col-12 col-lg-6 d-flex justify-content-center">
+              <div className="col-12 col-lg-7 ps-0 d-flex justify-content-center">
                 <div className="b2b-block__image" ref={block3rd.imageRef} style={{
                   transform: block3rd.imageInView ? "none" : "translateY(25%)",
                   opacity: block3rd.imageInView ? 1 : 0,
@@ -161,7 +161,7 @@ function PageContent() {
         <div className="container">
           <div className="sub-page-block-4th__container">
             <div className="row g-4">
-              <div className="col-12 col-lg-6 d-flex justify-content-center">
+              <div className="col-12 col-lg-7 pe-0 d-flex justify-content-center">
                 <div className="b2b-block__image" ref={block4th.imageRef} style={{
                   transform: block4th.imageInView ? "none" : "translateY(25%)",
                   opacity: block4th.imageInView ? 1 : 0,
@@ -171,7 +171,7 @@ function PageContent() {
                   <ImageTag src={b2b5thImage} />
                 </div>
               </div>
-              <div className="col-12 col-lg-6 d-flex justify-content-center align-items-center">
+              <div className="col-12 col-lg-5 d-flex justify-content-center align-items-center">
                 <div className="b2b-block__content" ref={block4th.contentRef}
                   style={{
                     transform: block4th.contentInView ? "none" : "translateY(25%)",

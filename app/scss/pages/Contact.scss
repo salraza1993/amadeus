@@ -96,6 +96,7 @@
           align-items: flex-start;
           line-height: normal;
         }
+        a:not(:hover) { text-decoration: underline;}
 
         .error {
           display: flex;

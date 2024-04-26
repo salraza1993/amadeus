@@ -25,7 +25,7 @@ export default function Solutions() {
       description: 'Amadeus Online B2C solution provides full power of the web. '
     },
     {
-      path: 'ass',
+      path: '/solutions/tailor-made-online',
       image: '/assets/images/solution-block-image-3.png',
       title: 'Tailored Made Online Travel Suite',
       subTitle: 'You have ambitions to become an OTA generating thousands of transactions a day from multiple countries.',
@@ -46,7 +46,7 @@ export default function Solutions() {
     <section className="providers-section">
       <div className="container">
         <div className="providers-container">
-          <h2 className='text-center'>Connect to multiple travel providers with Amadeus Online Suite.</h2>
+          <h2 className='text-center'>Connect to multiple travel providers with Amadeus Online Suite</h2>
           <ProvidersCarousel />
         </div>
       </div>
