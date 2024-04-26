@@ -18,7 +18,7 @@ export default function Solutions() {
       description: 'Amadeus Consolidator is a B2B web-based application that allows non IATA Travel agencies to sell varied travel content to their valued customers.'
     },
     {
-      path: '',
+      path: '/solutions/business-to-customer-enterprise',
       image: '/assets/images/solution-block-image-2.png',
       title: 'Online Travel Engine',
       subTitle: 'Take your business online in record time and at super low cost.',
@@ -32,7 +32,7 @@ export default function Solutions() {
       description: 'Your own hosted version of Online Suite, with a dedicated team, product road map & priorities. We will work with you as you craft your success.'
     },
     {
-      path: '',
+      path: '/solutions/business-to-customer-mobile',
       image: '/assets/images/solution-block-image-4.png',
       title: 'Mobile Applications',
       subTitle: 'Putting mobile at the center of the travel',

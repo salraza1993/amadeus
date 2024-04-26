@@ -1,7 +1,7 @@
 "use client"
 import { useRef } from 'react';
-import ImageTag from '../ImageTag';
 import { useInView } from "framer-motion";
+import ImageTag from '../ImageTag';
 
 function Solution4thSection({ data }) {
   const blockImageRef = useRef(null);
