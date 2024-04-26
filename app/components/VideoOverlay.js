@@ -1,7 +1,7 @@
 "use client";
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-function VideoOverlay({ videoUrl = "https://www.w3schools.com/html/mov_bbb.mp4", sendDataToParent }) {
+function VideoOverlay({ videoUrl = "https://www.w3schools.com/html/mov_bbb.mp4", sendDataToParent, show }) {
   const hideVideoHandler = () => {
     sendDataToParent(false);
   }
@@ -9,7 +9,7 @@ function VideoOverlay({ videoUrl = "https://www.w3schools.com/html/mov_bbb.mp4",
   return <section className="video-overlay">
     <div className="video-overlay-container">
       <div className="close-button" onClick={() => hideVideoHandler() }>&times;</div>
-      <video controls >
+      <video controls autoPlay>
         <source src={videoUrl} type="video/mp4" />
       </video>
     </div>

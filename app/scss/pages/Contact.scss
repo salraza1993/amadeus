@@ -44,13 +44,6 @@
         flex-direction: column;
         gap: 0.25rem;
 
-        .error {
-          display: flex;
-          align-items: center;
-          gap: 0.4rem;
-          color: var(--bs-danger);
-          margin-block-start: 0.25rem;
-        }
 
         input,
         select,
@@ -98,13 +91,6 @@
         }
         a:not(:hover) { text-decoration: underline;}
 
-        .error {
-          display: flex;
-          align-items: center;
-          gap: 0.4rem;
-          color: var(--bs-danger);
-          margin-block-start: 0.25rem;
-        }
 
         input {
           margin-block-start: 0.3rem;
@@ -133,4 +119,11 @@
       }
     }
   }
+}
+.error {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--bs-danger);
+  margin-block-start: 0.25rem;
 }

@@ -1,68 +1,73 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import ReCAPTCHA from "react-google-recaptcha";
+import { fetch_get } from '../common/CommonFunctions';
 
-const initialFields = [
-  {
-    type: 'text',
-    label: 'Full Name',
-    name: 'name',
-    placeholder: 'Enter Full Name',
-    required: true,
-  },
-  {
-    type: 'text',
-    label: 'Company Name',
-    name: 'name',
-    placeholder: 'Enter Company Name',
-    required: true,
-  },
-  {
-    type: 'email',
-    label: 'Email',
-    name: 'email',
-    placeholder: 'Enter Email Address',
-    required: true
-  },
-  {
-    type: 'select',
-    label: 'Country',
-    name: 'country',
-    options: ['USA', 'Canada', 'UK'],
-    required: true
-  },
-  {
-    type: 'number',
-    label: 'Phone Number',
-    name: 'phone',
-    placeholder: 'Enter Phone Number',
-    required: true
-  },
-  {
-    type: 'select',
-    label: 'Nature Of Business',
-    name: 'natureOf Business',
-    options: ['USA', 'Canada', 'UK'],
-    required: true
-  },
-  {
-    type: 'textarea',
-    label: 'Additional Comments (Optional)',
-    name: 'message',
-    placeholder: 'Enter message',
-  },
-  {
-    type: 'checkbox',
-    label: 'By submitting this form, I confirm that I have read and understand',
-    name: 'privacyPolicy',
-    placeholder: 'Enter message',
-    required: true
-  },
-];
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
-
+  const [captcha, setCaptcha] = useState(null);
+  const [captchaError, setCaptchaError] = useState(false);
+  const [countries, setCountries] = useState([]);
+  
+  const initialFields = [
+    {
+      type: 'text',
+      label: 'Full Name',
+      name: 'name',
+      placeholder: 'Enter Full Name',
+      required: true,
+    },
+    {
+      type: 'text',
+      label: 'Company Name',
+      name: 'name',
+      placeholder: 'Enter Company Name',
+      required: true,
+    },
+    {
+      type: 'email',
+      label: 'Email',
+      name: 'email',
+      placeholder: 'Enter Email Address',
+      required: true
+    },
+    {
+      type: 'select',
+      label: 'Country',
+      name: 'country',
+      options: ['USA', 'Canada', 'UK'],
+      required: true
+    },
+    {
+      type: 'number',
+      label: 'Phone Number',
+      name: 'phone',
+      placeholder: 'Enter Phone Number',
+      required: true
+    },
+    {
+      type: 'select',
+      label: 'Nature Of Business',
+      name: 'natureOf Business',
+      options: ['USA', 'Canada', 'UK'],
+      required: true
+    },
+    {
+      type: 'textarea',
+      label: 'Additional Comments (Optional)',
+      name: 'message',
+      placeholder: 'Enter message',
+    },
+    {
+      type: 'checkbox',
+      label: 'By submitting this form, I confirm that I have read and understand',
+      name: 'privacyPolicy',
+      placeholder: 'Enter message',
+      required: true
+    },
+  ];
   const handleChange = (e) => {
     const { name, value, checked, type } = e.target;
     setFormData((prevData) => ({
@@ -99,6 +104,18 @@ const ContactForm = () => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
+  useEffect(() => {
+    fetch('/countries.json')
+      .then(response => response.json())
+      .then(data => {
+        setCountries(data);
+        console.log(data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = {};
@@ -110,6 +127,14 @@ const ContactForm = () => {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
+    } else if (captcha) {
+      setCaptchaError(false);
+      console.log(captchaError);
+      return;
+    } else {
+      setCaptchaError(true);
+      console.log(captchaError);
+      return
     }
     console.table(JSON.stringify(formData));
     // setFormData({})
@@ -214,7 +239,21 @@ const ContactForm = () => {
           
         </label>
       </div> */}
+      <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY} onChange={setCaptcha} />
+      {captchaError && <small className="error">
+        <i className="fa-solid fa-triangle-exclamation"></i>
+        <span>Google CAPTCHA is required</span>
+      </small>}
       <button type="submit" className='btn btn-secondary btn-lg submit-button'>Submit</button>
+      {/* <div className="input-block">
+        <select name={"field.name"} onChange={handleChange} onBlur={handleBlur}>
+          {countries[10].map((option, index) => (
+            <option key={index} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      </div> */}
     </form>
   );
 };

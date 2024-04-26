@@ -20,7 +20,7 @@ function ResourcesVideoSection() {
         </div>
       </div>
     </section>
-    {showVideoState && <VideoOverlay show={showVideo} videoUrl={videoUrl} sendDataToParent={hideVideo} />}
+    {showVideoState && <VideoOverlay show={showVideoState} videoUrl={videoUrl} sendDataToParent={hideVideo} />}
   </>;
 }
 
