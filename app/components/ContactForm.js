@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
-import { fetch_get } from '../common/CommonFunctions';
+import { fetch_get, fetch_post } from '../common/CommonFunctions';
 
 
 const ContactForm = () => {
@@ -9,55 +9,60 @@ const ContactForm = () => {
   const [errors, setErrors] = useState({});
   const [captcha, setCaptcha] = useState(null);
   const [captchaError, setCaptchaError] = useState(false);
+  const [isSubmitClick, setIsSubmitClick] = useState(false);
   const [countries, setCountries] = useState([]);
+
+  const natureOfBusinessList = [
+    "Online Travel", "Retail Travel", "Consolidator", "DMC", "Other"
+  ]
   
   const initialFields = [
     {
       type: 'text',
       label: 'Full Name',
-      name: 'name',
+      name: 'your-name',
       placeholder: 'Enter Full Name',
       required: true,
     },
     {
       type: 'text',
       label: 'Company Name',
-      name: 'name',
+      name: 'your-company-name',
       placeholder: 'Enter Company Name',
       required: true,
     },
     {
       type: 'email',
       label: 'Email',
-      name: 'email',
+      name: 'your-email',
       placeholder: 'Enter Email Address',
       required: true
     },
     {
       type: 'select',
       label: 'Country',
-      name: 'country',
+      name: 'your-country',
       options: ['USA', 'Canada', 'UK'],
       required: true
     },
     {
       type: 'number',
       label: 'Phone Number',
-      name: 'phone',
+      name: 'your-phone',
       placeholder: 'Enter Phone Number',
       required: true
     },
     {
       type: 'select',
       label: 'Nature Of Business',
-      name: 'natureOf Business',
+      name: 'your-nature-of-business',
       options: ['USA', 'Canada', 'UK'],
       required: true
     },
     {
       type: 'textarea',
       label: 'Additional Comments (Optional)',
-      name: 'message',
+      name: 'your-message',
       placeholder: 'Enter message',
     },
     {
@@ -104,12 +109,16 @@ const ContactForm = () => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
+  function PostSUccess(data, uid) {
+    console.log(data,uid);
+  }
+
   useEffect(() => {
     fetch('/countries.json')
       .then(response => response.json())
       .then(data => {
+
         setCountries(data);
-        console.log(data);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
@@ -127,16 +136,24 @@ const ContactForm = () => {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
-    } else if (captcha) {
-      setCaptchaError(false);
-      console.log(captchaError);
-      return;
-    } else {
-      setCaptchaError(true);
-      console.log(captchaError);
-      return
     }
+    // else if (captcha) {
+    //   setCaptchaError(false);
+    //   console.log(captchaError);
+    //   return;
+    // } else {
+    //   setCaptchaError(true);
+    //   console.log(captchaError);
+    //   return
+    // }
+    formData['_wpcf7_unit_tag'] = new Date();
     console.table(JSON.stringify(formData));
+    // if (isSubmitClick) {
+    //   return;
+    // }
+    // setIsSubmitClick(true);
+    let header = { headers: { 'Content-Type': 'multipart/form-data' } };
+    fetch_post({ data:formData, url: "http://localhost:8081/amadeos/wp-json/contact-form-7/v1/contact-forms/16/feedback", header:header }, {success: PostSUccess, error:PostSUccess});
     // setFormData({})
     // Here you can submit the form data to your backend or perform any other actions
   };
@@ -245,15 +262,15 @@ const ContactForm = () => {
         <span>Google CAPTCHA is required</span>
       </small>}
       <button type="submit" className='btn btn-secondary btn-lg submit-button'>Submit</button>
-      {/* <div className="input-block">
+      <div className="input-block">
         <select name={"field.name"} onChange={handleChange} onBlur={handleBlur}>
-          {countries[10].map((option, index) => (
-            <option key={index} value={option}>
-              {option}
+          {countries.map((option, index) => (
+            <option key={index} value={option.countryCode}>
+              {option.countryName}
             </option>
           ))}
         </select>
-      </div> */}
+      </div>
     </form>
   );
 };

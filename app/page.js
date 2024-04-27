@@ -55,7 +55,7 @@ export default function Home() {
         "plusSymbol": "+",
         "textBefore": "",
         "labelAfter": "Hotel properties",
-        "number": "500000",
+        "number": "5,00,000",
         "duration": 3
       },
       {

@@ -221,10 +221,12 @@
 
           .__inner {
             overflow: hidden;
+            a:not(:hover) { text-decoration: underline; color: var(--bs-secondary); }
 
             p {
               margin: 0;
-              line-height: 1.35
+              line-height: 1.35;
+              text-align: justify;
             }
           }
         }
@@ -240,7 +242,7 @@
           z-index: 1;
 
           i::before {
-            content: "\f106"
+            content: "\f00d"
           }
         }
       }

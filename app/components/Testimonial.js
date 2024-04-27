@@ -11,66 +11,26 @@ import ImageTag from './ImageTag';
 function Testimonial() {
   const testimonials = [
     {
-      image: '/assets/images/testimonial-author-image-1.png',
-      facebookPath: '',
-      linkedinPath: '',
-      name: 'Tom Hills',
-      designation: 'Marketing Manager',
-      comment: "The Amadeus Online Suite platform is reliable, fast, and easy to use. I highly recommend it to anyone looking for a comprehensive travel solution and looking to Go-Live immediately."
+      image: '/assets/images/fakhreddine-hachfi.jpg',
+      // facebookPath: '',
+      linkedinPath: 'https://www.linkedin.com/in/fakhreddine-hachfi-a773ba13/?originalSubdomain=tn',
+      name: 'Fakhreddine Hachfi',
+      designation: 'Chief Executive Officer, Kounouz Travel',
+      comment: "Amadeus Online Suite is reliable and fully customizable e-commerce platform that will deliver superior service to our clients"
     },
     {
-      image: '/assets/images/testimonial-author-image-1.png',
-      facebookPath: '',
-      linkedinPath: '',
-      name: 'Tom Hills',
-      designation: 'Marketing Manager',
-      comment: "The Amadeus Online Suite platform is reliable, fast, and easy to use. I highly recommend it to anyone looking for a comprehensive travel solution and looking to Go-Live immediately."
+      image: '/assets/images/selim-boutros.jpg',
+      // facebookPath: '',
+      linkedinPath: 'https://www.linkedin.com/in/selim-boutros-92b5983/',
+      name: 'Selim Boutros',
+      designation: 'Managing Partner, Kurban Travel',
+      comment: "I have used several travel platforms in the past, but Amadeus Online Suite is by far the best. It offers a level of customization, flexibility and support that I have not found elsewhere"
     },
-    {
-      image: '/assets/images/testimonial-author-image-1.png',
-      facebookPath: '',
-      linkedinPath: '',
-      name: 'Tom Hills',
-      designation: 'Marketing Manager',
-      comment: "The Amadeus Online Suite platform is reliable, fast, and easy to use. I highly recommend it to anyone looking for a comprehensive travel solution and looking to Go-Live immediately."
-    },
-    {
-      image: '/assets/images/testimonial-author-image-1.png',
-      facebookPath: '',
-      linkedinPath: '',
-      name: 'Tom Hills',
-      designation: 'Marketing Manager',
-      comment: "The Amadeus Online Suite platform is reliable, fast, and easy to use. I highly recommend it to anyone looking for a comprehensive travel solution and looking to Go-Live immediately."
-    },
-    {
-      image: '/assets/images/testimonial-author-image-1.png',
-      facebookPath: '',
-      linkedinPath: '',
-      name: 'Tom Hills',
-      designation: 'Marketing Manager',
-      comment: "The Amadeus Online Suite platform is reliable, fast, and easy to use. I highly recommend it to anyone looking for a comprehensive travel solution and looking to Go-Live immediately."
-    },
-    {
-      image: '/assets/images/testimonial-author-image-1.png',
-      facebookPath: '',
-      linkedinPath: '',
-      name: 'Tom Hills',
-      designation: 'Marketing Manager',
-      comment: "The Amadeus Online Suite platform is reliable, fast, and easy to use. I highly recommend it to anyone looking for a comprehensive travel solution and looking to Go-Live immediately."
-    },
-    {
-      image: '/assets/images/testimonial-author-image-1.png',
-      facebookPath: '',
-      linkedinPath: '',
-      name: 'Tom Hills',
-      designation: 'Marketing Manager',
-      comment: "The Amadeus Online Suite platform is reliable, fast, and easy to use. I highly recommend it to anyone looking for a comprehensive travel solution and looking to Go-Live immediately."
-    },
+    
   ];
   return <Swiper
-    centeredSlides={true}
     spaceBetween={30}
-    loop={true}
+    // loop={true}
     navigation={true}
     breakpoints={{
       640: {
@@ -80,10 +40,10 @@ function Testimonial() {
         slidesPerView: 4,
       },
       1024: {
-        slidesPerView: 3,
+        slidesPerView: 2,
       },
     }}
-    pagination={{ clickable: true }}    
+    // pagination={{ clickable: true }}    
     modules={[Pagination, Navigation]}
     className="mySwiper"
   >
@@ -95,12 +55,12 @@ function Testimonial() {
               <div className="__image">
                 <ImageTag src={testimonial.image} />
                 <ul className="social-links">
-                  <li className="social-links__item">
+                  {testimonial.linkedinPath && <li className="social-links__item">
                     <a href={testimonial.linkedinPath}><i className="fa-brands fa-linkedin-in"></i></a>
-                  </li>
-                  <li className="social-links__item">
+                  </li>}
+                  {testimonial.facebookPath && <li className="social-links__item">
                     <a href={testimonial.facebookPath}><i className="fa-brands fa-facebook-f"></i></a>
-                  </li>
+                  </li>}
                 </ul>
               </div>
               <div className="__name">
