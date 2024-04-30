@@ -262,7 +262,7 @@ const ContactForm = () => {
         <span>Google CAPTCHA is required</span>
       </small>} */}
       <button type="submit" className='btn btn-secondary btn-lg submit-button'>Submit</button>
-      <div className="input-block">
+      <div className="input-block d-none">
         <select name={"field.name"} onChange={handleChange} onBlur={handleBlur}>
           {countries.map((option, index) => (
             <option key={index} value={option.countryCode}>
