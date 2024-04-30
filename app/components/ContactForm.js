@@ -256,11 +256,11 @@ const ContactForm = () => {
           
         </label>
       </div> */}
-      <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY} onChange={setCaptcha} />
-      {captchaError && <small className="error">
+      {/* <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY} onChange={setCaptcha} /> */}
+      {/* {captchaError && <small className="error">
         <i className="fa-solid fa-triangle-exclamation"></i>
         <span>Google CAPTCHA is required</span>
-      </small>}
+      </small>} */}
       <button type="submit" className='btn btn-secondary btn-lg submit-button'>Submit</button>
       <div className="input-block">
         <select name={"field.name"} onChange={handleChange} onBlur={handleBlur}>
