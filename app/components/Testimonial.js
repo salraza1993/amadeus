@@ -20,7 +20,7 @@ function Testimonial() {
       comment: "Amadeus Online Suite is reliable and fully customizable e-commerce platform that will deliver superior service to our clients"
     },
     {
-      image: '/assets/images/selim-boutros.jpg',
+      image: '/assets/images/selim-boutros-new.jpg',
       // facebookPath: '',
       linkedinPath: 'https://www.linkedin.com/in/selim-boutros-92b5983/',
       name: 'Selim Boutros',
@@ -68,7 +68,7 @@ function Testimonial() {
               <div className="__name">
                 <h4 className='mb-1'>{testimonial.name}</h4>
                 <p className='m-0'>{testimonial.designation}</p>
-                {testimonial.agencyName  && <p>{testimonial.agencyName}</p>}
+                {testimonial.agencyName  && <p className='fw-bold'>{testimonial.agencyName}</p>}
               </div>
             </div>
             <div className="comment">
