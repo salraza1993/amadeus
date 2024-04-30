@@ -28,6 +28,15 @@ function Testimonial() {
       agencyName: "Kurban Travel",
       comment: "I have used several travel platforms in the past, but Amadeus Online Suite is by far the best. It offers a level of customization, flexibility and support that I have not found elsewhere"
     },
+    {
+      image: '/assets/images/selim-boutros-new.jpg',
+      // facebookPath: '',
+      linkedinPath: 'https://www.linkedin.com/in/selim-boutros-92b5983/',
+      name: 'Selim Boutros',
+      designation: 'Managing Partner',
+      agencyName: "Kurban Travel",
+      comment: "I have used several travel platforms in the past, but Amadeus Online Suite is by far the best. It offers a level of customization, flexibility and support that I have not found elsewhere"
+    },
     
   ];
   return <Swiper

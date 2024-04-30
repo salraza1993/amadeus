@@ -38,8 +38,8 @@ export default function Home() {
       {
         "id": "002",
         "plusSymbol": "+",
-        "labelBefore": "Live in",
-        "labelAfter": "Countries",
+        "labelBefore": "",
+        "labelAfter": "Live in Countries",
         "number": "20",
         "duration": 2
       },
