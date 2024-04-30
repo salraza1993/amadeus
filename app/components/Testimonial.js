@@ -15,7 +15,8 @@ function Testimonial() {
       // facebookPath: '',
       linkedinPath: 'https://www.linkedin.com/in/fakhreddine-hachfi-a773ba13/?originalSubdomain=tn',
       name: 'Fakhreddine Hachfi',
-      designation: 'Chief Executive Officer, Kounouz Travel',
+      designation: 'Chief Executive Officer',
+      agencyName: "Kounouz Travel",
       comment: "Amadeus Online Suite is reliable and fully customizable e-commerce platform that will deliver superior service to our clients"
     },
     {
@@ -23,7 +24,8 @@ function Testimonial() {
       // facebookPath: '',
       linkedinPath: 'https://www.linkedin.com/in/selim-boutros-92b5983/',
       name: 'Selim Boutros',
-      designation: 'Managing Partner, Kurban Travel',
+      designation: 'Managing Partner',
+      agencyName: "Kurban Travel",
       comment: "I have used several travel platforms in the past, but Amadeus Online Suite is by far the best. It offers a level of customization, flexibility and support that I have not found elsewhere"
     },
     
@@ -56,20 +58,21 @@ function Testimonial() {
                 <ImageTag src={testimonial.image} />
                 <ul className="social-links">
                   {testimonial.linkedinPath && <li className="social-links__item">
-                    <a href={testimonial.linkedinPath}><i className="fa-brands fa-linkedin-in"></i></a>
+                    <a href={testimonial.linkedinPath} target='_blank'><i className="fa-brands fa-linkedin-in"></i></a>
                   </li>}
                   {testimonial.facebookPath && <li className="social-links__item">
-                    <a href={testimonial.facebookPath}><i className="fa-brands fa-facebook-f"></i></a>
+                    <a href={testimonial.facebookPath} target='_blank'><i className="fa-brands fa-facebook-f"></i></a>
                   </li>}
                 </ul>
               </div>
               <div className="__name">
                 <h4 className='mb-1'>{testimonial.name}</h4>
-                <p>{testimonial.designation}</p>
+                <p className='m-0'>{testimonial.designation}</p>
+                {testimonial.agencyName  && <p>{testimonial.agencyName}</p>}
               </div>
             </div>
             <div className="comment">
-              <p>{testimonial.comment }</p>
+              <p>"{testimonial.comment}."</p>
             </div>
           </div>
         </SwiperSlide>

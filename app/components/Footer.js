@@ -1,27 +1,28 @@
 import React from 'react'
 import Logo from './icons/Logo';
 import '@/app/scss/components/Footer.scss';
+import Link from 'next/link';
 
 function Footer() {
   const solutions = [
-    { label: "Business to Business", path: '' },
-    { label: "Online Travel Engine", path: '' },
-    { label: "Mobile Applications", path: '' },
-    { label: "Tailored Made Online Travel Suite", path: '' },
+    { label: "Business to Business", path: '/solutions/business-to-business' },
+    { label: "Online Travel Engine", path: '/solutions/business-to-customer-enterprise' },
+    { label: "Mobile Applications", path: '/solutions/business-to-customer-mobile' },
+    { label: "Tailored Made Online Travel Suite", path: '/solutions/tailor-made-online' },
   ];
   const popularLinks = [
     { label: "Webinars", path: '' },
     { label: "What’s New", path: '' },
   ];
   const resources = [
-    { label: "Videos", path: '' },
-    { label: "Download", path: '' },
+    { label: "Videos", path: '/resources' },
+    { label: "Download", path: '/resources' },
     { label: "FAQ", path: '' },
     { label: "Privacy Policy", path: '' },
     { label: "Terms & Conditions", path: '' },
   ];
   const aboutAmadeus = [
-    { label: "Contact us", path: '' },
+    { label: "Contact us", path: '/contact' },
     { label: "Subscribe to know more", path: '' },
   ];
 
@@ -40,7 +41,7 @@ function Footer() {
                   {
                     solutions.map((item, index) => {
                       return <li className="main-footer__content__links__item" key={index}>
-                        <a href={item.path}>{item.label}</a>
+                        <Link href={item.path}>{item.label}</Link>
                       </li>
                     })
                   }
@@ -54,7 +55,7 @@ function Footer() {
                   {
                     popularLinks.map((item, index) => {
                       return <li className="main-footer__content__links__item" key={index}>
-                        <a href={item.path}>{item.label}</a>
+                        <Link href={item.path}>{item.label}</Link>
                       </li>;
                     })
                   }
@@ -68,7 +69,7 @@ function Footer() {
                   {
                     resources.map((item, index) => {
                       return <li className="main-footer__content__links__item" key={index}>
-                        <a href={item.path}>{item.label}</a>
+                        <Link href={item.path}>{item.label}</Link>
                       </li>;
                     })
                   }
@@ -82,7 +83,7 @@ function Footer() {
                   {
                     aboutAmadeus.map((item, index) => {
                       return <li className="main-footer__content__links__item" key={index}>
-                        <a href={item.path}>{item.label}</a>
+                        <Link href={item.path}>{item.label}</Link>
                       </li>;
                     })
                   }
