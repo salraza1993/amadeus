@@ -11,9 +11,9 @@ export default function Resources() {
   
   return <>
     <HeroBanner image={heroBannerImage} heading={heroBannerHeading} />
-    <ResourcesVideoSection />
+    {/* <ResourcesVideoSection /> */}
     
-    <section className="browse-content-section">
+    {/* <section className="browse-content-section">
       <div className="container">
         <div className="browse-content-container">
           <h2 className='fs-1 mb-4'>Browse through more content</h2>
@@ -63,7 +63,7 @@ export default function Resources() {
           </div>
         </div>
       </div>
-    </section>
+    </section> */}
 
     <section className="download-section">
       <div className="container">
@@ -71,13 +71,8 @@ export default function Resources() {
         <div className="download-container">
           <div className="download-card">
             <small>Amadeus Online Suite</small>
-            <h5>Sales sheet -  Travel Engine</h5>
-            <a href="" className='download-button'>Download Now <i className="fa-solid fa-download"></i></a>
-          </div>
-          <div className="download-card">
-            <small>Amadeus Online Suite</small>
-            <h5>Sales sheet -  Business to Business</h5>
-            <a href="" className='download-button'>Download Now <i className="fa-solid fa-download"></i></a>
+            <h5>Sales sheet</h5>
+            <a href="./assets/downloadable-files/AOS.pdf" download="Amadeus Online Suite.pdf" type=".pdf" title="Download Amadeus Online Suite"  className='download-button'>Download Now <i className="fa-solid fa-download"></i></a>
           </div>
           <div className="download-card">
             <small>Amadeus Online Suite</small>

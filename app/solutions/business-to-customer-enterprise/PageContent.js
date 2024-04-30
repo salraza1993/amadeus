@@ -110,11 +110,10 @@ function PageContent() {
                     opacity: block2nd.contentInView ? 1 : 0,
                     transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                   }}>
-                  <h2 className='fs-1 heading'>Bookings on the Go</h2>
+                  <h2 className='fs-1 heading'>All the contents in one place</h2>
                   <div className="text">
-                    <p>Access flight and hotel booking services anytime, anywhere, directly from your mobile device, ensuring flexibility and convenience for travelers on the move</p>
-                    <p>Instantly search and book flights and accommodations with up-to-date availability and pricing information, providing users with timely and accurate booking options.</p>
-                    <p>Accessible on both Android and iOS devices, AOS application provides users with the freedom to interact with it, no matter their favored mobile platform.</p>
+                    <p>Our search technology can help you to combine the GDS and LCC recommendations.  Convert even more by automatically proposing the best alternate match when the travellers are unable to book the selected flights. </p>
+                    <p>Amadeus Online Suite provides  automatic cross-selling proposals on other non-air services such as hotels, tour packages, visa services and many more.</p>
                   </div>
                 </div>
               </div>
@@ -134,11 +133,11 @@ function PageContent() {
                     opacity: block3rd.contentInView ? 1 : 0,
                     transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                   }}>
-                  <h2 className='fs-1 heading'>One Stop Shop for all Content</h2>
+                  <h2 className='fs-1 heading'>Effortless Management of modules</h2>
                   <div className="text">
-                    <p>Seamlessly integrate with airline and hotel APIs to offer a wide range of options, including flights, hotels, and packages, ensuring a comprehensive booking experience for users.</p>
-                    <p>By leveraging advanced API connectivity, our platform enables real-time access to diverse travel inventory, allowing travelers to choose from an extensive array of options. </p>
-                    <p>This integration not only enhances the user experience by providing more choices but also ensures that users can easily find the best deals and book their preferred travel options with convenience and efficiency</p>
+                    <p>Robust Admin module offering configuration options for agency details, mark ups, discounts, and deal codes.</p>
+                    <p>Simplified Supplier Settings Management for configuring airline, ticketing, time-limit, and queue settings effortlessly.</p>
+                    <p>User creation feature in the admin module allows mapping access to various administrative modules based on specific requirements.</p>
                   </div>
                 </div>
               </div>
@@ -178,11 +177,11 @@ function PageContent() {
                     opacity: block4th.contentInView ? 1 : 0,
                     transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                   }}>
-                  <h2 className='fs-1 heading'>Secure Payment Gateway</h2>
+                  <h2 className='fs-1 heading'>Offer more to your customer using CMS module</h2>
                   <div className="text">
-                    <p>Enable travelers to pay conveniently using various payment gateways, and also offer the option to hold bookings and pay at a later time.</p>
-                    <p>Access a diverse range of payment gateways with Amadeus Online Suite, now offering seamless integration with over 20 leading gateways from different countries across the region.</p>
-                    <p>Customize your payment options by setting up multiple gateways on your site. Define transaction fees for each gateway and card type to tailor the payment experience.</p>
+                    <p>Enhance your customer experience by effortlessly incorporating and offering tailored content on your web pages using Content Management  System (CMS) Module.</p>
+                    <p>CMS module contains various Sub-modules like  Top Destinations, Popular Hotels, Offers, and Testimonials .</p>
+                    <p>It also allows you to create static Packages with options to show Day by Day itinerary, uploading images, inclusions, exclusions etc.</p>
                   </div>
                 </div>
               </div>
@@ -195,8 +194,8 @@ function PageContent() {
         <div className="container">
           <div className="sub-page-block-5th__container">
             <h1 className='block-title mb-5'>
-              Explore the World of Benefits of
-              <strong className='text-secondary'> Amadeus Online Suite Mobile App</strong>
+              Explore the World of Benefits of <br />
+              <strong className='text-secondary'> Amadeus Online Suite</strong>
             </h1>
             <div className="row g-4">
               <div className="col-12 col-lg-5 d-flex justify-content-center">

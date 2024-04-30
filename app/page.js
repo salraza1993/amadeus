@@ -4,6 +4,7 @@ import Testimonial from './components/Testimonial';
 import ImageTag from './components/ImageTag';
 import Counter from './components/Counter';
 import HomeHeroVideo from './components/HomeHeroVideo';
+import Link from 'next/link';
 export default function Home() {
 
   const whyamadeusList = [
@@ -32,7 +33,7 @@ export default function Home() {
         "number": "195",
         "textBefore": "",
         "labelAfter": "Travel Agency portals implemented",
-        "duration": 3
+        "duration": 2
       },
       {
         "id": "002",
@@ -40,7 +41,7 @@ export default function Home() {
         "labelBefore": "Live in",
         "labelAfter": "Countries",
         "number": "20",
-        "duration": 3
+        "duration": 2
       },
       {
         "id": "003",
@@ -48,15 +49,15 @@ export default function Home() {
         "textBefore": "",
         "labelAfter": "Flight Suppliers connected",
         "number": "10",
-        "duration": 3
+        "duration": 2
       },
       {
         "id": "004",
         "plusSymbol": "+",
         "textBefore": "",
         "labelAfter": "Hotel properties",
-        "number": "5,00,000",
-        "duration": 3
+        "number": "500000",
+        "duration": 2
       },
       {
         "id": "005",
@@ -64,7 +65,7 @@ export default function Home() {
         "textBefore": "",
         "labelAfter": "Payment Gateways to choose from",
         "number": "23",
-        "duration": 3
+        "duration": 2
       },
     ]
   }
@@ -83,7 +84,7 @@ export default function Home() {
                 <div className="content">
                   <h2 className='fs-1 font-amadeus-medium text-balance'>Grow Your Online Business With Us!</h2>
                   <p className='text-balance'>Amadeus Online Suite can get you online in weeks and has all the content you need to thrive and grow your business. With Mobile Apps, B2B and B2C versions, your are just a click away from business growth.</p>
-                  <a href="/" className='btn btn-primary btn-lg'>Find Out More</a>
+                  <Link href={"/solutions/"} className='btn btn-primary btn-lg'>Find Out More</Link>
                 </div>
               </div>
               <div className="col-12 col-lg-6 col-xl-6 d-flex justify-content-end">
@@ -155,7 +156,7 @@ export default function Home() {
                       })
                     }
                   </ul>
-                  <a href="/" className='btn btn-primary btn-lg'>Get Started </a>
+                  <Link href={"/contact"} className='btn btn-primary btn-lg'>Get Started </Link>
 
                 </div>
               </div>

@@ -101,16 +101,17 @@
   }
   padding-block-start: calc(2rem + 1vw);
   .download-container {
+    --grid-columns: 3;
     position: relative;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
     gap: 1.25rem;
     inset-block-end: -2rem;
     margin-block-end: 2rem;
 
     
     .download-card {
-      padding: 1.75rem;
+      padding: calc(1.75rem + 1vw);
       text-align: center;
       background-color: var(--bs-white);
       display: flex;

@@ -2,6 +2,7 @@
 import { useRef } from 'react';
 import { useInView } from "framer-motion";
 import ImageTag from '../ImageTag';
+import Link from 'next/link';
 
 function Solution4thSection({ data }) {
   const blockImageRef = useRef(null);
@@ -24,7 +25,7 @@ function Solution4thSection({ data }) {
             <p>
               Experience powerful features, tailored content, and personalized services to maximize your market presence.
             </p>
-            <a href="/" className='btn btn-secondary btn-lg'>Get in touch</a>
+            <Link href={"/contact"} className='btn btn-secondary btn-lg'>Get in touch</Link>
           </div>
         </div>
         <div className="col-12 col-lg-6 d-flex justify-content-end">
