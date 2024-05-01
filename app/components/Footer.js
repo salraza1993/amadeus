@@ -17,13 +17,13 @@ function Footer() {
   const resources = [
     { label: "Videos", path: '/resources' },
     { label: "Download", path: '/resources' },
-    { label: "FAQ", path: '' },
-    { label: "Privacy Policy", path: '' },
+    { label: "FAQ", path: '/resources' },
+    { label: "Privacy Policy", path: 'https://amadeus.com/en/policies/privacy-policy' },
     { label: "Terms & Conditions", path: '' },
   ];
   const aboutAmadeus = [
     { label: "Contact us", path: '/contact' },
-    { label: "Subscribe to know more", path: '' },
+    { label: "Subscribe to know more", path: '/' },
   ];
 
   return <footer className="main-footer">
