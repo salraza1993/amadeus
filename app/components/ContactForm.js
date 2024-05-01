@@ -7,15 +7,16 @@ import Link from 'next/link';
 
 
 const ContactForm = () => {
-  const [fullName, setFullName] = useState("salman");
-  const [companyName, setCompanyName] = useState("asdfsadf");
-  const [emailId, setEmailId] = useState("sadfsadf");
+  const [fullName, setFullName] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [emailId, setEmailId] = useState("");
   const [countryCode, setCountryCode] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("asdfsadf");
-  const [natureOfBusiness, setNatureOfBusiness] = useState("sdafs");
-  const [comments, setComments] = useState("sadfsdf");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [natureOfBusiness, setNatureOfBusiness] = useState("");
+  const [comments, setComments] = useState("");
   const [privacyPolicy, setPrivacyPolicy] = useState(false);
   const [error, setError] = useState(false);
+  const [emailInvalid, setEmailInvalid] = useState(false);
 
   const [captcha, setCaptcha] = useState(null);
   const [captchaError, setCaptchaError] = useState(false);
@@ -66,6 +67,9 @@ const ContactForm = () => {
       setError(true)
       return;
     }
+    if (isValidEmail(emailId)) { 
+
+    }
     setError(false)
     resetFormData()
 
@@ -108,6 +112,7 @@ const ContactForm = () => {
           type="text"
           id='email'
           placeholder='Enter Email' />
+        
       </div>
       <CountryCodeDropdown onCountryCodeSelect={handleCountryCodeSelect} />
       <div className="input-block">
