@@ -102,6 +102,7 @@
       }
     }
   }
+
   &:is(.payment-providers-section) {
     .providers-list__item {
       @media (prefers-color-scheme: dark) {
@@ -231,6 +232,15 @@
   &:is(.dark-bg) {
     isolation: isolate;
 
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('/assets/images/overlay-lines-light.png');
+      background-size: auto 100%;
+      opacity: 1;
+    }
+
     &::after {
       content: '';
       position: absolute;
@@ -252,6 +262,7 @@
 
     }
   }
+
   .content-list {
     list-style: none;
     margin: 0;
@@ -275,7 +286,10 @@
         justify-content: center;
         align-items: center;
       }
-      h5 { color: var(--bs-secondary)}
+
+      h5 {
+        color: var(--bs-secondary)
+      }
     }
 
     @media (width < 768px) {
@@ -292,6 +306,7 @@
         align-items: flex-start;
         min-width: 225px;
         max-width: 225px;
+
         &::after {
           content: '';
           position: absolute;
@@ -314,9 +329,11 @@
       flex-direction: column;
       align-items: center;
       gap: calc(1rem + 2vw);
-      text-align: center; 
+      text-align: center;
 
-      img { max-width: 100%; }
+      img {
+        max-width: 100%;
+      }
 
       .b2b-block__content {
         max-width: 1000px;
@@ -335,6 +352,7 @@
   &-5th {
     padding-block: calc(1rem + 1.5vw);
   }
+
   &-5th {
     padding-block: calc(1rem + 3vw);
   }
@@ -345,29 +363,32 @@
   width: 100%;
   padding-block: calc(2rem + 5vw);
   background-color: var(--bs-primary);
-  
+
   @media (prefers-color-scheme: dark) {
     background-color: #09186c;
   }
-  
+
   .b2b-block {
     &__image {
       z-index: 0;
       position: absolute;
       inset: 0;
       width: 100%;
+
       &::after {
         content: '';
         position: absolute;
         inset: 0;
         background-color: rgba(var(--bs-black-rgb), 0.5);
       }
+
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
     }
+
     &__content {
       position: relative;
       z-index: 1;
@@ -379,6 +400,7 @@
       flex-direction: column;
       align-items: center;
       gap: 2rem;
+
       @media (width < 768px) {
         padding-inline: 5vw;
       }
@@ -407,8 +429,9 @@
 
     position: relative;
     padding-inline: calc(1rem + 2vw);
+
     @media (width < 768px) {
-      padding-inline: 0;      
+      padding-inline: 0;
     }
 
     @media (prefers-color-scheme: dark) {

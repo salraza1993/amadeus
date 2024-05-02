@@ -29,13 +29,14 @@ function Testimonial() {
       comment: "I have used several travel platforms in the past, but Amadeus Online Suite is by far the best. It offers a level of customization, flexibility and support that I have not found elsewhere"
     },
     {
-      image: '/assets/images/selim-boutros-new.jpg',
+      image: '/assets/images/salim.jpg',
       // facebookPath: '',
-      linkedinPath: 'https://www.linkedin.com/in/selim-boutros-92b5983/',
-      name: 'Selim Boutros',
-      designation: 'Managing Partner',
-      agencyName: "Kurban Travel",
-      comment: "I have used several travel platforms in the past, but Amadeus Online Suite is by far the best. It offers a level of customization, flexibility and support that I have not found elsewhere"
+      // linkedinPath: '',
+      websitePath: 'https://www.sasalim.com/',
+      name: 'Sainulabdeen Salim',
+      designation: 'Group CEO',
+      agencyName: "Founder and Managing Director of Jamal Travels",
+      comment: "Amadeus Online Suite has transformed our travel business. It's user-friendly interface and comprehensive features have boosted our efficiency and customer satisfaction. Highly recommended for any travel company looking to elevate their online presence!"
     },
     
   ];
@@ -48,10 +49,10 @@ function Testimonial() {
         slidesPerView: 1,
       },
       768: {
-        slidesPerView: 4,
+        slidesPerView: 2,
       },
       1024: {
-        slidesPerView: 2,
+        slidesPerView: testimonials.length >= 3 ? 3 : testimonials.length,
       },
     }}
     // pagination={{ clickable: true }}    
@@ -72,6 +73,9 @@ function Testimonial() {
                   {testimonial.facebookPath && <li className="social-links__item">
                     <a href={testimonial.facebookPath} target='_blank'><i className="fa-brands fa-facebook-f"></i></a>
                   </li>}
+                  {testimonial.websitePath && <li className="social-links__item">
+                    <a href={testimonial.websitePath} target='_blank'><i className="fa-solid fa-globe-asia"></i></a>
+                  </li>}
                 </ul>
               </div>
               <div className="__name">
@@ -81,7 +85,7 @@ function Testimonial() {
               </div>
             </div>
             <div className="comment">
-              <p>"{testimonial.comment}."</p>
+              <p className='text-balance'>"{testimonial.comment}."</p>
             </div>
           </div>
         </SwiperSlide>
