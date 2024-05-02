@@ -67,23 +67,27 @@ const ContactForm = () => {
     setError(false)
     // resetFormData()
     const formData = {
-      "fullName": fullName,
-      "company": companyName,
+      "your-name": fullName,
+      "your-company-name": companyName,
       "your-email": emailId,
-      "countryName": country.countryName,
-      "phoneNumber": country.callingCode + phoneNumber,
-      "natureOfBusiness": natureOfBusiness,
-      "comments": comments,
+      "your-country": country.countryName,
+      "your-phone": country.callingCode + phoneNumber,
+      "your-nature-of-business": natureOfBusiness,
+      "your-message": comments,
     }
 
     function postSuccess(data, uid) {
-      console.log(data, uid);
+      console.log("success",data, uid);
+    }
+
+    function postError(data, uid) {
+      console.log("error",data, uid);
     }
     
     formData['_wpcf7_unit_tag'] = new Date();
     console.table(formData);
     let header = { headers: { 'Content-Type': 'multipart/form-data' } };
-    fetch_post({ data: formData, url: "https://aoscmsadmin.amadeusonlinesuite.com/wp-json/contact-form-7/v1/contact-forms/16/feedback", header: header }, { success: postSuccess, error: postSuccess });
+    fetch_post({ data: formData, url: "https://aoscmsadmin.amadeusonlinesuite.com/wp-json/contact-form-7/v1/contact-forms/16/feedback", header: header }, { success: postSuccess, error: postError });
 
     console.log('Form submitted!')
   };
