@@ -113,18 +113,6 @@ const ContactForm = () => {
     console.log(data,uid);
   }
 
-  useEffect(() => {
-    fetch('/countries.json')
-      .then(response => response.json())
-      .then(data => {
-
-        setCountries(data);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = {};

@@ -3,10 +3,10 @@ import ImageTag from './ImageTag';
 
 function CountryCodeDropdown({ onCountryCodeSelect }) {
   const currentCountry = {
-    "countryName": "United Arab Emirates",
-    "countryCode": "AE",
-    "callingCode": "+971",
-    "flag": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_United_Arab_Emirates.svg"
+    countryName: "United Arab Emirates",
+    countryCode: "AE",
+    callingCode: "+971",
+    flag: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_United_Arab_Emirates.svg"
   };
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(currentCountry);
@@ -21,7 +21,7 @@ function CountryCodeDropdown({ onCountryCodeSelect }) {
 
   const selectCountry = (option) => {
     setSelectedCountry(option);
-    onCountryCodeSelect(option.callingCode); // Pass calling code to parent
+    onCountryCodeSelect(option ? option : currentCountry); // Pass calling code to parent
     setShowDropdown(false);
   };
 

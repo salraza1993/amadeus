@@ -10,54 +10,40 @@ const ContactForm = () => {
   const [fullName, setFullName] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [emailId, setEmailId] = useState("");
-  const [countryCode, setCountryCode] = useState("");
+  const [country, setCountry] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [natureOfBusiness, setNatureOfBusiness] = useState("");
   const [comments, setComments] = useState("");
   const [privacyPolicy, setPrivacyPolicy] = useState(false);
+  
   const [error, setError] = useState(false);
-  const [emailInvalid, setEmailInvalid] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("All fields are required. Marked with (*)");
 
   const [captcha, setCaptcha] = useState(null);
   const [captchaError, setCaptchaError] = useState(false);
   const [isSubmitClick, setIsSubmitClick] = useState(false);
   const [countries, setCountries] = useState([]);
 
-  const isValidEmail = (email) => {
-    // Basic email validation regex
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
+  // Reset Form
   const resetFormData = () => {
     setFullName("");
     setCompanyName("");
     setEmailId("");
-    setCountryCode("");
+    setCountry("");
     setPhoneNumber("");
     setNatureOfBusiness("");
     setComments("");
     setPrivacyPolicy(false)
     setError(false)
   }
+  // Email Validation
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  const handleCountryCodeSelect = (callingCode) => {
-    setCountryCode(callingCode);
-  };
+  // Country Dropdown Selection
+  const handleCountrySelect = (country) => setCountry(country);
 
-  function PostSUccess(data, uid) {
-    console.log(data, uid);
-  }
 
-  useEffect(() => {
-    fetch('/countries.json')
-      .then(response => response.json())
-      .then(data => {
-
-        setCountries(data);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
+  const formValidation = () => { }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -67,14 +53,38 @@ const ContactForm = () => {
       setError(true)
       return;
     }
-    if (isValidEmail(emailId)) { 
-
+    if (!isValidEmail(emailId)) { 
+      setError(true);
+      setErrorMessage("Please enter a valid Email!")
+      return;
     }
-    setError(false)
-    resetFormData()
+    if (!country || country === "") { 
+      setError(true);
+      setErrorMessage("Please, Select the Country")
+      return;
+    }
 
-    // Perform form submission logic
-    console.log(countryCode);
+    setError(false)
+    // resetFormData()
+    const formData = {
+      "fullName": fullName,
+      "company": companyName,
+      "your-email": emailId,
+      "countryName": country.countryName,
+      "phoneNumber": country.callingCode + phoneNumber,
+      "natureOfBusiness": natureOfBusiness,
+      "comments": comments,
+    }
+
+    function postSuccess(data, uid) {
+      console.log(data, uid);
+    }
+    
+    formData['_wpcf7_unit_tag'] = new Date();
+    console.table(formData);
+    let header = { headers: { 'Content-Type': 'multipart/form-data' } };
+    fetch_post({ data: formData, url: "https://aoscmsadmin.amadeusonlinesuite.com/wp-json/contact-form-7/v1/contact-forms/16/feedback", header: header }, { success: postSuccess, error: postSuccess });
+
     console.log('Form submitted!')
   };
 
@@ -82,10 +92,8 @@ const ContactForm = () => {
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
       {error && <div className="alert alert-danger d-flex gap-3 align-items-center py-3">
-        <i className="fa-solid fa-triangle-exclamation"></i>
-        Please Fill up the required fields. Marked with (*)
-      </div>
-}
+        <i className="fa-solid fa-triangle-exclamation"></i> {errorMessage}
+      </div>}
       <div className="input-block">
         <label htmlFor="fullName">Full Name <span className='text-danger'>*</span></label>
         <input
@@ -114,7 +122,7 @@ const ContactForm = () => {
           placeholder='Enter Email' />
         
       </div>
-      <CountryCodeDropdown onCountryCodeSelect={handleCountryCodeSelect} />
+      <CountryCodeDropdown onCountryCodeSelect={handleCountrySelect} />
       <div className="input-block">
         <label htmlFor="number">Phone Number <span className='text-danger'>*</span></label>
         <input 
@@ -157,7 +165,7 @@ const ContactForm = () => {
                 <strong> Amadeus&#39; Privacy Notice</strong>
               </Link>
             </small>
-            <span className='text-danger'>*</span>
+            <span className='text-danger'> *</span>
           </label>          
         </div>
       </div>
