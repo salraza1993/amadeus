@@ -104,6 +104,10 @@ a {
   }
 }
 
+.alert {
+  max-width: max-content;
+  margin-inline: auto;
+}
 
 .hero-banner-container {
   --hero-banner-height: 600px;

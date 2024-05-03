@@ -42,9 +42,6 @@ const ContactForm = () => {
   // Country Dropdown Selection
   const handleCountrySelect = (country) => setCountry(country);
 
-
-  const formValidation = () => { }
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -65,7 +62,6 @@ const ContactForm = () => {
     }
 
     setError(false)
-    // resetFormData()
     const formData = {
       "your-name": fullName,
       "your-company-name": companyName,
@@ -88,8 +84,7 @@ const ContactForm = () => {
     console.table(formData);
     let header = { headers: { 'Content-Type': 'multipart/form-data' } };
     fetch_post({ data: formData, url: "https://aoscmsadmin.amadeusonlinesuite.com/wp-json/contact-form-7/v1/contact-forms/16/feedback", header: header }, { success: postSuccess, error: postError });
-
-    console.log('Form submitted!')
+    resetFormData()
   };
 
 
