@@ -4,11 +4,12 @@ import ImageTag from '../components/ImageTag';
 import ContactForm from '../components/ContactForm';
 
 function Contact() {
-  const heroBannerHeading = "Connect with our experts right away!";
+  const heroBannerHeading = "Connect with our experts";
+  const heroBannerDescription = "Get in touch with us today to discover how we can help you achieve your goals.";
   const heroBannerImage = "/assets/images/contact-banner.png";
   return (
     <>
-      <HeroBanner image={heroBannerImage} heading={heroBannerHeading} />
+      <HeroBanner image={heroBannerImage} heading={heroBannerHeading} description={heroBannerDescription} />
       <section className="contact-form-section">
         <div className="container">
           <div className="contact-form-container">

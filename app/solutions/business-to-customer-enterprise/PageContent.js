@@ -10,6 +10,7 @@ import b2b4thImage from "/public/assets/images/b2c-enterprise-image-3rd.png";
 import b2b5thImage from "/public/assets/images/b2c-enterprise-image-4th.png";
 import b2b6thImage from "/public/assets/images/b2c-image-5th.png";
 import b2bModelImage from "/public/assets/images/b2-enterprise-model-image.png";
+import Link from 'next/link';
 
 function useBlockInView() {
   const imageRef = useRef(null);
@@ -31,33 +32,28 @@ function PageContent() {
   const benefitLists = [
     {
       icon: '/assets/images/b2c-enterprise-icon-1.svg',
-      title: 'Connect your site with Meta Players',
-      description: 'Stand Out from other travel website by integrating our Meta Engines which can help you give the best rates in the market and at the same time give you competitive advantage.'
+      title: 'Connect your site with Meta Search Engines',
+      description: 'Grow your online business through seamless connectivity to the popular travel meta-search engines in the market. Benefit from hundreds of bookings per day using this module.'
     },
     {
       icon: '/assets/images/b2c-enterprise-icon-2.svg',
-      title: 'Custom Domain & Multi geography',
-      description: 'Tailor your website with a personalized touch by leveraging your own custom domain to reinforce your brand identity. Additionally, with the Multi-Geography feature, deliver customized content to diverse regions, enhancing engagement and relevance.'
+      title: 'Customize content for every country you operate in',
+      description: 'Tailor your website with a personalized touch by leveraging your custom domain to reinforce your brand identity. Additionally, the multi-geography feature, delivers customized content to diverse regions, enhancing engagement and relevance.'
     },
     {
       icon: '/assets/images/b2c-enterprise-icon-3.svg',
       title: 'Analytics & Search Engine Optimization',
-      description: "Enhance your website's visibility and ranking with SEO while gaining valuable user insights through Analytics, enabling data-driven decisions for improved user experience and higher conversions in the travel industry."
+      description: "Enhance your website's visibility and ranking with SEO while gaining valuable user insights through Analytics, enabling data-driven decisions leading to higher conversions."
     },
     {
       icon: '/assets/images/b2c-enterprise-icon-4.svg',
       title: 'Flexible Payment Options',
-      description: "Empower your customers with versatile payment choices, enabling seamless transactions through various payment gateways and the convenient option to pay later by holding their bookings. AOS boasts compatibility with a wide array of over 20 payment gateways."
+      description: "Amadeus Online Suite has more than 20 payment gateways integrated including buy now pay later options for your market. Our team can integrate new and smart payment options in a short time"
     },
     {
       icon: '/assets/images/b2c-enterprise-icon-5.svg',
-      title: 'Cross Sell - Unlock new Revenue stream',
-      description: "Enhance customer experience and maximize revenue, by suggesting your customer related products & services on booking completion."
-    },
-    {
-      icon: '/assets/images/b2c-enterprise-icon-6.svg',
-      title: 'Empower  your Customer',
-      description: "Enhance profitability by empowering customers to customize their travel journey with ancillary services and airline fare families from both GDS and LSS, fostering greater satisfaction and loyalty."
+      title: 'Improve your margin with cross-sell',
+      description: "Option to sell other products at various points of a customer journey ensuring transaction success."
     },
   ];
   return (
@@ -110,10 +106,10 @@ function PageContent() {
                     opacity: block2nd.contentInView ? 1 : 0,
                     transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                   }}>
-                  <h2 className='fs-1 heading'>All the contents in one place</h2>
+                  <h2 className='fs-1 heading'>One-stop shop for all content</h2>
                   <div className="text">
-                    <p>Our search technology can help you to combine the GDS and LCC recommendations.  Convert even more by automatically proposing the best alternate match when the travellers are unable to book the selected flights. </p>
-                    <p>Amadeus Online Suite provides  automatic cross-selling proposals on other non-air services such as hotels, tour packages, visa services and many more.</p>
+                    <p>Our search technology can help you combine the GDS and Low-Cost Carrier recommendations. Convert even more by automatically proposing the best alternate match when the travelers are unable to book the selected flights.</p>
+                    <p>Amadeus Online Suite provides automatic cross-selling proposals on other services such as hotels, tour packages, visa services, and many more.</p>
                   </div>
                 </div>
               </div>
@@ -133,11 +129,11 @@ function PageContent() {
                     opacity: block3rd.contentInView ? 1 : 0,
                     transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                   }}>
-                  <h2 className='fs-1 heading'>Effortless Management of modules</h2>
+                  <h2 className='fs-1 heading'>Stay in control of your online business</h2>
                   <div className="text">
-                    <p>Robust Admin module offering configuration options for agency details, mark ups, discounts, and deal codes.</p>
-                    <p>Simplified Supplier Settings Management for configuring airline, ticketing, time-limit, and queue settings effortlessly.</p>
-                    <p>User creation feature in the admin module allows mapping access to various administrative modules based on specific requirements.</p>
+                    <p>Online Suite has an administration module to configure options for markups, discounts, and deal codes.</p>
+                    <p>Easily configure airline and ticketing settings from the Supplier Management feature.</p>
+                    <p>In addition to that, the user creation feature provides users access to various modules based on specific requirements.</p>
                   </div>
                 </div>
               </div>
@@ -177,11 +173,10 @@ function PageContent() {
                     opacity: block4th.contentInView ? 1 : 0,
                     transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                   }}>
-                  <h2 className='fs-1 heading'>Offer more to your customer using CMS module</h2>
+                  <h2 className='fs-1 heading'>Smart Content Management System</h2>
                   <div className="text">
-                    <p>Enhance your customer experience by effortlessly incorporating and offering tailored content on your web pages using Content Management  System (CMS) Module.</p>
-                    <p>CMS module contains various Sub-modules like  Top Destinations, Popular Hotels, Offers, and Testimonials .</p>
-                    <p>It also allows you to create static Packages with options to show Day by Day itinerary, uploading images, inclusions, exclusions etc.</p>
+                    <p>Enhance your customer experience by offering tailored content on your web pages using the Content Management System (CMS) Module.</p>
+                    <p>The CMS module enables you to manage top destinations, popular hotels, offers, and testimonials. It also allows you to create static Packages covering day-to-day itineraries, uploading images, inclusions, exclusions, and much more. </p>
                   </div>
                 </div>
               </div>
@@ -194,7 +189,7 @@ function PageContent() {
         <div className="container">
           <div className="sub-page-block-5th__container">
             <h1 className='block-title mb-5'>
-              Explore the World of Benefits of <br />
+              Go the extra mile with  <br />
               <strong className='text-secondary'> Amadeus Online Suite</strong>
             </h1>
             <div className="row g-4">
@@ -245,8 +240,8 @@ function PageContent() {
             opacity: block6th.contentInView ? 1 : 0,
             transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
           }}>
-          <h2 className='fs-1'>Accelerate sales with smarter and more effective strategies</h2>
-          <a href="" className='btn btn-light btn-lg'>Get Started</a>
+          <h2 className='fs-1'>Stay ahead of the competition by deploying Amadeus Online Suite for your business</h2>
+          <Link href={"/contact"} className='btn btn-light btn-lg'>Get Started</Link>
         </div>
         <div className="b2b-block__image">
           <ImageTag src={b2b6thImage} />

@@ -6,8 +6,9 @@ import PageContent from './PageContent';
 function page() {
   const heroBannerContent = {
     banner: bannerImage,
-    heading: "Complete travel eco-system at your finger tips",
-    description: "Empower your affiliates, drive your business."
+    // heading: "Complete travel eco-system at your finger tips",
+    heading: "Mobile Applications",
+    description: "Go one step further with our omnichannel offering."
   }
   
   return <>

@@ -8,16 +8,16 @@ import Link from 'next/link';
 import Subscription from './components/Subscription';
 export default function Home() {
 
-  const whyamadeusList = [
+  const whyAmadeusList = [
     {
       icon: '/assets/images/icon-realtime-results.svg',
       title: 'Accurate and Realtime Results',
-      description: 'We have optimized Online Suite to load Air & Hotel results at blazing speeds. We understand that every customer matters.'
+      description: 'We have optimized the Online Suite to load Air & Hotel results at blazing speeds. We understand that every booking matters.'
     },
     {
       icon: '/assets/images/icon-desktop.svg',
       title: 'Flexible Payment Options',
-      description: 'Customers enjoy flexible payment options: pay online with credit cards, hold bookings and pay later, or utilize the wallet option for consolidators.'
+      description: 'Customers enjoy flexible payment options: pay online with credit cards, hold bookings and pay later, or utilize the wallet option for business-to-business payments.'
     },
     {
       icon: '/assets/images/icon-dollar-card.svg',
@@ -40,7 +40,7 @@ export default function Home() {
         "id": "002",
         "plusSymbol": "+",
         "labelBefore": "",
-        "labelAfter": "Live in Countries",
+        "labelAfter": "Countries are serviced",
         "number": "20",
         "duration": 2
       },
@@ -144,7 +144,7 @@ export default function Home() {
                   <p>Amadeus Online Suite takes your business online in record time. With a community development model, you will benefit from the know-how of hundreds of online travel experts.</p>
                   <ul className="content-list">
                     {
-                      whyamadeusList.map((item, index) => {
+                      whyAmadeusList.map((item, index) => {
                         return <li className="content-list__item" key={index}>
                           <span className="icon">
                             <ImageTag src={item.icon} />

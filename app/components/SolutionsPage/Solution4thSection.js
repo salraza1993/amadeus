@@ -21,10 +21,8 @@ function Solution4thSection({ data }) {
               transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
             }}    
             className="content">
-            <h2 className='fs-1'>Unlock your growth potential with Amadeus Online Suite today!</h2>
-            <p>
-              Experience powerful features, tailored content, and personalized services to maximize your market presence.
-            </p>
+            <h2 className='fs-1'>Unlock business growth with Amadeus Online Suite today!</h2>
+            <p>Experience powerful features, tailored content, and personalized services to maximize your market presence.</p>
             <Link href={"/contact"} className='btn btn-secondary btn-lg'>Get in touch</Link>
           </div>
         </div>

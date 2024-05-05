@@ -34,8 +34,8 @@ function Testimonial() {
       // linkedinPath: '',
       websitePath: 'https://www.sasalim.com/',
       name: 'Sainulabdeen Salim',
-      designation: 'Group CEO',
-      agencyName: "Founder and Managing Director of Jamal Travels",
+      designation: 'Founder and Managing Director',
+      agencyName: "Jamal Travels",
       comment: "Amadeus Online Suite has transformed our travel business. It's user-friendly interface and comprehensive features have boosted our efficiency and customer satisfaction. Highly recommended for any travel company looking to elevate their online presence!"
     },
     

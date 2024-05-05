@@ -8,6 +8,7 @@ import b2b4thImage from "/public/assets/images/b2b-image-3rd.png";
 import b2b5thImage from "/public/assets/images/b2b-image-4th.png";
 import b2b6thImage from "/public/assets/images/b2c-image-5th.png";
 import b2bModelImage from "/public/assets/images/b2b-model-image.png";
+import Link from 'next/link';
 
 function useBlockInView() {
   const imageRef = useRef(null);
@@ -29,28 +30,28 @@ function PageContent() {
   const benefitLists = [
     {
       icon: '/assets/images/b2b-solution-icon-1.svg',
-      title: 'Variety of contents for your customer',
-      description: 'Customers can have access to your best rates using AOS with GDS, LCC and Hotel Content.'
+      title: 'Variety of travel content for your customer',
+      description: 'Customers can have access to your best rates using Amadeus Online Suite with GDS, Low-Cost Carrier, and Hotel Content.'
     },
     {
       icon: '/assets/images/b2b-solution-icon-2.svg',
       title: 'Offer Flexible Payment Options',
-      description: 'Consolidator agencies can easily manage wallet for sub agencies to avoid manual payment collection, and also allow Hold Booking and Payment Gateway integration'
+      description: 'Our built-in wallet enables agencies to top-up and pay for bookings.  Agencies can also hold bookings and make payments through different payment gateways. '
     },
     {
       icon: '/assets/images/b2b-solution-icon-3.svg',
-      title: 'Keep you customer updated',
-      description: "Efficiently manage notifications and itineraries using AOS, ensuring travelers stay updated and organized throughout their journey."
+      title: 'Keep your customer updated',
+      description: "Efficiently manage notifications and itineraries, ensuring travelers stay updated and organized throughout their trip."
     },
     {
       icon: '/assets/images/b2b-solution-icon-4.svg',
-      title: 'Import PNR & Post Booking  Features',
-      description: "Sub agents can effortlessly import PNRs via AOS to access consolidator fares and also gain access to post-booking services like void and canceling bookings."
+      title: 'Import PNR & Post Booking Features',
+      description: "Access special fares and gain access to post-bookings and access services such as voiding and cancellation of bookings."
     },
     {
       icon: '/assets/images/b2b-solution-icon-5.svg',
       title: 'Increase your Profitability',
-      description: "Comprehensive Admin module enables you to configure mark-ups, Service Fees, Deal Codes etc. at sub agent level."
+      description: "The comprehensive Admin module enables you to configure mark-ups, service fees, deal codes, and much more to increase revenues."
     },
   ];
   return <>
@@ -108,10 +109,9 @@ function PageContent() {
                 }} >
                 <h2 className='fs-1 heading'>Easy To Manage</h2>
                 <div className="text">
-                  <p>Consolidators can create global business logic at HQ level or locally at Sub Agency Level with priority logic</p>
-                  <p>User and role management feature that allows key responsibilities to be isolated with an agency if required.
-                  </p>
-                  <p>Administration roles can be created for for sub agencies with accesses to required features based on customer requirements.</p>
+                  <p>With Online Suite, Consolidators can efficiently create and group business rules for Sub Agencies.
+                    The user and role management feature in Online Suite allows key responsibilities to be assigned to different users.</p>
+                  <p>Administration roles can be created for Sub Agencies having controlled access to the required features based on customer requirements.</p>
                 </div>
               </div>
             </div>
@@ -131,9 +131,10 @@ function PageContent() {
                   opacity: block3rd.contentInView ? 1 : 0,
                   transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                 }}>
-                <h2 className='fs-1 heading'>Customize your own branding</h2>
+                <h2 className='fs-1 heading'>Express your brand online</h2>
                 <div className="text">
-                  <p>Comprehensive Theme Management module which can tailor logos, colors, fonts, and more to reflect your unique identity</p>
+                  <p>Comprehensive Theme Management can tailor logos, colors, fonts, and more to reflect your unique identity.
+                    Capability to quickly modify website text in line with your needs.</p>
                   <p>Empower sub-agents to personalize their B2B sites for a seamless brand experience.</p>
                   <p>Capability to modify website content text according to customer needs.</p>
                 </div>
@@ -177,9 +178,9 @@ function PageContent() {
                 }}>
                 <h2 className='fs-1 heading'>Enhanced Reporting Capabilities</h2>
                 <div className="text">
-                  <p>Gain insights into key performance metrics such as bookings and revenue, enabling businesses to assess their overall performance, assist in decision making and  identifying market trends</p>
-                  <p>Comprehensive reports for sub agency activities with like Customer Statement & Wallet state assisting to evaluate their productivity ensuring adherence to sales targets and contractual agreements.</p>
-                  <p>Reporting tools also allows consolidators to track commissions, markups, and other revenue streams generated by sub-agencies, facilitating financial management and forecasting</p>
+                  <p>Gain insights into key performance metrics such as bookings and revenue, enabling businesses to assess their overall performance, assist in decision-making, and identify market trends such as search bookings and revenue.</p>
+                  <p>Comprehensive reports for Sub Agencies like Customer Statement & Wallet assist them in managing productivity ensuring their adherence to sales targets and contractual agreements.</p>
+                  <p>Reporting tools also allow Business Consolidators to track commissions, markups, and other revenue streams that Sub-Agencies generate, facilitating financial management and forecasting.</p>
                 </div>
               </div>
             </div>
@@ -192,7 +193,7 @@ function PageContent() {
       <div className="container">
         <div className="sub-page-block-5th__container">
           <h1 className='block-title mb-5'>
-            Explore the World of Benefits of
+            Benefit today with
             <strong className='text-secondary'> Amadeus Online Suite</strong>
           </h1>
           <div className="row g-4">
@@ -243,8 +244,8 @@ function PageContent() {
           opacity: block6th.contentInView ? 1 : 0,
           transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
         }}>
-        <h2 className='fs-1'>Accelerate sales with smarter and more effective strategies</h2>
-        <a href="" className='btn btn-light btn-lg'>Get Started</a>
+        <h2 className='fs-1'>Don’t get left behind. Try Online Suite today!</h2>
+        <Link href={"/contact"} className='btn btn-light btn-lg'>Get Started</Link>
       </div>
       <div className="b2b-block__image">
         <ImageTag src={b2b6thImage} />

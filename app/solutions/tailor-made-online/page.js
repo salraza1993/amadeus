@@ -7,7 +7,7 @@ function page() {
   const heroBannerContent = {
     banner: bannerImage,
     heading: "Amadeus Online Suite Tailor-made Solution",
-    description: "Customize your website, Crafted Just for You"
+    description: "Custom-made for your startup or online travel agency."
   }
   
   return <>

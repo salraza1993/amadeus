@@ -8,14 +8,15 @@ import SolutionsBlocks from '../components/SolutionsPage/SolutionsBlocks';
 import Solution4thSection from '../components/SolutionsPage/Solution4thSection';
 
 export default function Solutions() {
-  const heroBannerHeading = "Complete travel eco-system at your finger tips";
+  const heroBannerHeading = "Seamless Travel Made Simple with our portfolio of Solutions.";
+  const heroBannerDescription = "Amadeus Online Suite offers a variety of solutions, ensuring your journey is as smooth as possible from start to finish.";
   const solutionBlocks = [
     {
       path: '/solutions/business-to-business',
       image: '/assets/images/solution-block-image-1.png',
       title: 'Business to Business',
-      subTitle: 'Connect travel agency partners, sub agents and expand your reach cost effectively.',
-      description: 'Amadeus Consolidator is a B2B web-based application that allows non IATA Travel agencies to sell varied travel content to their valued customers.'
+      subTitle: 'Expand your reach cost-effectively.',
+      description: 'Amadeus Online Suite Consolidator is a B2B web-based application that allows non-IATA travel agencies to sell travel content to their valued customers.'
     },
     {
       path: '/solutions/business-to-customer-enterprise',
@@ -28,20 +29,20 @@ export default function Solutions() {
       path: '/solutions/tailor-made-online',
       image: '/assets/images/solution-block-image-3.png',
       title: 'Tailored Made Online Travel Suite',
-      subTitle: 'You have ambitions to become an OTA generating thousands of transactions a day from multiple countries.',
+      subTitle: 'Open the Online channel for your travel business.  Online Travel Agency growing to a thousand of transactions a day from multiple countries.',
       description: 'Your own hosted version of Online Suite, with a dedicated team, product road map & priorities. We will work with you as you craft your success.'
     },
     {
       path: '/solutions/business-to-customer-mobile',
       image: '/assets/images/solution-block-image-4.png',
       title: 'Mobile Applications',
-      subTitle: 'Putting mobile at the center of the travel',
-      description: 'Enhance your customer experience with your branded Mobile App.'
+      subTitle: 'Be a companion to your customer.',
+      description: 'Enhance customer experience with a branded Mobile App and increase revenue opportunities.'
     },
   ];
 
   return <>
-    <HeroBanner image={bannerImage} heading={heroBannerHeading} />    
+    <HeroBanner image={bannerImage} heading={heroBannerHeading} description={heroBannerDescription} />    
     <SolutionsBlocks data={solutionBlocks} />    
     <section className="providers-section">
       <div className="container">

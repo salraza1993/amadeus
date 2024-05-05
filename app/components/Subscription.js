@@ -45,7 +45,7 @@ function Subscription() {
     <div className="container">
       <div className="subscribe-container">
         <h2 className='fs-1 font-amadeus-medium text-balance'>Scaling your travel business the easy way</h2>
-        <h5>Stay Up To Date With Our New Product Features & Industry Best Practices </h5>
+        <h5>Stay Up To Date With New Product Features & Industry Best Practices</h5>
         <form action="" className='newsletterForm' onSubmit={handleSubmit}>
           <input type="text" placeholder='Enter your email' value={email}
             onChange={(e) => setEmail(e.target.value)} />

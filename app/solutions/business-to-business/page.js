@@ -8,11 +8,12 @@ function page() {
   const heroBannerContent = {
     banner: bannerImage,
     heading: "Amadeus Online Suite Business to Business",
+    description: "Empower your affiliates, and drive your business with confidence.",
   };
   
 
   return <>
-    <HeroBanner image={heroBannerContent.banner} heading={heroBannerContent.heading} />
+    <HeroBanner image={heroBannerContent.banner} heading={heroBannerContent.heading} description={heroBannerContent.description} />
 
     <PageContent />
   </>;

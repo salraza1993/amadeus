@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Logo from './icons/Logo';
 import '@/app/scss/components/Footer.scss';
 import Link from 'next/link';
@@ -11,15 +11,12 @@ function Footer() {
     { label: "Tailored Made Online Travel Suite", path: '/solutions/tailor-made-online' },
   ];
   const popularLinks = [
-    { label: "Webinars", path: '' },
     { label: "What’s New", path: '' },
   ];
   const resources = [
-    { label: "Videos", path: '/resources' },
     { label: "Download", path: '/resources' },
     { label: "FAQ", path: '/resources' },
     { label: "Privacy Policy", path: 'https://amadeus.com/en/policies/privacy-policy' },
-    { label: "Terms & Conditions", path: '' },
   ];
   const aboutAmadeus = [
     { label: "Contact us", path: '/contact' },
@@ -42,7 +39,7 @@ function Footer() {
                     solutions.map((item, index) => {
                       return <li className="main-footer__content__links__item" key={index}>
                         <Link href={item.path}>{item.label}</Link>
-                      </li>
+                      </li>;
                     })
                   }
                 </ul>
@@ -89,7 +86,7 @@ function Footer() {
                   }
                 </ul>
               </div>
-            </div>            
+            </div>
           </div>
         </div>
       </div>
@@ -99,10 +96,29 @@ function Footer() {
         </div>
         <ul className="footer-social">
           <li className="footer-social__item">
-            <a href="/"><i className="fa-brands fa-linkedin-in"></i></a>
+            <Link target="_blank" href={"https://www.linkedin.com/company/amadeus/"}>
+              <i className="fa-brands fa-linkedin-in"></i>
+            </Link>
           </li>
           <li className="footer-social__item">
-            <a href="/"><i className="fa-brands fa-facebook-f"></i></a>
+            <Link target="_blank" href={"https://www.facebook.com/AmadeusITGroup/"}>
+              <i className="fa-brands fa-facebook-f"></i>
+            </Link>
+          </li>
+          <li className="footer-social__item">
+            <Link target="_blank" href="https://twitter.com/AmadeusITGroup">
+              <i className="fa-brands fa-x-twitter"></i>
+            </Link>
+          </li>
+          <li className="footer-social__item">
+            <Link target="_blank" href={"https://www.instagram.com/amadeusitgroup/"}>
+              <i className="fa-brands fa-instagram"></i>
+            </Link>
+          </li>
+          <li className="footer-social__item">
+            <Link target="_blank" href={"https://www.youtube.com/user/AmadeusITGroup"}>
+              <i className="fa-brands fa-youtube"></i>
+            </Link>
           </li>
         </ul>
       </div>
@@ -110,4 +126,4 @@ function Footer() {
   </footer>;
 }
 
-export default Footer
+export default Footer;

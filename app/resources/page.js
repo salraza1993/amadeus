@@ -7,10 +7,11 @@ import ImageTag from '../components/ImageTag';
 
 export default function Resources() {
   const heroBannerHeading = "Learn How Amadeus Online Suite Can Elevate Your Business"
+  const heroBannerDescription = "Resources to Start and Grow Your Business with ease."
   const heroBannerImage = "/assets/images/resources-banner.png";
   
   return <>
-    <HeroBanner image={heroBannerImage} heading={heroBannerHeading} />
+    <HeroBanner image={heroBannerImage} heading={heroBannerHeading} description={heroBannerDescription} />
     {/* <ResourcesVideoSection /> */}
     
     {/* <section className="browse-content-section">
@@ -76,8 +77,8 @@ export default function Resources() {
           </div>
           <div className="download-card">
             <small>Amadeus Online Suite</small>
-            <h5>Sales Sheet - Mobile App</h5>
-            <a href="" className='download-button'>Download Now <i className="fa-solid fa-download"></i></a>
+            <h5>Brochure - Mobile App</h5>
+            <a href="./assets/downloadable-files/brochure-mobile.pdf" download="Amadeus Travel Suite-Mobile Sales Sheet.pdf" type=".pdf" title="Download Amadeus Online Suite"  className='download-button'>Download Now <i className="fa-solid fa-download"></i></a>
           </div>
           <div className="download-card">
             <small>Amadeus Online Suite</small>
@@ -110,7 +111,7 @@ export default function Resources() {
         <div className="short-info-container">
           <h2 className='fs-1'>Boost your sales rapidly, intelligently, and efficiently.</h2>
           <p>Experience powerful features, tailored content, and personalized services to maximize your market presence. Click below to.</p>
-          <Link href={'/'} className='btn btn-secondary btn-lg'>Get Started</Link>
+          <Link href={'/contact'} className='btn btn-secondary btn-lg'>Get Started</Link>
         </div>
       </div>
     </section>

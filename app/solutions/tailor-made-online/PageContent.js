@@ -67,8 +67,8 @@ function PageContent() {
               transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
             }}
             ref={block1st.contentRef}>
-            <h2 className='fs-1 heading'>Tailor Your Website to Match Your Unique Vision</h2>
-            <p>Tailor your website to reflect your identity and meet your specific needs with our  solutions, ensuring a seamless online experience for your customers.</p>
+            <h2 className='fs-1 heading'>Tailor your offering to match your business vision</h2>
+            <p>We understand that your business needs are unique and that your growth plan can change from time to time. With this option, you can choose your own designs, workflow suppliers, business rules, and much more.  You can also engage a dedicated team and define your own roadmap for your online suite. </p>
             <Link href={"/contact"} className="btn btn-secondary btn-lg mt-1">Get Started </Link>
           </div>
           <div className="b2b-block__image"
@@ -108,9 +108,8 @@ function PageContent() {
                 }}>
                 <h2 className='fs-1 heading'>Robust Technology</h2>
                 <div className="text">
-                  <p>Application leverages cutting-edge technology to continuously develop and customize the solution according to customer needs, ensuring it remains at the forefront of innovation</p>
-                  <p>The application is prepared to accommodate any functional or design modifications as per specific requirements, ensuring flexibility and seamless adaptation to evolving needs</p>
-                  <p>Application is equipped with essential security measures like data backups, encryption, and disaster recovery plan, safeguarding against various security threats</p>
+                  <p>The application uses cutting-edge technology to continuously develop and customize the solution according to market requirements. It is also equipped with essential security measures like data backups, encryption, incident monitoring, and disaster recovery plans.</p>
+                  <p>Amadeus Online Suite follows strict security standards for handling payments and customer data, complying with PCI DSS guidelines.</p>
                 </div>
               </div>
             </div>
@@ -132,9 +131,9 @@ function PageContent() {
                 }}>
                 <h2 className='fs-1 heading'>Faster time to Market</h2>
                 <div className="text">
-                  <p>Quickly launch your site with dedicated resources tailored to your project, ensuring timely delivery and adherence to your specific requirements.</p>
-                  <p>Ensuring that our product upholds rigorous quality standards while also minimizing the time needed to bring it to market.</p>
-                  <p>Strategically planning marketing campaigns and leveraging digital channels to create buzz and generate demand before the product is even available.</p>
+                  <p>Building your own portal from the start can take many months or years and significant investment.
+                    With Amadeus Online Suite, you can quickly launch your site.</p>
+                  <p>Experts in digital marketing, product management, and UI/UX are all available to engage with you as launch your online business.</p>
                 </div>
               </div>
             </div>
@@ -174,11 +173,10 @@ function PageContent() {
                   opacity: block4th.contentInView ? 1 : 0,
                   transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                 }}>
-                <h2 className='fs-1 heading'>Customer engagement at all stages</h2>
+                <h2 className='fs-1 heading'>Working with you</h2>
                 <div className="text">
-                  <p>Involve customers in the design process by seeking their feedback on initial concepts, wireframes, and prototypes.</p>
-                  <p>Engage with clients to run testing and pilot initiatives, enabling firsthand experience and feedback on product functionality, performance, and usability.</p>
-                  <p>Engage customers in the development cycle with frequent updates, gathering feedback on new features, and integrating suggestions into iterative releases.</p>
+                  <p>Our team will be involved in the design process right from the inception to finalizing the wireframes and prototyping. Also working closely to test and pilot and validate that the solution works for your end customers.</p>
+                  <p>Delivering frequent updates, gathering feedback, and integrating suggestions into new releases.</p>
                 </div>
               </div>
             </div>
@@ -194,7 +192,7 @@ function PageContent() {
           opacity: block6th.contentInView ? 1 : 0,
           transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
         }}>
-        <h2 className='fs-1'>Accelerate sales with smarter and more effective strategies</h2>
+        <h2 className='fs-1'>Get onboard with Online Suite</h2>
         <Link href={"/contact"} className="btn btn-light btn-lg">Get Started </Link>
       </div>
       <div className="b2b-block__image">

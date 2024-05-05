@@ -35,7 +35,7 @@ function HomeHeroVideo({ videoUrl = "/assets/video.mp4" }) {
           ref={contentRef}>
           <h2 className="fs-1 font-amadeus-bold heading text-balance m-0">Going Online Made Easy for Travel Businesses.</h2>
           <p>
-            Whether you are a small single-site travel agency or an ambitious startup, scaling your travel business to multiple markets, Amadeus Online Suite can help you succeed.
+            Whether you are a single-site travel agency or an ambitious startup, scaling your travel business to multiple markets, Amadeus Online Suite can help you succeed.
           </p>
           <Link href={"/solutions"} className="btn btn-lg btn-secondary">Discover More</Link>
         </div>

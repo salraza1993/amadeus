@@ -132,13 +132,14 @@ const ContactForm = () => {
           placeholder='Enter Phone Number' />
       </div>
       <div className="input-block">
-        <label htmlFor="business">Nature of Business <span className='text-danger'>*</span></label>
+        <label htmlFor="business">Type of Business <span className='text-danger'>*</span></label>
         <select name="business" id="business" value={natureOfBusiness} onChange={(e) => setNatureOfBusiness(e.target.value)}>
           <option value="DEFAULT">-- Select Business's Nature --</option>
           <option value="Online Travel">Online Travel</option>
           <option value="Retail Travel">Retail Travel</option>
           <option value="Consolidator">Consolidator</option>
           <option value="DMC">DMC</option>
+          <option value="New Travel Agency">New Travel Agency</option>
           <option value="Others">Others</option>
         </select>
       </div>

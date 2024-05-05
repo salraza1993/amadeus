@@ -10,6 +10,7 @@ import b2b4thImage from "/public/assets/images/b2c-image-3rd.png";
 import b2b5thImage from "/public/assets/images/b2c-image-4th.png";
 import b2b6thImage from "/public/assets/images/b2c-image-5th.png";
 import b2bModelImage from "/public/assets/images/b2c-mobile-model-image.png";
+import Link from 'next/link';
 
 function useBlockInView() {
   const imageRef = useRef(null);
@@ -31,28 +32,28 @@ function PageContent() {
   const benefitLists = [
     {
       icon: '/assets/images/b2c-mobile-icon-1.svg',
-      title: 'Flexible and User Friendly Interface',
-      description: 'With user-friendly features and customizable options, users can effortlessly access and explore travel offerings, ensuring a smooth and enjoyable experience from start to finish. Our mobile app boasts an intuitive interface designed for seamless navigation'
+      title: 'Flexible and User-Friendly Interface',
+      description: 'With user-friendly features and customizable options, users can access and explore travel offerings, ensuring a smooth and enjoyable experience from start to finish.'
     },
     {
       icon: '/assets/images/b2c-mobile-icon-2.svg',
-      title: 'Multi Language  & Multi Currency',
-      description: 'Cater to diverse global audiences  by offering a localized and convenient booking experience tailored to their preferences using our Multi Language and Multi Currency Features.'
+      title: 'Multi-Language & Multi-Currency',
+      description: 'Cater to diverse global audiences by offering localized content and providing multi-currency options.'
     },
     {
       icon: '/assets/images/b2c-mobile-icon-3.svg',
       title: 'Boost Sales with Promo Codes',
-      description: "Attract and Retain your customers by offering promotional discounts using Promo Codes, thereby stimulating sales, fostering loyalty, aiding marketing efforts, and providing a competitive edge"
+      description: "Attract and Retain your customers by offering promotional discounts using Promo Codes."
     },
     {
       icon: '/assets/images/b2c-mobile-icon-4.svg',
       title: 'View all trips in one place',
-      description: "Access comprehensive trip reports conveniently. Consolidate all travel data into one dashboard for streamlined analysis and informed decision-making, enhancing efficiency and improving customer service."
+      description: "Access comprehensive trip reports conveniently. Consolidate all travel data into one dashboard for streamlined analysis and informed decision-making."
     },
     {
       icon: '/assets/images/b2c-mobile-icon-5.svg',
-      title: 'Case Management',
-      description: "Simplify post-booking service requests with our Case Management feature. Customers can easily open cases for any services after booking creation, ensuring efficient service delivery and customer satisfaction."
+      title: 'Improve service with case management',
+      description: "Simplify post-booking service requests with our Case Management feature. Customers can easily open track and follow-up custom requests."
     },
   ];
   return <>
@@ -67,7 +68,7 @@ function PageContent() {
             }}
             ref={block1st.contentRef}>
             <h2 className='fs-1 heading'>Empowering Travel Agencies with Mobile Solutions</h2>
-            <p>Transforming travel experiences with our innovative mobile app solution tailored for travel agencies, enhancing efficiency and customer satisfaction.</p>
+            <p>The Online Suite mobile application is packed with features to make travel seamless.</p>
             <button className="btn btn-secondary btn-lg mt-1">Get Started</button>
           </div>
           <div className="b2b-block__image"
@@ -107,9 +108,9 @@ function PageContent() {
                 }}>
                 <h2 className='fs-1 heading'>Bookings on the Go</h2>
                 <div className="text">
-                  <p>Access flight and hotel booking services anytime, anywhere, directly from your mobile device, ensuring flexibility and convenience for travelers on the move</p>
-                  <p>Instantly search and book flights and accommodations with up-to-date availability and pricing information, providing users with timely and accurate booking options.</p>
-                  <p>Accessible on both Android and iOS devices, AOS application provides users with the freedom to interact with it, no matter their favored mobile platform.</p>
+                  <p>Access flight and hotel booking services anytime, anywhere, directly from the device, ensuring flexibility and convenience for travelers on the move.</p>
+                  <p>Instantly book flights and accommodation with up-to-date availability and pricing information.</p>
+                  <p>Available on both android and iOS platforms. </p>
                 </div>
               </div>
             </div>
@@ -129,11 +130,11 @@ function PageContent() {
                   opacity: block3rd.contentInView ? 1 : 0,
                   transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                 }}>
-                <h2 className='fs-1 heading'>One Stop Shop for all Content</h2>
+                <h2 className='fs-1 heading'>Diverse content on your mobile</h2>
                 <div className="text">
-                  <p>Seamlessly integrate with airline and hotel APIs to offer a wide range of options, including flights, hotels, and packages, ensuring a comprehensive booking experience for users.</p>
-                  <p>By leveraging advanced API connectivity, our platform enables real-time access to diverse travel inventory, allowing travelers to choose from an extensive array of options. </p>
-                  <p>This integration not only enhances the user experience by providing more choices but also ensures that users can easily find the best deals and book their preferred travel options with convenience and efficiency</p>
+                  <p>Seamlessly integrate with airline and hotel content to offer a wide range of options, ensuring a comprehensive booking experience for users.</p>
+                  <p>Our platform enables real-time access to diverse travel inventory, allowing travelers to choose from extensive options.</p>
+                  <p>Users can easily find the best deals and book their preferred travel options with convenience using the solution.                  </p>
                 </div>
               </div>
             </div>
@@ -175,9 +176,8 @@ function PageContent() {
                 }}>
                 <h2 className='fs-1 heading'>Secure Payment Gateway</h2>
                 <div className="text">
-                  <p>Enable travelers to pay conveniently using various payment gateways, and also offer the option to hold bookings and pay at a later time.</p>
-                  <p>Access a diverse range of payment gateways with Amadeus Online Suite, now offering seamless integration with over 20 leading gateways from different countries across the region.</p>
-                  <p>Customize your payment options by setting up multiple gateways on your site. Define transaction fees for each gateway and card type to tailor the payment experience.</p>
+                  <p>Amadeus Online Suite has more than 20 payment gateways integrated including buy now pay later options for your market.</p>
+                  <p>Customize your payment options by setting up multiple payment gateways on your site. Define transaction fees for each payment gateway and card type to tailor the payment experience.</p>
                 </div>
               </div>
             </div>
@@ -190,8 +190,8 @@ function PageContent() {
       <div className="container">
         <div className="sub-page-block-5th__container">
           <h1 className='block-title mb-5'>
-            Explore the World of Benefits of
-            <strong className='text-secondary'> Amadeus Online Suite Mobile App</strong>
+            Discover the Benefits of 
+            <strong className='text-secondary'> Amadeus Online Suite's Mobile App</strong>
           </h1>
           <div className="row g-4">
             <div className="col-12 col-lg-5 d-flex justify-content-center">
@@ -241,8 +241,8 @@ function PageContent() {
           opacity: block6th.contentInView ? 1 : 0,
           transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
         }}>
-        <h2 className='fs-1'>Accelerate sales with smarter and more effective strategies</h2>
-        <a href="" className='btn btn-light btn-lg'>Get Started</a>
+        <h2 className='fs-1'>Let Amadeus Online Suite be your trusted companion</h2>
+        <Link href={"/contact"} className='btn btn-light btn-lg'>Get Started</Link>
       </div>
       <div className="b2b-block__image">
         <ImageTag src={b2b6thImage} />

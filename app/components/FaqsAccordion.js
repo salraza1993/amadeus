@@ -10,40 +10,36 @@ function FaqsAccordion() {
       description: '<p>Amadeus Online Suite offers various pricing schemes for each module across different markets. Please contact your Amadeus account manager,  or email us at <a href="marketing@amadeus.ae">marketing@amadeus.ae</a> for details.</p>'
     },
     {
-      title: "Do you provide local LCC/hotel content?",
-      description: "<p>Yes, we offer air content from Air Arabia, Fly Dubai, Salam Air, TBO Air, Al Jazeera Airways, air blue, flyJinnah, AirSial, flyadeal, flyNas, and more. <br /> For Hotel content, we have Amadeus Value Hotel, rezlive, TBO Hotel, hotelbeds and Ottila Contact our sales team for further assistance.</p>"
+      title: "Do you provide local Low-Cost Carriers (LCC)/hotel content?",
+      description: "<p>We offer various Low-Cost Carriers (LCC) and hotel content providers, and many more are being added to the solution every quarter.</p>"
     },
     {
       title: "How can I request a demo session?",
       description: '<p>To schedule a demo, please get in touch with your local account manager or email us at <a href="marketing@amadeus.ae">marketing@amadeus.ae</a></p>'
     },
     {
-      title: "Can TMC integrate preferred payment gateways?",
-      description: "<p>Yes, we offer custom development for integrating preferred payment gateways.</p>"
+      title: "Can travel management companies integrate preferred payment gateways?",
+      description: "<p>Yes, Amadeus Online Suite offers custom development for integrating preferred payment gateways.</p>"
     },
     {
       title: "Is there a Content Management System available?",
-      description: "<p>Yes, we provide a comprehensive CMS module for managing content, including options to set up Top Destinations, Static Packages, Testimonials, Top Offers, and more.</p>"
+      description: "<p>Yes, Online Suite has a comprehensive CMS module for managing content, including options to set up Top Destinations, Static Packages, Testimonials, Top Offers, and more.</p>"
     },
     {
       title: "Is Amadeus Online Suite PCI Certified?",
-      description: "<p>Yes, our system is PCI Certified.</p>"
+      description: "<p>Amadeus Online Suite is PCI Certified. With the certification, there are robust security measures in place to protect sensitive customer data and payment information using the latest industry-standard encryption methods.</p>"
     },
     {
       title: "Which META search engine is Amadeus Online Suite connected to?",
-      description: "<p>Amadeus Online Suite is currently under development for WEGO integration and will be available soon.</p>"
+      description: "<p>Amadeus Online Suite is currently connected to WEGO and other meta-search engines are coming soon.</p>"
     },
     {
       title: "Are post-booking functionalities available?",
       description: "<p>Yes, currently it is possible to void a ticket and cancel a PNR. ATC reissue and refunds are currently present in the product roadmap.</p>"
     },
     {
-      title: "Where is the application hosted?",
-      description: "<p>Our application is hosted on Microsoft Azure.</p>"
-    },
-    {
       title: "What payment options are currently available in Amadeus Online Suite?",
-      description: "<p>In Amadeus Online Suite, available payment options include pay at the agency, credit line, wallet, and credit card.</p>"
+      description: "<p>In Amadeus Online Suite, available payment options include book now pay later, credit line, wallet, and credit card.</p>"
     },
     {
       title: "What are the different products available for Amadeus Online Suite?",
