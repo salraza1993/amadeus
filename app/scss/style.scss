@@ -104,6 +104,12 @@ a {
   }
 }
 
+.max-100 {
+  max-width: 100% !important;
+}
+.max-content {
+  max-width: max-content !important;
+}
 .alert {
   max-width: max-content;
   margin-inline: auto;

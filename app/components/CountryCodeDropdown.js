@@ -3,10 +3,10 @@ import ImageTag from './ImageTag';
 
 function CountryCodeDropdown({ onCountryCodeSelect }) {
   const currentCountry = {
-    countryName: "United Arab Emirates",
-    countryCode: "AE",
-    callingCode: "+971",
-    flag: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_United_Arab_Emirates.svg"
+    countryName: "-- Select Country --",
+    countryCode: "",
+    callingCode: "",
+    flag: ""
   };
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(currentCountry);
@@ -69,12 +69,10 @@ function CountryCodeDropdown({ onCountryCodeSelect }) {
     <div className="input-block" ref={dropdownRef}>
       <label htmlFor="email">Country <span className='text-danger'>*</span></label>
       <div className="country-dropdown__selected" onClick={showDropdownHandler}>
-        <span className="flag">
-          <ImageTag src={selectedCountry.flag} width={"35px"} />
-        </span>
+        {selectedCountry.flag && <span className="flag"><ImageTag src={selectedCountry.flag} width={"35px"} /></span>}
         <span className="countryName">
           {selectedCountry.countryName}
-          <strong> ({selectedCountry.callingCode})</strong>
+          {selectedCountry.callingCode && <strong> ({selectedCountry.callingCode})</strong>}
         </span>
       </div>
       {showDropdown && (

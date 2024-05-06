@@ -15,9 +15,10 @@ const ContactForm = () => {
   const [natureOfBusiness, setNatureOfBusiness] = useState("");
   const [comments, setComments] = useState("");
   const [privacyPolicy, setPrivacyPolicy] = useState(false);
-  
+
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("All fields are required. Marked with (*)");
+  const [success, setSuccess] = useState(false);
 
   const [captcha, setCaptcha] = useState(null);
   const [captchaError, setCaptchaError] = useState(false);
@@ -33,9 +34,9 @@ const ContactForm = () => {
     setPhoneNumber("");
     setNatureOfBusiness("");
     setComments("");
-    setPrivacyPolicy(false)
-    setError(false)
-  }
+    setPrivacyPolicy(false);
+    setError(false);
+  };
   // Email Validation
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
@@ -47,21 +48,21 @@ const ContactForm = () => {
 
     // Basic validation
     if (!fullName || !companyName || !emailId || !phoneNumber || !natureOfBusiness || !privacyPolicy) {
-      setError(true)
+      setError(true);
       return;
     }
-    if (!isValidEmail(emailId)) { 
+    if (!isValidEmail(emailId)) {
       setError(true);
-      setErrorMessage("Please enter a valid Email!")
+      setErrorMessage("Please enter a valid Email!");
       return;
     }
-    if (!country || country === "") { 
+    if (!country || country === "") {
       setError(true);
-      setErrorMessage("Please, Select the Country")
+      setErrorMessage("Please, Select the Country");
       return;
     }
 
-    setError(false)
+    setError(false);
     const formData = {
       "your-name": fullName,
       "your-company-name": companyName,
@@ -70,29 +71,29 @@ const ContactForm = () => {
       "your-phone": country.callingCode + phoneNumber,
       "your-nature-of-business": natureOfBusiness,
       "your-message": comments,
-    }
+    };
 
     function postSuccess(data, uid) {
-      console.log("success",data, uid);
+      if (data.status === "mail_sent") {
+        setSuccess(true);
+        setTimeout(() => {
+          setSuccess(false);
+        }, 3500);
+      } else {
+        setSuccess(false);
+      }
     }
 
-    function postError(data, uid) {
-      console.log("error",data, uid);
-    }
-    
     formData['_wpcf7_unit_tag'] = new Date();
     console.table(formData);
     let header = { headers: { 'Content-Type': 'multipart/form-data' } };
-    fetch_post({ data: formData, url: "https://aoscmsadmin.amadeusonlinesuite.com/wp-json/contact-form-7/v1/contact-forms/16/feedback", header: header }, { success: postSuccess, error: postError });
-    resetFormData()
+    fetch_post({ data: formData, url: "https://aoscmsadmin.amadeusonlinesuite.com/wp-json/contact-form-7/v1/contact-forms/16/feedback", header: header }, { success: postSuccess, error: postSuccess });
+    resetFormData();
   };
 
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-      {error && <div className="alert alert-danger d-flex gap-3 align-items-center py-3">
-        <i className="fa-solid fa-triangle-exclamation"></i> {errorMessage}
-      </div>}
       <div className="input-block">
         <label htmlFor="fullName">Full Name <span className='text-danger'>*</span></label>
         <input
@@ -119,16 +120,16 @@ const ContactForm = () => {
           type="text"
           id='email'
           placeholder='Enter Email' />
-        
+
       </div>
       <CountryCodeDropdown onCountryCodeSelect={handleCountrySelect} />
       <div className="input-block">
         <label htmlFor="number">Phone Number <span className='text-danger'>*</span></label>
-        <input 
+        <input
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
-          type="text" 
-          id='number' 
+          type="text"
+          id='number'
           placeholder='Enter Phone Number' />
       </div>
       <div className="input-block">
@@ -145,19 +146,19 @@ const ContactForm = () => {
       </div>
       <div className="input-block">
         <label htmlFor="comment">Additional Comments (optional)</label>
-        <textarea 
+        <textarea
           value={comments}
           onChange={(e) => setComments(e.target.value)}
-          name="comment" 
-          id="comment" 
-          cols="30" 
-          rows="3" 
+          name="comment"
+          id="comment"
+          cols="30"
+          rows="3"
           placeholder='Enter your comment'></textarea>
       </div>
       <div className="input-tnc">
         <div>
-        <input type="checkbox" value={privacyPolicy}
-          onChange={(e) => setPrivacyPolicy(e.target.value)} name="privacyPolicy" id="privacyPolicy" />
+          <input type="checkbox" value={privacyPolicy}
+            onChange={(e) => setPrivacyPolicy(e.target.value)} name="privacyPolicy" id="privacyPolicy" />
           <label htmlFor="privacyPolicy">
             <small>
               By submitting this form, I confirm that I have read and understand
@@ -166,11 +167,24 @@ const ContactForm = () => {
               </Link>
             </small>
             <span className='text-danger'> *</span>
-          </label>          
+          </label>
         </div>
       </div>
       <button type="submit" className='btn btn-secondary btn-lg submit-button'>Submit</button>
-      
+      {
+        error && <div className="alert alert-danger d-flex gap-3 align-items-center py-3">
+          <i className="fa-solid fa-triangle-exclamation"></i> {errorMessage}
+        </div>
+      }
+      {
+        success && <div className="alert w-100 max-100 alert-success d-flex gap-3 align-items-center py-3">
+          <i className="fa-solid fa-triangle-exclamation"></i>
+          <span>
+            The form has been submitted successfully! <br />
+            We'll contact you shortly!
+          </span>
+        </div>
+      }
     </form>
   );
 };

@@ -1,3 +1,27 @@
+.contact-footer-icon {
+  position: fixed;
+  inset-block-end: calc(1rem + 1vw);
+  inset-inline-end: calc(1rem + 1vw);
+  background-color: red;
+  z-index: 15;
+  width: 50px;
+  aspect-ratio: 1 / 1;
+  font-size: 1.25rem;
+  line-height: 50px;
+  text-align: center;
+  background-color: var(--bs-secondary);
+  color: var(--bs-white);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--bs-transition);
+  &:hover {
+    scale: 1.1;
+  }
+  box-shadow:
+    2px 6.7px 5.3px rgba(var(--bs-dark-rgb), 0.016),
+    6.7px 22.3px 17.9px rgba(var(--bs-dark-rgb), 0.024),
+    30px 100px 80px rgba(var(--bs-dark-rgb), 0.04);
+}
 .main-footer {
   position: relative;
   padding-block: calc(1.5rem + 2vw) calc(0.5rem + 1vw);
