@@ -4,14 +4,19 @@ import FaqsAccordion from '../components/FaqsAccordion';
 import Link from 'next/link';
 import ResourcesVideoSection from '../components/ResourcesVideoSection';
 import ImageTag from '../components/ImageTag';
+import { graphQLPromise } from '../common/CommonFunctions';
 
-export default function Resources() {
-  const heroBannerHeading = "Learn How Amadeus Online Suite Can Elevate Your Business"
-  const heroBannerDescription = "Resources to Start and Grow Your Business with ease."
-  const heroBannerImage = "/assets/images/resources-banner.png";
+export default async function Resources() {
+  // Fetching Top Banner Data
+  let pageData = await getPageData();
+  const topBannerData = pageData.data?.pages?.edges[0]?.node;
+  const downloadableBlocks = pageData.data?.pages?.edges[0]?.node?.resources?.rDownloads;
+  const faqsData = pageData.data?.pages?.edges[0]?.node?.resourceFaqs?.rFaqs;
+  const faqsSideImage = pageData.data?.pages?.edges[0]?.node?.resourceFaqs?.rFaqsSideImage;
+  const lastSectionContent = pageData.data?.pages?.edges[0]?.node?.resourcesLastSection;
   
   return <>
-    <HeroBanner image={heroBannerImage} heading={heroBannerHeading} description={heroBannerDescription} />
+    <HeroBanner data={topBannerData} />
     {/* <ResourcesVideoSection /> */}
     
     {/* <section className="browse-content-section">
@@ -70,21 +75,25 @@ export default function Resources() {
       <div className="container">
         <h2 className='fs-1 text-white text-center'>Download  Section</h2>
         <div className="download-container">
-          <div className="download-card">
-            <small>Amadeus Online Suite</small>
-            <h5>Sales sheet</h5>
-            <a href="./assets/downloadable-files/AOS.pdf" download="Amadeus Online Suite.pdf" type=".pdf" title="Download Amadeus Online Suite"  className='download-button'>Download Now <i className="fa-solid fa-download"></i></a>
-          </div>
-          <div className="download-card">
-            <small>Amadeus Online Suite</small>
-            <h5>Brochure - Mobile App</h5>
-            <a href="./assets/downloadable-files/brochure-mobile.pdf" download="Amadeus Travel Suite-Mobile Sales Sheet.pdf" type=".pdf" title="Download Amadeus Online Suite"  className='download-button'>Download Now <i className="fa-solid fa-download"></i></a>
-          </div>
-          <div className="download-card">
-            <small>Amadeus Online Suite</small>
-            <h5>What’s New</h5>
-            <a href="" className='download-button'>Download Now <i className="fa-solid fa-download"></i></a>
-          </div>
+          {
+            downloadableBlocks.map((item, index) => {
+              const fileType = item?.rDownloadable?.rDownloadableFile?.node?.mimeType.split('/')[1];
+              const filePath = item?.rDownloadable?.rDownloadableFile?.node?.mediaItemUrl;
+              return <div className="download-card" kye={index}>
+                <small>{item?.rSmallText}</small>
+                <h5>{item?.rTitleText}</h5>
+                {filePath && <Link
+                  href={filePath}
+                  download={item?.rDownloadable?.rDownloadedFileName}
+                  type={"." + fileType}
+                  target='self'
+                  title={item?.rDownloadable?.rDownlaodTitle}
+                  className='download-button'>Download Now <i className="fa-solid fa-download"></i>
+                </Link>}
+              </div>
+
+            })
+          }          
         </div>
       </div>
     </section>
@@ -94,11 +103,11 @@ export default function Resources() {
         <div className="faqs-container">
           <div className="row">
             <div className="col-12 col-lg-7">
-              <FaqsAccordion />
+              <FaqsAccordion data={faqsData} />
             </div>
             <div className="col-12 col-lg-5">
               <div className="image">
-                <ImageTag src={"/assets/images/faqs-image.png"} />
+                <ImageTag src={faqsSideImage?.node?.sourceUrl} alt={faqsSideImage?.node?.altText} />
               </div>
             </div>
           </div>
@@ -109,13 +118,77 @@ export default function Resources() {
     <section className="short-info-section">
       <div className="container">
         <div className="short-info-container">
-          <h2 className='fs-1'>Boost your sales rapidly, intelligently, and efficiently.</h2>
-          <p>Experience powerful features, tailored content, and personalized services to maximize your market presence. Click below to.</p>
-          <Link href={'/contact'} className='btn btn-secondary btn-lg'>Get Started</Link>
+          <div dangerouslySetInnerHTML={{ __html: lastSectionContent?.rLastSectionContent }}></div>
+          <Link
+            href={lastSectionContent?.rLastSectionButton?.url}
+            target={lastSectionContent?.rLastSectionButton?.target}
+            className='btn btn-secondary btn-lg'>
+            {lastSectionContent?.rLastSectionButton?.title}
+          </Link>
         </div>
       </div>
     </section>
 
-
   </>;
+}
+
+
+// Fetching Counter
+async function getPageData() {
+  return await graphQLPromise(
+    "topBanner",
+    `query topBanner {
+      pages(where: {id: 72}) {
+        edges {
+          node {
+            content
+            featuredImage {
+              node {
+                altText
+                sourceUrl
+              }
+            }
+            resources {
+              rDownloads {
+                rSmallText
+                rTitleText
+                rDownloadable {
+                  rDownlaodTitle
+                  rDownloadedFileName
+                  rDownlaodFileType
+                  rDownloadableFile {
+                    node {
+                      mediaType
+                      mimeType
+                      mediaItemUrl
+                    }
+                  }
+                }
+              }
+            }
+            resourceFaqs {
+              rFaqs {
+                rFaqsContent
+                rFaqsHeading
+              }
+              rFaqsSideImage {
+                node {
+                  altText
+                  sourceUrl
+                }
+              }
+            }
+            resourcesLastSection {
+              rLastSectionButton {
+                target
+                title
+                url
+              }
+              rLastSectionContent
+            }
+          }
+        }
+      }
+    }`
+  );
 }

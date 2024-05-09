@@ -21,13 +21,22 @@ function useBlockInView() {
   return { imageRef, imageInView, contentRef, contentInView };
 }
 
-function PageContent() {
+function PageContent({data}) {
   const block1st = useBlockInView();
   const block2nd = useBlockInView();
   const block3rd = useBlockInView();
   const block4th = useBlockInView();
   const block5th = useBlockInView();
   const block6th = useBlockInView();
+
+  const sec_1st_data = data?.tmo1stSections;
+  const sec_2nd_data = data?.tmo2ndSections;
+  const sec_3rd_data = data?.tmo3rdSections;
+  const sec_4th_data = data?.tmo4thSections;
+  const sec_5th_data = data?.tmo5thSections;
+  const sec_6th_data = data?.tmo6thSections;
+
+  // const benefitLists = sec_5th_data?.tmoSec5thList;
 
   const benefitLists = [
     {
@@ -67,9 +76,13 @@ function PageContent() {
               transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
             }}
             ref={block1st.contentRef}>
-            <h2 className='fs-1 heading'>Tailor your offering to match your business vision</h2>
-            <p>We understand that your business needs are unique and that your growth plan can change from time to time. With this option, you can choose your own designs, workflow suppliers, business rules, and much more.  You can also engage a dedicated team and define your own roadmap for your online suite. </p>
-            <Link href={"/contact"} className="btn btn-secondary btn-lg mt-1">Get Started </Link>
+            <div dangerouslySetInnerHTML={{ __html: sec_1st_data?.tmoSec1stContent }}></div>
+            <Link
+              href={sec_1st_data?.tmoSec1stButton?.url}
+              alt={sec_1st_data?.tmoSec1stButton?.altText}
+              className="btn btn-secondary btn-lg mt-1">
+              {sec_1st_data?.tmoSec1stButton?.title}
+            </Link>
           </div>
           <div className="b2b-block__image"
             style={{
@@ -79,7 +92,9 @@ function PageContent() {
               transitionDelay: ".8s",
             }}
             ref={block1st.imageRef}>
-            <ImageTag src={b2b2ndImage} width={'auto'} />
+            <ImageTag
+              src={sec_1st_data?.tmoSec1stImage?.node?.sourceUrl}
+              alt={sec_1st_data?.tmoSec1stImage?.node?.altText} width={'auto'} />                                        
           </div>
         </div>
       </div>
@@ -96,7 +111,9 @@ function PageContent() {
                 transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
                 transitionDelay: ".8s",
               }}>
-                <ImageTag src={b2b3rdImage} />
+                <ImageTag
+                  src={sec_2nd_data?.tmoSec2ndImage?.node?.sourceUrl}
+                  alt={sec_2nd_data?.tmoSec2ndImage?.node?.altText} />
               </div>
             </div>
             <div className="col-12 col-lg-5 d-flex justify-content-center align-items-center">
@@ -107,10 +124,7 @@ function PageContent() {
                   transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                 }}>
                 <h2 className='fs-1 heading'>Robust Technology</h2>
-                <div className="text">
-                  <p>The application uses cutting-edge technology to continuously develop and customize the solution according to market requirements. It is also equipped with essential security measures like data backups, encryption, incident monitoring, and disaster recovery plans.</p>
-                  <p>Amadeus Online Suite follows strict security standards for handling payments and customer data, complying with PCI DSS guidelines.</p>
-                </div>
+                <div className="text" dangerouslySetInnerHTML={{ __html: sec_2nd_data?.tmoSec2ndContent }}></div>
               </div>
             </div>
           </div>
@@ -129,12 +143,7 @@ function PageContent() {
                   opacity: block3rd.contentInView ? 1 : 0,
                   transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                 }}>
-                <h2 className='fs-1 heading'>Faster time to Market</h2>
-                <div className="text">
-                  <p>Building your own portal from the start can take many months or years and significant investment.
-                    With Amadeus Online Suite, you can quickly launch your site.</p>
-                  <p>Experts in digital marketing, product management, and UI/UX are all available to engage with you as launch your online business.</p>
-                </div>
+                <div className="text" dangerouslySetInnerHTML={{ __html: sec_3rd_data?.tmoSec3rdContent }}></div>
               </div>
             </div>
             <div className="col-12 col-lg-7 ps-0 d-flex justify-content-center">
@@ -144,7 +153,9 @@ function PageContent() {
                 transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
                 transitionDelay: ".8s",
               }}>
-                <ImageTag src={b2b4thImage} />
+                <ImageTag
+                  src={sec_3rd_data?.tmoSec3rdImage?.node?.sourceUrl}
+                  alt={sec_3rd_data?.tmoSec3rdImage?.node?.altText} />
               </div>
             </div>
           </div>
@@ -163,7 +174,9 @@ function PageContent() {
                 transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
                 transitionDelay: ".8s",
               }}>
-                <ImageTag src={b2b5thImage} />
+                <ImageTag
+                  src={sec_4th_data?.tmoSec4thImage?.node?.sourceUrl}
+                  alt={sec_4th_data?.tmoSec4thImage?.node?.altText} />
               </div>
             </div>
             <div className="col-12 col-lg-5 d-flex justify-content-center align-items-center">
@@ -173,11 +186,7 @@ function PageContent() {
                   opacity: block4th.contentInView ? 1 : 0,
                   transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                 }}>
-                <h2 className='fs-1 heading'>Working with you</h2>
-                <div className="text">
-                  <p>Our team will be involved in the design process right from the inception to finalizing the wireframes and prototyping. Also working closely to test and pilot and validate that the solution works for your end customers.</p>
-                  <p>Delivering frequent updates, gathering feedback, and integrating suggestions into new releases.</p>
-                </div>
+                <div className="text" dangerouslySetInnerHTML={{ __html: sec_4th_data?.tmoSec4thContent }}></div>
               </div>
             </div>
           </div>
@@ -192,11 +201,12 @@ function PageContent() {
           opacity: block6th.contentInView ? 1 : 0,
           transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
         }}>
-        <h2 className='fs-1'>Get onboard with Online Suite</h2>
-        <Link href={"/contact"} className="btn btn-light btn-lg">Get Started </Link>
+        <div className="text" dangerouslySetInnerHTML={{ __html: sec_6th_data?.tmoSec6thContent }}></div>
       </div>
       <div className="b2b-block__image">
-        <ImageTag src={b2b6thImage} />
+        <ImageTag
+          src={sec_6th_data?.tmoSec6thImage?.node?.sourceUrl}
+          alt={sec_6th_data?.tmoSec6thImage?.node?.altText} />
       </div>
     </section>
   </>;

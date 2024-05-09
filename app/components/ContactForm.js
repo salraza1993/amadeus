@@ -85,7 +85,6 @@ const ContactForm = () => {
     }
 
     formData['_wpcf7_unit_tag'] = new Date();
-    console.table(formData);
     let header = { headers: { 'Content-Type': 'multipart/form-data' } };
     fetch_post({ data: formData, url: "https://aoscmsadmin.amadeusonlinesuite.com/wp-json/contact-form-7/v1/contact-forms/16/feedback", header: header }, { success: postSuccess, error: postSuccess });
     resetFormData();

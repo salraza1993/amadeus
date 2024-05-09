@@ -7,28 +7,11 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import ImageTag from './ImageTag';
+import { useState } from 'react';
+import { arrayDivideByGroup } from '../common/CommonFunctions';
 
-function PaymentProvidersCarousel() {
-
-  const paymentProvidersList = [
-    [
-      '/assets/images/payments-logos/payment-provider-1.png',
-      '/assets/images/payments-logos/payment-provider-2.png',
-      '/assets/images/payments-logos/payment-provider-3.png',
-      '/assets/images/payments-logos/payment-provider-4.png',
-      '/assets/images/payments-logos/payment-provider-5.png',
-      '/assets/images/payments-logos/payment-provider-6.png',
-      '/assets/images/payments-logos/payment-provider-7.png',
-      '/assets/images/payments-logos/payment-provider-8.png',
-      '/assets/images/payments-logos/payment-provider-9.png',
-      '/assets/images/payments-logos/payment-provider-10.png',
-    ],
-    [
-      '/assets/images/payments-logos/payment-provider-11.png',
-      '/assets/images/payments-logos/payment-provider-12.png',
-      '/assets/images/payments-logos/payment-provider-13.png',
-    ],
-  ];
+function PaymentProvidersCarousel({ data }) {
+  const [paymentProvidersList, setProvidersList] = useState(arrayDivideByGroup(data, 10));
 
   return <Swiper
     pagination={{
@@ -50,7 +33,7 @@ function PaymentProvidersCarousel() {
             {
               paymentProviderItem.map((paymentProvider, index) => {
                 return <li className="providers-list__item" key={index}>
-                  <ImageTag src={paymentProvider} />
+                  <ImageTag src={paymentProvider?.node?.sourceUrl} alt={paymentProvider?.node?.altText} />
                 </li>;
               })
             }

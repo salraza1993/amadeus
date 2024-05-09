@@ -47,15 +47,16 @@ function SolutionsBlocks({ data }) {
           <div className="container">
             <div className={index % 2 === 0 ? "row g-4" : 'row g-4 flex-row-reverse'}>
               <div className="col-12 col-lg-6 d-flex justify-content-center">
-                <BlockImage imageUrl={ block.image } />
+                <BlockImage imageUrl={block.sImage.node?.sourceUrl } />
               </div>
               <div className="col-12 col-lg-6 d-flex justify-content-center align-items-center">
                 <BlockContent 
-                  title={block.title} 
-                  subTitle={block.subTitle} 
-                  description={block.description} 
-                  path={block.path}
+                  title={block.sTitle} 
+                  subTitle={block.sSubtitle} 
+                  description={block.sDescription} 
+                  path={block.sCtaButton.url}
                   index={index} />
+                
               </div>
             </div>
           </div>

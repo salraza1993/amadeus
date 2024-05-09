@@ -21,7 +21,7 @@ function useBlockInView() {
   return { imageRef, imageInView, contentRef, contentInView };
 }
 
-function PageContent() {
+function PageContent({data}) {
   const block1st = useBlockInView();
   const block2nd = useBlockInView();
   const block3rd = useBlockInView();
@@ -29,33 +29,15 @@ function PageContent() {
   const block5th = useBlockInView();
   const block6th = useBlockInView();
 
-  const benefitLists = [
-    {
-      icon: '/assets/images/b2c-enterprise-icon-1.svg',
-      title: 'Connect your site with Meta Search Engines',
-      description: 'Grow your online business through seamless connectivity to the popular travel meta-search engines in the market. Benefit from hundreds of bookings per day using this module.'
-    },
-    {
-      icon: '/assets/images/b2c-enterprise-icon-2.svg',
-      title: 'Customize content for every country you operate in',
-      description: 'Tailor your website with a personalized touch by leveraging your custom domain to reinforce your brand identity. Additionally, the multi-geography feature, delivers customized content to diverse regions, enhancing engagement and relevance.'
-    },
-    {
-      icon: '/assets/images/b2c-enterprise-icon-3.svg',
-      title: 'Analytics & Search Engine Optimization',
-      description: "Enhance your website's visibility and ranking with SEO while gaining valuable user insights through Analytics, enabling data-driven decisions leading to higher conversions."
-    },
-    {
-      icon: '/assets/images/b2c-enterprise-icon-4.svg',
-      title: 'Flexible Payment Options',
-      description: "Amadeus Online Suite has more than 20 payment gateways integrated including buy now pay later options for your market. Our team can integrate new and smart payment options in a short time"
-    },
-    {
-      icon: '/assets/images/b2c-enterprise-icon-5.svg',
-      title: 'Improve your margin with cross-sell',
-      description: "Option to sell other products at various points of a customer journey ensuring transaction success."
-    },
-  ];
+  const sec_1st_data = data?.b2ce1stSections;
+  const sec_2nd_data = data?.b2ce2ndSections;
+  const sec_3rd_data = data?.b2ce3rdSections;
+  const sec_4th_data = data?.b2ce4thSections;
+  const sec_5th_data = data?.b2ce5thSections;
+  const sec_6th_data = data?.b2ce6thSections;
+
+  const benefitLists = sec_5th_data?.b2ceSec5thList;
+  
   return (
     <>
       <section className="sub-page-block sub-page-block-1st">
@@ -67,9 +49,13 @@ function PageContent() {
               transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
             }}
               ref={block1st.contentRef}>
-              <h2 className='fs-1 heading'>Allow your customers to Navigate the World with Ease</h2>
-              <p>Unlock seamless travel experiences with our powerful online booking engine, tailored for your convenience</p>
-              <button className="btn btn-secondary btn-lg mt-1">Get Started</button>
+              <div dangerouslySetInnerHTML={{ __html: sec_1st_data?.b2ceSec1stContent }}></div>
+              <Link
+                href={sec_1st_data?.b2ceSec1stButton?.url}
+                alt={sec_1st_data?.b2ceSec1stButton?.altText}
+                className="btn btn-secondary btn-lg mt-1">
+                {sec_1st_data?.b2ceSec1stButton?.title}
+              </Link>
             </div>
             <div className="b2b-block__image"
               style={{
@@ -79,7 +65,9 @@ function PageContent() {
                 transitionDelay: ".8s",
               }}
               ref={block1st.imageRef} >
-              <ImageTag src={b2b2ndImage} width={'auto'} />
+              <ImageTag
+                src={sec_1st_data?.b2ceSec1stImage?.node?.sourceUrl}
+                alt={sec_1st_data?.b2ceSec1stImage?.node?.altText} width={'auto'} />
             </div>
           </div>
         </div>
@@ -96,7 +84,9 @@ function PageContent() {
                   transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
                   transitionDelay: ".8s",
                 }}>
-                  <ImageTag src={b2b3rdImage} width={"100%"} />
+                  <ImageTag
+                    src={sec_2nd_data?.b2ceSec2ndImage?.node?.sourceUrl}
+                    alt={sec_2nd_data?.b2ceSec2ndImage?.node?.altText} />
                 </div>
               </div>
               <div className="col-12 col-lg-5 d-flex justify-content-center align-items-center">
@@ -106,11 +96,7 @@ function PageContent() {
                     opacity: block2nd.contentInView ? 1 : 0,
                     transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                   }}>
-                  <h2 className='fs-1 heading'>One-stop shop for all content</h2>
-                  <div className="text">
-                    <p>Our search technology can help you combine the GDS and Low-Cost Carrier recommendations. Convert even more by automatically proposing the best alternate match when the travelers are unable to book the selected flights.</p>
-                    <p>Amadeus Online Suite provides automatic cross-selling proposals on other services such as hotels, tour packages, visa services, and many more.</p>
-                  </div>
+                  <div className="text" dangerouslySetInnerHTML={{ __html: sec_2nd_data?.b2ceSec2ndContent }}></div>
                 </div>
               </div>
             </div>
@@ -129,12 +115,7 @@ function PageContent() {
                     opacity: block3rd.contentInView ? 1 : 0,
                     transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                   }}>
-                  <h2 className='fs-1 heading'>Stay in control of your online business</h2>
-                  <div className="text">
-                    <p>Online Suite has an administration module to configure options for markups, discounts, and deal codes.</p>
-                    <p>Easily configure airline and ticketing settings from the Supplier Management feature.</p>
-                    <p>In addition to that, the user creation feature provides users access to various modules based on specific requirements.</p>
-                  </div>
+                  <div className="text" dangerouslySetInnerHTML={{ __html: sec_3rd_data?.b2ceSec3rdContent }}></div>
                 </div>
               </div>
               <div className="col-12 col-lg-7 ps-0 d-flex justify-content-center">
@@ -144,7 +125,9 @@ function PageContent() {
                   transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
                   transitionDelay: ".8s",
                 }}>
-                  <ImageTag src={b2b4thImage} />
+                  <ImageTag
+                    src={sec_3rd_data?.b2ceSec3rdImage?.node?.sourceUrl}
+                    alt={sec_3rd_data?.b2ceSec3rdImage?.node?.altText} />
                 </div>
               </div>
             </div>
@@ -188,10 +171,7 @@ function PageContent() {
       <section className='sub-page-block sub-page-block-5th'>
         <div className="container">
           <div className="sub-page-block-5th__container">
-            <h1 className='block-title mb-5'>
-              Go the extra mile with  <br />
-              <strong className='text-secondary'> Amadeus Online Suite</strong>
-            </h1>
+            <div dangerouslySetInnerHTML={{ __html: sec_5th_data?.b2ceSec5thHeading }}></div>
             <div className="row g-4">
               <div className="col-12 col-lg-5 d-flex justify-content-center">
                 <div className="b2b-block__image" ref={block5th.imageRef} style={{
@@ -200,7 +180,9 @@ function PageContent() {
                   transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
                   transitionDelay: ".8s",
                 }}>
-                  <ImageTag src={b2bModelImage} />
+                  <ImageTag
+                    src={sec_5th_data?.b2ceSec5thImage?.node?.sourceUrl}
+                    alt={sec_5th_data?.b2ceSec5thImage?.node?.altText} />
                 </div>
               </div>
               <div className="col-12 col-lg-7 d-flex justify-content-center align-items-center">
@@ -215,12 +197,9 @@ function PageContent() {
                       benefitLists.map((item, index) => {
                         return <li className="content-list__item" key={index}>
                           <span className="icon">
-                            <ImageTag src={item.icon} />
+                            <ImageTag src={item?.b2ceSec5thListIcon?.node?.sourceUrl} alt={item?.b2ceSec5thListIcon?.node?.altText} />
                           </span>
-                          <div className="text">
-                            <h5 className='fw-bold'>{item.title}</h5>
-                            <p>{item.description}</p>
-                          </div>
+                          <div className="text" dangerouslySetInnerHTML={{ __html: item?.b2ceSec5thListContent }}></div>
                         </li>;
                       })
                     }
@@ -240,11 +219,16 @@ function PageContent() {
             opacity: block6th.contentInView ? 1 : 0,
             transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
           }}>
-          <h2 className='fs-1'>Stay ahead of the competition by deploying Amadeus Online Suite for your business</h2>
-          <Link href={"/contact"} className='btn btn-light btn-lg'>Get Started</Link>
+          <div className="text" dangerouslySetInnerHTML={{ __html: sec_6th_data?.b2ceSec6thContent }}></div>
+          <Link
+            href={sec_6th_data?.b2ceSec6thButton?.url}
+            target={sec_6th_data?.b2ceSec6thButton?.target}
+            className='btn btn-light btn-lg'>{sec_6th_data?.b2ceSec6thButton?.title}</Link>
         </div>
         <div className="b2b-block__image">
-          <ImageTag src={b2b6thImage} />
+          <ImageTag
+            src={sec_6th_data?.b2ceSec6thImage?.node?.sourceUrl}
+            alt={sec_6th_data?.b2ceSec6thImage?.node?.altText} />
         </div>
       </section>
     </>

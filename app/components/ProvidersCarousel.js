@@ -7,28 +7,11 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import ImageTag from './ImageTag';
+import { useState } from 'react';
+import { arrayDivideByGroup } from '../common/CommonFunctions';
 
-function ProvidersCarousel() {
-
-  const providersList = [
-    [
-      '/assets/images/providers-logos/provide-logo-1.png',
-      '/assets/images/providers-logos/provide-logo-2.png',
-      '/assets/images/providers-logos/provide-logo-3.png',
-      '/assets/images/providers-logos/provide-logo-4.png',
-      '/assets/images/providers-logos/provide-logo-5.png',
-      '/assets/images/providers-logos/provide-logo-6.png',
-      '/assets/images/providers-logos/provide-logo-7.png',
-      '/assets/images/providers-logos/provide-logo-8.png',
-      '/assets/images/providers-logos/provide-logo-9.png',
-      '/assets/images/providers-logos/provide-logo-10.png',
-    ],
-    [
-      '/assets/images/providers-logos/provide-logo-11.png',
-      '/assets/images/providers-logos/provide-logo-12.png',
-      '/assets/images/providers-logos/provide-logo-13.png',
-    ],
-  ];
+function ProvidersCarousel({ data }) {
+  const [providersList, setProvidersList] = useState(arrayDivideByGroup(data, 10));
 
   return <Swiper
     pagination={{
@@ -50,7 +33,7 @@ function ProvidersCarousel() {
             {
               providerItem.map((provider, index) => {
                 return <li className="providers-list__item" key={index}>
-                  <ImageTag src={provider} />
+                  <ImageTag src={provider?.node?.sourceUrl} alt={provider?.node?.altText} />
                 </li>;
               })
             }

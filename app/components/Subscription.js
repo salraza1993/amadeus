@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { fetch_post } from "../common/CommonFunctions";
 
-function Subscription() {
+function Subscription({content}) {
   const [email, setEmail] = useState("");
   const [error, setError] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -44,8 +44,8 @@ function Subscription() {
   return <section className="subscribe-section">
     <div className="container">
       <div className="subscribe-container">
-        <h2 className='fs-1 font-amadeus-medium text-balance'>Scaling your travel business the easy way</h2>
-        <h5>Stay Up To Date With New Product Features & Industry Best Practices</h5>
+        <h2 className='fs-1 font-amadeus-medium text-balance'>{content?.newsletterHeading}</h2>
+        <h5>{content?.newsletterText}</h5>
         <form action="" className='newsletterForm' onSubmit={handleSubmit}>
           <input type="text" placeholder='Enter your email' value={email}
             onChange={(e) => setEmail(e.target.value)} />

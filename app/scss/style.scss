@@ -61,7 +61,9 @@ a {
 
 .btn {
   border-radius: 0;
-  padding-inline: calc(1rem + 0.75vw);
+  @media (width > 768px) {
+    padding-inline: calc(1rem + 0.75vw);
+  }
 
   &-primary {
     --bs-btn-color: #fff;

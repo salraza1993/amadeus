@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 
 function Counter({ data }) {
-  const { labelBefore, labelAfter, plusSymbol, number, duration } = data;
+  const { label, value, duration } = data;
 
   const [count, setCount] = useState("0");
   const [isInViewport, setIsInViewport] = useState(false);
@@ -31,7 +31,7 @@ function Counter({ data }) {
 
   useEffect(() => {
     let start = 0;
-    const end = parseInt(number.substring(0, 3));
+    const end = parseInt(value.substring(0, 3));
     if (!isInViewport || start === end) return;
 
     let totalMilSecDur = parseInt(duration);
@@ -39,7 +39,7 @@ function Counter({ data }) {
 
     let timer = setInterval(() => {
       start += 1;
-      setCount(String(start) + number.substring(3));
+      setCount(String(start) + value.substring(3));
       if (start === end) clearInterval(timer);
     }, incrementTime);
 
@@ -48,7 +48,7 @@ function Counter({ data }) {
       clearInterval(timer);
       setCount("0");
     };
-  }, [isInViewport, number, duration]);
+  }, [isInViewport, value, duration]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,9 +66,8 @@ function Counter({ data }) {
 
   return (
     <li className="counters__list" ref={counterRef}>
-      {labelBefore && <small>{labelBefore}</small>}
-      <h2 className='font-amadeus-bold fs-1'>{plusSymbol && '+'} {count}</h2>
-      {labelAfter && <small>{labelAfter}</small>}
+      <h2 className='font-amadeus-bold fs-1'> {'+' + count}</h2>
+      {label && <small>{label}</small>}
     </li>
   );
 }

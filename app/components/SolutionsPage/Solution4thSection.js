@@ -21,9 +21,8 @@ function Solution4thSection({ data }) {
               transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
             }}    
             className="content">
-            <h2 className='fs-1'>Unlock business growth with Amadeus Online Suite today!</h2>
-            <p>Experience powerful features, tailored content, and personalized services to maximize your market presence.</p>
-            <Link href={"/contact"} className='btn btn-secondary btn-lg'>Get in touch</Link>
+            <div className='d-flex flex-column gap-2' dangerouslySetInnerHTML={{ __html: data?.s4thContent }}></div>
+            <Link href={data?.s4thLink?.url} target={data?.s4thLink?.target} className='btn btn-secondary btn-lg'>{data?.s4thLink?.title}</Link>
           </div>
         </div>
         <div className="col-12 col-lg-6 d-flex justify-content-end">
@@ -36,7 +35,7 @@ function Solution4thSection({ data }) {
               transitionDelay: "1s",
             }} 
             className="image">
-            <ImageTag src="/assets/images/model-man.png" alt="" />
+            <ImageTag src={data?.s4thImage?.node?.sourceUrl} alt={data?.s4thImage?.node?.altText} />
           </div>
         </div>
       </div>
