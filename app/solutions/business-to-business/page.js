@@ -4,6 +4,11 @@ import HeroBanner from '@/app/components/HeroBanner';
 import PageContent from './PageContent';
 import { graphQLPromise } from '@/app/common/CommonFunctions';
 
+export const metadata = {
+  title: 'Business To Business',
+  description: 'Solutions',
+}
+
 export default async function page() {
   let pageData = await getPageData();
   const topBannerData = pageData.data?.pages?.edges[0]?.node;
@@ -73,12 +78,6 @@ async function getPageData() {
               }
               b2b5thSections {
                 b2bSec5thHeading
-                b2bSec5thImage {
-                  node {
-                    altText
-                    sourceUrl
-                  }
-                }
                 b2bSec5thList {
                   b2bSec5thListContent
                   b2bSec5thListIcon {
@@ -86,6 +85,12 @@ async function getPageData() {
                       altText
                       sourceUrl
                     }
+                  }
+                }
+                b2bSec4thImage {
+                  node {
+                    altText
+                    sourceUrl
                   }
                 }
               }

@@ -4,6 +4,10 @@ import HeroBanner from '@/app/components/HeroBanner';
 import PageContent from './PageContent';
 import { graphQLPromise } from '@/app/common/CommonFunctions';
 
+export const metadata = {
+  title: 'Business To Customer Mobile',
+  description: 'Solutions',
+};
 export default async function page() {
   let pageData = await getPageData();
   const topBannerData = pageData.data?.pages?.edges[0]?.node;

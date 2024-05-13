@@ -24,25 +24,6 @@ export default async function Home() {
   let newsletterContent = await getNewsletterContent();
   newsletterContent = newsletterContent.data?.pages?.edges[0]?.node?.newsletterSection;  
 
-  const whyAmadeusList = [
-    {
-      icon: '/assets/images/icon-realtime-results.svg',
-      title: 'Accurate and Realtime Results',
-      description: 'We have optimized the Online Suite to load Air & Hotel results at blazing speeds. We understand that every booking matters.'
-    },
-    {
-      icon: '/assets/images/icon-desktop.svg',
-      title: 'Flexible Payment Options',
-      description: 'Customers enjoy flexible payment options: pay online with credit cards, hold bookings and pay later, or utilize the wallet option for business-to-business payments.'
-    },
-    {
-      icon: '/assets/images/icon-dollar-card.svg',
-      title: 'Optimize Your Online Revenues',
-      description: "Multiple Airline Providers, Low Cost Carriers, Hotel Wholesalers are integrated. You also have smart up-sell options to increase conversions at every step of a customer's journey."
-    },
-  ];
-
-
   return (
     <>
       <HomeHeroVideo />

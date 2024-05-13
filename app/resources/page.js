@@ -79,7 +79,7 @@ export default async function Resources() {
             downloadableBlocks.map((item, index) => {
               const fileType = item?.rDownloadable?.rDownloadableFile?.node?.mimeType.split('/')[1];
               const filePath = item?.rDownloadable?.rDownloadableFile?.node?.mediaItemUrl;
-              return <div className="download-card" kye={index}>
+              return <div className="download-card" key ={index}>
                 <small>{item?.rSmallText}</small>
                 <h5>{item?.rTitleText}</h5>
                 {filePath && <Link

@@ -169,6 +169,7 @@ function PageContent({data}) {
             Benefit today with
             <strong className='text-secondary'> Amadeus Online Suite</strong>
           </h1>
+          
           <div className="row g-4">
             <div className="col-12 col-lg-5 d-flex justify-content-center">
               <div className="b2b-block__image" ref={block5th.imageRef} style={{

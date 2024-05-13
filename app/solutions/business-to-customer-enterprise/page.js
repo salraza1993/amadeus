@@ -3,6 +3,10 @@ import '@/app/scss/pages/SolutionsPage.scss';
 import HeroBanner from '@/app/components/HeroBanner';
 import PageContent from './PageContent';
 import { graphQLPromise } from '@/app/common/CommonFunctions';
+export const metadata = {
+  title: 'Business To Customer Enterprise',
+  description: 'Solutions',
+}
 
 export default async function page() {
   let pageData = await getPageData();
@@ -56,7 +60,7 @@ async function getPageData() {
                 }
               }
               b2ce4thSections {
-                b2ceSec4thContent
+                b2ceSec4thContents
                 b2ceSec4thImage {
                   node {
                     altText

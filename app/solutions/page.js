@@ -7,6 +7,11 @@ import SolutionsBlocks from '../components/SolutionsPage/SolutionsBlocks';
 import Solution4thSection from '../components/SolutionsPage/Solution4thSection';
 import { graphQLPromise } from '../common/CommonFunctions';
 
+export const metadata = {
+  title: 'Solutions',
+  description: 'Solutions',
+}
+
 export default async function Solutions() {
   
   // Fetching Top Banner Data

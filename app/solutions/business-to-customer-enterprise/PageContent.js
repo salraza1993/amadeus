@@ -146,7 +146,9 @@ function PageContent({data}) {
                   transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
                   transitionDelay: ".8s",
                 }}>
-                  <ImageTag src={b2b5thImage} />
+                  <ImageTag
+                    src={sec_4th_data?.b2ceSec4thImage?.node?.sourceUrl}
+                    alt={sec_4th_data?.b2ceSec4thImage?.node?.altText} />
                 </div>
               </div>
               <div className="col-12 col-lg-5 d-flex justify-content-center align-items-center">
@@ -156,11 +158,7 @@ function PageContent({data}) {
                     opacity: block4th.contentInView ? 1 : 0,
                     transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                   }}>
-                  <h2 className='fs-1 heading'>Smart Content Management System</h2>
-                  <div className="text">
-                    <p>Enhance your customer experience by offering tailored content on your web pages using the Content Management System (CMS) Module.</p>
-                    <p>The CMS module enables you to manage top destinations, popular hotels, offers, and testimonials. It also allows you to create static Packages covering day-to-day itineraries, uploading images, inclusions, exclusions, and much more. </p>
-                  </div>
+                  <div className="text" dangerouslySetInnerHTML={{ __html: sec_4th_data?.b2ceSec4thContents }}></div>
                 </div>
               </div>
             </div>
