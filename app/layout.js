@@ -12,7 +12,6 @@ import {
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Head from "next/head";
-
 // =========== [ css ] =========== //
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -42,6 +41,16 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
       </Head>
       <Script src="/js/microsoftClarity.js" id="clarity-script" strategy="afterInteractive"></Script>
+      {/* <!-- Google tag (gtag.js) --> */}
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-WJ1LF70ELL"></Script>
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){ dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', 'G-WJ1LF70ELL');
+        `}
+      </Script>
       <body
         className={`
           ${amadeusLight.variable}

@@ -138,7 +138,7 @@ const ContactForm = () => {
           <option value="Online Travel">Online Travel</option>
           <option value="Retail Travel">Retail Travel</option>
           <option value="Consolidator">Consolidator</option>
-          <option value="DMC">DMC</option>
+          <option value="DMC">Destination Management Company</option>
           <option value="New Travel Agency">New Travel Agency</option>
           <option value="Others">Others</option>
         </select>
