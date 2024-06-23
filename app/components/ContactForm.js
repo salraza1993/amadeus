@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
-import { fetch_get, fetch_post } from '../common/CommonFunctions';
+import { fetch_post } from '../common/CommonFunctions';
 import CountryCodeDropdown from './CountryCodeDropdown';
 import Link from 'next/link';
 
