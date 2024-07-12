@@ -17,7 +17,7 @@ export default async function Contact() {
         <div className="container">
           <div className="contact-form-container">
             <div className="image">
-              <ImageTag src={formAsideImage.sourceUrl} alt={formAsideImage.altText} />
+              <ImageTag src={formAsideImage?.sourceUrl} alt={formAsideImage?.altText} />
             </div>
             <ContactForm />
           </div>

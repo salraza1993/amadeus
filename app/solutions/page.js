@@ -17,7 +17,7 @@ export default async function Solutions() {
   // Fetching Top Banner Data
   let pageData = await getPageData();
   pageData = pageData.data?.pages?.edges[0]?.node;
-  const solutionBlocks = pageData.solution?.solutionsPages;
+  const solutionBlocks = pageData.solutionBlocks?.solutionsPages;
 
   const providersLogos = pageData?.solutionTravelProviders?.travelProviders?.edges;
   const paymentLogos = pageData?.solutionPaymentProviders?.paymentProviders?.edges;
@@ -58,29 +58,30 @@ async function getPageData() {
         edges {
           node {
             content
-            featuredImage {
-              node {
-                altText
-                sourceUrl
-              }
-            }
-            solution {
-              solutionsPages {
-                sCtaButton {
-                  title
-                  url
+              featuredImage {
+                node {
+                  altText
+                  sourceUrl
                 }
-                sDescription
-                sSubtitle
-                sTitle
-                sImage {
-                  node {
-                    altText
-                    sourceUrl
+              }
+              solutionBlocks {
+                solutionsPages {
+                  sCtaButton {
+                    target
+                    title
+                    url
                   }
+                  sDescription
+                  sImage {
+                    node {
+                      altText
+                      sourceUrl
+                    }
+                  }
+                  sSubtitle
+                  sTitle
                 }
               }
-            }
             solutionTravelProviders {
               travelProviders (first:100) {
                 edges {

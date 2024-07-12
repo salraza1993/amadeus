@@ -10,8 +10,10 @@ import { graphQLPromise } from './common/CommonFunctions';
 
 export default async function Home() {
   // about section data fetching
-  let aboutSectionContent = await getAboutSectionData();
-  aboutSectionContent = aboutSectionContent.data?.pages?.edges[0]?.node?.homeAbout;
+  let homePageContent = await getAboutSectionData();
+  homePageContent = homePageContent?.data?.pages?.edges[0]?.node;
+  console.log(homePageContent);
+
   // Fetching Counter
   let counterContent = await getCounters();
   counterContent = counterContent.data?.pages?.edges[0]?.node?.homeCounter?.counter;
@@ -35,20 +37,21 @@ export default async function Home() {
             <div className="row align-items-center gy-4">
               <div className="col-12 col-lg-6 col-xl-6">
                 <div className="content">
-                  <div className='d-flex flex-column gap-2' dangerouslySetInnerHTML={{ __html: aboutSectionContent.content }}></div>
+                  <div className='d-flex flex-column gap-2'
+                    dangerouslySetInnerHTML={{ __html: homePageContent?.content }}></div>
                   <Link
-                    href={aboutSectionContent.ctaButton.url}
-                    target={aboutSectionContent.ctaButton.target}
+                    href={homePageContent?.homeAboutCTA?.ctaButton.url}
+                    target={homePageContent?.homeAboutCTA?.ctaButton.target}
                     className='btn btn-primary btn-lg'>
-                    {aboutSectionContent.ctaButton.title}
+                    {homePageContent?.homeAboutCTA?.ctaButton.title}
                   </Link>
                 </div>
               </div>
               <div className="col-12 col-lg-6 col-xl-6 d-flex justify-content-end">
                 <div className="image">
                   <ImageTag
-                    src={aboutSectionContent.blockImage?.node.sourceUrl}
-                    alt={aboutSectionContent.blockImage?.node.atlText} />
+                    src={homePageContent?.featuredImage?.node.sourceUrl}
+                    alt={homePageContent?.featuredImage?.node.atlText} />
                 </div>
               </div>
             </div>
@@ -148,23 +151,23 @@ export default async function Home() {
 // about section data fetching
 async function getAboutSectionData() {
   return await graphQLPromise(
-    "homeAboutSection",
-    `query homeAboutSection {
+    "homePageContent",
+    `query homePageContent {
       pages(where: {id: 10}) {
         edges {
           node {
-            homeAbout {
-              content
+            content
+            featuredImage {
+              node {
+                altText
+                sourceUrl
+              }
+            }
+            homeAboutCTA {
               ctaButton {
                 target
                 title
                 url
-              }
-              blockImage {
-                node {
-                  altText
-                  sourceUrl
-                }
               }
             }
           }
@@ -176,8 +179,8 @@ async function getAboutSectionData() {
 // Fetching Counter
 async function getCounters() {
   return await graphQLPromise(
-    "homeCounterSection",
-    `query homeCounterSection {
+    "getCounters",
+    `query getCounters {
       pages(where: {id: 10}) {
         edges {
           node {
@@ -207,11 +210,11 @@ async function getWhySectionData() {
                 listContent
                 listHeading
                 listIcon {
-                  node {
-                    altText
-                    sourceUrl
-                  }
+                node {
+                  altText
+                  sourceUrl
                 }
+              }
               }
               linkButton {
                 target
