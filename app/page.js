@@ -12,7 +12,6 @@ export default async function Home() {
   // about section data fetching
   let homePageContent = await getAboutSectionData();
   homePageContent = homePageContent?.data?.pages?.edges[0]?.node;
-  console.log(homePageContent);
 
   // Fetching Counter
   let counterContent = await getCounters();

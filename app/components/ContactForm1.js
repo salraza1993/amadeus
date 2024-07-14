@@ -110,7 +110,7 @@ const ContactForm = () => {
   };
 
   function PostSUccess(data, uid) {
-    console.log(data,uid);
+    // console.log(data,uid);
   }
 
   const handleSubmit = (e) => {

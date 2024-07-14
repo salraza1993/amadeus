@@ -33,7 +33,7 @@ const ContactForm = () => {
     setCountry("");
     setPhoneNumber("");
     setNatureOfBusiness("");
-    setComments("");
+    setComments("");  
     setPrivacyPolicy(false);
     setError(false);
   };
