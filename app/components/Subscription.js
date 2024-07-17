@@ -37,7 +37,11 @@ function Subscription({content}) {
     
     forDetails['_wpcf7_unit_tag'] = new Date();
     let header = { headers: { 'Content-Type': 'multipart/form-data' } };
-    fetch_post({ data: forDetails, url: "https://aoscmsadmin.amadeusonlinesuite.com/wp-json/contact-form-7/v1/contact-forms/21/feedback", header: header }, { success: PostSuccess, error: PostSuccess });
+    fetch_post({
+      data: forDetails,
+      url: `${NEXT_PUBLIC_WORDPRESS_WP_JSON_URL}/${NEXT_PUBLIC_WORDPRESS_CONTACT_FROM_URL}`,
+      header: header
+    }, { success: PostSuccess, error: PostSuccess });
     setEmail("");
   }
 
