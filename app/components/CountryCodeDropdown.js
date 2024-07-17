@@ -33,7 +33,6 @@ function CountryCodeDropdown({ onCountryCodeSelect }) {
     const filteredItems = countries.filter(option =>
       option.countryName.toLowerCase().includes(searchQuery.toLowerCase())
     );
-    console.log(filteredItems);
     setFilteredCountries(filteredItems)
   };
 

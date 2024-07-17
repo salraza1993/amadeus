@@ -88,7 +88,7 @@ const ContactForm = () => {
     let header = { headers: { 'Content-Type': 'multipart/form-data' } };
     fetch_post({
       data: formData,
-      url: `${NEXT_PUBLIC_WORDPRESS_WP_JSON_URL}/${NEXT_PUBLIC_WORDPRESS_CONTACT_FROM_URL}`,
+      url: `${process.env.NEXT_PUBLIC_WORDPRESS_WP_JSON_URL}${process.env.NEXT_PUBLIC_WORDPRESS_CONTACT_FROM_URL}`,
       header: header
     }, { success: postSuccess, error: postSuccess });
     resetFormData();
