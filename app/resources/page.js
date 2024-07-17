@@ -76,7 +76,7 @@ export default async function Resources() {
         <h2 className='fs-1 text-white text-center'>Download  Section</h2>
         <div className="download-container">
           {
-            downloadableBlocks.slice(0, 2).map((item, index) => {
+            downloadableBlocks.map((item, index) => {
               const fileType = item?.rDownloadable?.rDownloadableFile?.node?.mimeType.split('/')[1];
               const filePath = item?.rDownloadable?.rDownloadableFile?.node?.mediaItemUrl;
               return <div className="download-card" key ={index}>
@@ -92,19 +92,7 @@ export default async function Resources() {
                 </Link>}
               </div>
             })
-          }     
-          <div className="download-card">
-            <small>Amadeus Online Suite</small>
-            <h5>What’s New</h5>
-            <Link
-              href={'/assets/downloadable-files/Whats_new_AOS v1.pdf'}
-              download={"Whats_new_AOS v1"}
-              type={".pdf"}
-              target='self'
-              title={"What’s New | AOS"}
-              className='download-button'>Download Now <i className="fa-solid fa-download"></i>
-            </Link>
-          </div>
+          }
         </div>
       </div>
     </section>

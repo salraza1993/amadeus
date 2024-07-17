@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL: 'http://localhost:8081/amadeos/graphql',
-    WORDPRESS_WP_JSON_URL: 'http://localhost:8081/amadeos/wp-json/'
+    NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL: 'https://cmsadmin.amadeusonlinesuite.net/graphql',
+    WORDPRESS_WP_JSON_URL: 'https://cmsadmin.amadeusonlinesuite.net/wp-json/'
   },
   optimizeFonts: true,
   reactStrictMode: false,
@@ -14,7 +14,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ['localhost'], // Add any other domains if needed
+    // domains: ['localhost'], // Add any other domains if needed
     remotePatterns: [
       {
         protocol: "https",

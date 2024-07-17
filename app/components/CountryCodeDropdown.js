@@ -9,11 +9,12 @@ function CountryCodeDropdown({ onCountryCodeSelect }) {
     flag: ""
   };
   const [countries, setCountries] = useState([]);
+  const [filteredCountries, setFilteredCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(currentCountry);
   const [showDropdown, setShowDropdown] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const dropdownRef = useRef(null);
-
+  
   const showDropdownHandler = (e) => {
     e.preventDefault();
     setShowDropdown(!showDropdown);
@@ -23,15 +24,19 @@ function CountryCodeDropdown({ onCountryCodeSelect }) {
     setSelectedCountry(option);
     onCountryCodeSelect(option ? option : currentCountry); // Pass calling code to parent
     setShowDropdown(false);
+    setFilteredCountries(countries)
+
   };
 
   const handleChange = (e) => {
     setSearchQuery(e.target.value);
+    const filteredItems = countries.filter(option =>
+      option.countryName.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    console.log(filteredItems);
+    setFilteredCountries(filteredItems)
   };
 
-  const filteredCountries = countries.filter(option =>
-    option.countryName.toLowerCase().includes(searchQuery.toLowerCase())
-  );
 
   const handleClickOutside = (e) => {
     if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -50,6 +55,7 @@ function CountryCodeDropdown({ onCountryCodeSelect }) {
       .then(response => response.json())
       .then(data => {
         setCountries(data);
+        setFilteredCountries(data)
       })
       .catch(error => {
         console.error('Error fetching data:', error);

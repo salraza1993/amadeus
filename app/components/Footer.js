@@ -3,26 +3,40 @@ import Logo from './icons/Logo';
 import '@/app/scss/components/Footer.scss';
 import Link from 'next/link';
 import ContactShortIcon from './ContactShortIcon';
+import { graphQLPromise } from '../common/CommonFunctions';
 
-function Footer() {
-  const solutions = [
-    { label: "Business to Business", path: '/solutions/business-to-business' },
-    { label: "Online Travel Engine", path: '/solutions/business-to-customer-enterprise' },
-    { label: "Mobile Applications", path: '/solutions/business-to-customer-mobile' },
-    { label: "Tailored Made Online Travel Suite", path: '/solutions/tailor-made-online' },
-  ];
-  const popularLinks = [
-    { label: "What’s New", path: '' },
-  ];
-  const resources = [
-    { label: "Download", path: '/resources' },
-    { label: "FAQ", path: '/resources' },
-    { label: "Privacy Policy", path: 'https://amadeus.com/en/policies/privacy-policy' },
-  ];
-  const aboutAmadeus = [
-    { label: "Contact us", path: '/contact' },
-    { label: "Subscribe to know more", path: '/' },
-  ];
+export default async function Footer() {
+  
+  // const popularLinks = [
+  //   { label: "What’s New", path: '' },
+  // ];
+  // const resources = [
+  //   { label: "Download", path: '/resources' },
+  //   { label: "FAQ", path: '/resources' },
+  //   { label: "Privacy Policy", path: 'https://amadeus.com/en/policies/privacy-policy' },
+  // ];
+  // const aboutAmadeus = [
+  //   { label: "Contact us", path: '/contact' },
+  //   { label: "Subscribe to know more", path: '/' },
+  // ];
+
+  const solutionsMenus = await getSolutionsMenus();
+  const solutionTitle = solutionsMenus?.data?.menu?.name;
+  const solutionMenus = solutionsMenus?.data?.menu?.menuItems?.nodes;
+
+  const resourcesMenus = await getResourceMenus();
+  const resourcesTitle = resourcesMenus?.data?.menu?.name;
+  const resourceMenus = resourcesMenus?.data?.menu?.menuItems?.nodes;
+
+  const popularLinksMenus = await getPopularLinksMenus();
+  const popularLinksTitle = popularLinksMenus?.data?.menu?.name;
+  const popularLinkMenus = popularLinksMenus?.data?.menu?.menuItems?.nodes;
+
+  const aboutListMenus = await getAboutMenus();
+  const aboutListTitle = aboutListMenus?.data?.menu?.name;
+  const aboutMenus = aboutListMenus?.data?.menu?.menuItems?.nodes;
+
+  
 
   return <>
     <ContactShortIcon />
@@ -36,12 +50,12 @@ function Footer() {
             <div className="row">
               <div className="col-12 col-md-3 col-lg-3">
                 <div className="main-footer__content">
-                  <h6 className="__heading mb-3 fw-bold">Solutions</h6>
+                  <h6 className="__heading mb-3 fw-bold">{solutionTitle}</h6>
                   <ul className="main-footer__content__links">
                     {
-                      solutions.map((item, index) => {
-                        return <li className="main-footer__content__links__item" key={index}>
-                          <Link href={item.path}>{item.label}</Link>
+                      solutionMenus.map((item, index) => {
+                        return <li className="main-footer__content__links__item" key={item?.id}>
+                          <Link href={item?.url}>{item?.label}</Link>
                         </li>;
                       })
                     }
@@ -50,12 +64,12 @@ function Footer() {
               </div>
               <div className="col-12 col-md-3 col-lg-3">
                 <div className="main-footer__content">
-                  <h6 className="__heading mb-3 fw-bold">Popular links</h6>
+                  <h6 className="__heading mb-3 fw-bold">{ popularLinksTitle }</h6>
                   <ul className="main-footer__content__links">
                     {
-                      popularLinks.map((item, index) => {
-                        return <li className="main-footer__content__links__item" key={index}>
-                          <Link href={item.path}>{item.label}</Link>
+                      popularLinkMenus.map((item, index) => {
+                        return <li className="main-footer__content__links__item" key={item?.id}>
+                          <Link href={item?.url}>{item?.label}</Link>
                         </li>;
                       })
                     }
@@ -64,12 +78,12 @@ function Footer() {
               </div>
               <div className="col-12 col-md-3 col-lg-3">
                 <div className="main-footer__content">
-                  <h6 className="__heading mb-3 fw-bold">Resources</h6>
+                  <h6 className="__heading mb-3 fw-bold">{resourcesTitle}</h6>
                   <ul className="main-footer__content__links">
                     {
-                      resources.map((item, index) => {
-                        return <li className="main-footer__content__links__item" key={index}>
-                          <Link href={item.path}>{item.label}</Link>
+                      resourceMenus.map((item, index) => {
+                        return <li className="main-footer__content__links__item" key={item?.id}>
+                          <Link href={item?.url}>{item?.label}</Link>
                         </li>;
                       })
                     }
@@ -78,12 +92,12 @@ function Footer() {
               </div>
               <div className="col-12 col-md-3 col-lg-3">
                 <div className="main-footer__content">
-                  <h6 className="__heading mb-3 fw-bold">About Amadeus</h6>
+                  <h6 className="__heading mb-3 fw-bold">{aboutListTitle}</h6>
                   <ul className="main-footer__content__links">
                     {
-                      aboutAmadeus.map((item, index) => {
-                        return <li className="main-footer__content__links__item" key={index}>
-                          <Link href={item.path}>{item.label}</Link>
+                      aboutMenus.map((item, index) => {
+                        return <li className="main-footer__content__links__item" key={item?.id}>
+                          <Link href={item?.url}>{item?.label}</Link>
                         </li>;
                       })
                     }
@@ -128,6 +142,124 @@ function Footer() {
       </div>
     </footer>
   </>;
+};
+
+
+// Solutions Menus fetching
+async function getSolutionsMenus() {
+  return await graphQLPromise(
+    "solutionsMenus",
+    `query solutionsMenus {
+      menu(id: "solutions", idType: NAME) {
+        count
+        id
+        databaseId
+        name
+        slug
+        menuItems {
+          nodes {
+            id
+            databaseId
+            title
+            url
+            cssClasses
+            description
+            label
+            linkRelationship
+            target
+            parentId
+          }
+        }
+      }
+    }`
+  );
 }
 
-export default Footer;
+// Resources Menus fetching
+async function getResourceMenus() {
+  return await graphQLPromise(
+    "resources",
+    `query resources {
+      menu(id: "resources", idType: NAME) {
+        count
+        id
+        databaseId
+        name
+        slug
+        menuItems {
+          nodes {
+            id
+            databaseId
+            title
+            url
+            cssClasses
+            description
+            label
+            linkRelationship
+            target
+            parentId
+          }
+        }
+      }
+    }`
+  );
+}
+
+// Popular Links Menus fetching
+async function getPopularLinksMenus() {
+  return await graphQLPromise(
+    "popularLinks",
+    `query popularLinks {
+      menu(id: "popular links", idType: NAME) {
+        count
+        id
+        databaseId
+        name
+        slug
+        menuItems {
+          nodes {
+            id
+            databaseId
+            title
+            url
+            cssClasses
+            description
+            label
+            linkRelationship
+            target
+            parentId
+          }
+        }
+      }
+    }`
+  );
+}
+// About Menus Menus fetching
+async function getAboutMenus() {
+  return await graphQLPromise(
+    "popularLinks",
+    `query popularLinks {
+      menu(id: "about amadeus", idType: NAME) {
+        count
+        id
+        databaseId
+        name
+        slug
+        menuItems {
+          nodes {
+            id
+            databaseId
+            title
+            url
+            cssClasses
+            description
+            label
+            linkRelationship
+            target
+            parentId
+          }
+        }
+      }
+    }`
+  );
+}
