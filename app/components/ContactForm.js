@@ -5,7 +5,6 @@ import { fetch_post } from '../common/CommonFunctions';
 import CountryCodeDropdown from './CountryCodeDropdown';
 import Link from 'next/link';
 
-
 const ContactForm = () => {
   const [fullName, setFullName] = useState("");
   const [companyName, setCompanyName] = useState("");
@@ -59,6 +58,11 @@ const ContactForm = () => {
     if (!country || country === "") {
       setError(true);
       setErrorMessage("Please, Select the Country");
+      return;
+    }
+    if (!captcha) {
+      setError(true);
+      setErrorMessage("Captcha is required");
       return;
     }
 
@@ -173,6 +177,13 @@ const ContactForm = () => {
           </label>
         </div>
       </div>
+      <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY} onChange={setCaptcha} />
+      {
+        captchaError && <small className="error">
+          <i className="fa-solid fa-triangle-exclamation"></i>
+          <span>Google CAPTCHA is required</span>
+        </small>
+      }
       <button type="submit" className='btn btn-secondary btn-lg submit-button'>Submit</button>
       {
         error && <div className="alert alert-danger d-flex gap-3 align-items-center py-3">
