@@ -36,6 +36,7 @@ const ContactForm = () => {
     setPrivacyPolicy(false);
     setError(false);
   };
+  
   // Email Validation
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
