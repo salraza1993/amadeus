@@ -9,7 +9,7 @@
 export async function graphQL(operationName, query, variable = null) {
   let datas = { operationName: operationName, query: query, variables: variable };
   let headers = { "Cache-Control": "max-age=3600" };
-  const response = await fetch_post({ url: process.env.local.NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL, data: datas, header: { headers: headers, referrer: process.env.local.NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL } }, {}, true);
+  const response = await fetch_post({ url: process.env.NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL, data: datas, header: { headers: headers, referrer: process.env.NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL } }, {}, true);
   return response;
 }
 
@@ -18,7 +18,7 @@ export async function graphQLPromise(operationName, query, variable = null, head
     let datas = { operationName: operationName, query: query, variables: variable };
     headers = { ...{ "Cache-Control": "max-age=600" }, ...headers };
     fetch_post(
-      { url: process.env.local.NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL, data: datas, header: { headers: headers, referrer: process.env.local.NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL } },
+      { url: process.env.NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL, data: datas, header: { headers: headers, referrer: process.env.NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL } },
       {
         success: (response) => {
           resolve(response);
