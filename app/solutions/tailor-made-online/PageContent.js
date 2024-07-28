@@ -123,7 +123,6 @@ function PageContent({data}) {
                   opacity: block2nd.contentInView ? 1 : 0,
                   transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                 }}>
-                <h2 className='fs-1 heading'>Robust Technology</h2>
                 <div className="text" dangerouslySetInnerHTML={{ __html: sec_2nd_data?.tmoSec2ndContent }}></div>
               </div>
             </div>
