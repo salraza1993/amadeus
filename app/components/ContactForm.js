@@ -90,6 +90,7 @@ const ContactForm = () => {
     }
 
     formData['_wpcf7_unit_tag'] = new Date();
+    formData['g-recaptcha-response'] = captcha;
     let header = { headers: { 'Content-Type': 'multipart/form-data' } };
     fetch_post({
       data: formData,
