@@ -72,7 +72,7 @@ function PageContent({data}) {
       <div className="container">
         <div className="sub-page-block-2nd__container">
           <div className="row g-4">
-            <div className="col-12 col-lg-7 pe-0 d-flex justify-content-center">
+            <div className="col-12 col-lg-7 pe-lg-0 d-flex justify-content-center">
               <div className="b2b-block__image" ref={block2nd.imageRef} style={{
                 transform: block2nd.imageInView ? "none" : "translateY(25%)",
                 opacity: block2nd.imageInView ? 1 : 0,
@@ -114,7 +114,7 @@ function PageContent({data}) {
                 <div className="text" dangerouslySetInnerHTML={{ __html: sec_3rd_data?.b2bSec3rdContent }}></div>
               </div>
             </div>
-            <div className="col-12 col-lg-7 ps-0 d-flex justify-content-center">
+            <div className="col-12 col-lg-7 ps-lg-0 d-flex justify-content-center">
               <div className="b2b-block__image" ref={block3rd.imageRef} style={{
                 transform: block3rd.imageInView ? "none" : "translateY(25%)",
                 opacity: block3rd.imageInView ? 1 : 0,
@@ -135,7 +135,7 @@ function PageContent({data}) {
       <div className="container">
         <div className="sub-page-block-4th__container">
           <div className="row g-4">
-            <div className="col-12 col-lg-7 pe-0 d-flex justify-content-center">
+            <div className="col-12 col-lg-7 pe-lg-0 d-flex justify-content-center">
               <div className="b2b-block__image" ref={block4th.imageRef} style={{
                 transform: block4th.imageInView ? "none" : "translateY(25%)",
                 opacity: block4th.imageInView ? 1 : 0,

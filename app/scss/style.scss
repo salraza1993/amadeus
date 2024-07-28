@@ -61,6 +61,7 @@ a {
 
 .btn {
   border-radius: 0;
+  white-space: nowrap;
   @media (width > 768px) {
     padding-inline: calc(1rem + 0.75vw);
   }
@@ -154,15 +155,23 @@ a {
     --hero-banner-height: auto;
   }
   @media (width < 768px) {
+    --hero-banner-height: auto;
+    img {
+      position: absolute;
+    }
     .container { padding: 0; }
     .content {
+      position: relative;
       display: flex;
       align-items: flex-end;
+      .title-heading {
+        margin-block-end: 0;
+      }
     }
-    --hero-banner-height: auto;
   }
 
 }
+
 
 @media (width < 1200px) {
   .container {
