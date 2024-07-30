@@ -19,6 +19,7 @@
   --bs-border-color: var(--bs-secondary--20);
   --bs-transition: all 0.3s ease-in;
   --bs-whatsapp-color: #41A200;
+  --not-found-bg: var(--bs-primary);
   
 }
 @media (width < 768px) {
@@ -34,6 +35,7 @@
     --bs-body-color: #CFD9E2;
     --bs-body-color-rgb: 207, 217, 226;
     --bs-whatsapp-color: #86D650;
+    --not-found-bg: #09186c;
   }
 }
 

@@ -171,6 +171,29 @@ a {
   }
 
 }
+.not-found-page-container {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  background-color: var(--not-found-bg);
+  color: var(--bs-white);
+  padding-block: calc(1rem + 10lvh);
+  min-height: 80vh;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &::before {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/assets/images/overlay-lines-light.png');
+    background-size: auto 100%;
+    opacity: 1;
+  }
+}
 
 
 @media (width < 1200px) {

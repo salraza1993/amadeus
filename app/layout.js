@@ -73,20 +73,3 @@ export default function RootLayout({ children }) {
 }
 
 // Newsletter Content Fetching
-async function getPageMetadata() {
-  return await graphQLPromise(
-    "homeMetadata",
-    `query homeMetadata {
-      pages(where: {id: 10}) {
-        edges {
-          node {
-            homePageMetadata {
-              homeMetadataTitle
-              homeMetadataDescription
-            }
-          }
-        }
-      }
-    }`
-  );
-}

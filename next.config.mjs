@@ -3,7 +3,7 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL: 'https://cmsadmin.amadeusonlinesuite.net/graphql',
     NEXT_PUBLIC_WORDPRESS_WP_JSON_URL: 'https://cmsadmin.amadeusonlinesuite.net/wp-json/',
-    NEXT_PUBLIC_WORDPRESS_CONTACT_FROM_URL: 'contact-form-7/v1/contact-forms/16/feedback',
+    NEXT_PUBLIC_WORDPRESS_CONTACT_FROM_URL: 'contact-form-7/v1/contact-forms/(id)/feedback',
     NEXT_PUBLIC_RECAPTCHA_SITE_KEY: '6Lc9YMgpAAAAAK3M3oEHJ08vuJazjDuyuzy4JfdM',
     NEXT_PUBLIC_CLARITY_PROJECT_ID: 'm9tn2pqor9',
   },

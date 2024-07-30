@@ -8,11 +8,30 @@ import Link from 'next/link';
 import Subscription from './components/Subscription';
 import { graphQLPromise } from './common/CommonFunctions';
 
+export async function generateMetadata({ params, searchParams }, parent) {
+  // read route params
+  const id = params.id;
+
+  // fetch data
+  const product = await getPageMetadata();
+
+  // optionally access and extend (rather than replace) parent metadata
+  // const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: product?.data?.pages?.edges[0]?.node?.homePageMetadata?.homeMetadataTitle,
+    description: product?.data?.pages?.edges[0]?.node?.homePageMetadata?.homeMetadataDescription,
+    // openGraph: {
+    //   images: ['/some-specific-page-image.jpg', ...previousImages],
+    // },
+  };
+}
+
 export default async function Home() {
   // about section data fetching
   let homePageContent = await getAboutSectionData();
   homePageContent = homePageContent?.data?.pages?.edges[0]?.node;
-
+  console.log('home: ', homePageContent.featuredImage.node.altText);
   // Fetching Counter
   let counterContent = await getCounters();
   counterContent = counterContent.data?.pages?.edges[0]?.node?.homeCounter?.counter;
@@ -49,8 +68,8 @@ export default async function Home() {
               <div className="col-12 col-lg-6 col-xl-6 d-flex justify-content-end">
                 <div className="image">
                   <ImageTag
-                    src={homePageContent?.featuredImage?.node.sourceUrl}
-                    alt={homePageContent?.featuredImage?.node.atlText} />
+                    src={homePageContent?.featuredImage?.node?.sourceUrl}
+                    alt={homePageContent?.featuredImage?.node?.altText} />
                 </div>
               </div>
             </div>
@@ -146,6 +165,23 @@ export default async function Home() {
   );
 }
 
+async function getPageMetadata() {
+  return await graphQLPromise(
+    "homeMetadata",
+    `query homeMetadata {
+      pages(where: {id: 10}) {
+        edges {
+          node {
+            homePageMetadata {
+              homeMetadataTitle
+              homeMetadataDescription
+            }
+          }
+        }
+      }
+    }`
+  );
+}
 
 // about section data fetching
 async function getAboutSectionData() {

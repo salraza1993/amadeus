@@ -666,7 +666,10 @@
     @media (width < 768px) {
       height: calc(75vh - calc(var(--bs-header-height) * 1.25));
     }
-
+    .video-fallback {
+      width: 100%;
+      height: auto;
+    }
     video,
     img {
       width: 100%;
@@ -710,6 +713,10 @@
       }
 
       .play-icon {
+        background-color: transparent;
+        outline: none;
+        border: 0;
+        color: var(--bs-white);
         width: 50px;
         height: 50px;
         display: flex;
