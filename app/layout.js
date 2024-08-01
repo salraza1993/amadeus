@@ -25,7 +25,7 @@ export const metadata = {
     default: "Welcome to AOS",
     template: "%s | AOS",
   },
-  description: " Welcome to AOS",
+  description: "Welcome to AOS",
 };
 
 export default function RootLayout({ children }) {

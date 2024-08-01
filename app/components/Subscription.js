@@ -15,7 +15,7 @@ function Subscription({content}) {
       setIsSubmitted(true)
       setTimeout(() => {
         setIsSubmitted(false);
-      }, 2000);
+      }, 3000);
     } else {
       setIsSubmitted(false)
     }
@@ -60,7 +60,9 @@ function Subscription({content}) {
         </div>}
         {isSubmitted && <div className="alert alert-success d-flex gap-3 align-items-center py-1">
           <i className="fa-solid fa-circle-check"></i> 
-          <span>Greetings!!!, You'v have subscribed our newsletters to stay updated about our Offers, promotions etc.</span>
+          <span>
+            Thanks for subscribing! Amazing content will be shared with you!
+          </span>
         </div>}
       </div>
     </div>

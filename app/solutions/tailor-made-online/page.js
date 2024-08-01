@@ -2,18 +2,29 @@ import '@/app/scss/pages/SolutionsPage.scss';
 import HeroBanner from '@/app/components/HeroBanner';
 import PageContent from './PageContent';
 import { graphQLPromise } from '@/app/common/CommonFunctions';
+import { getPageMetadata } from '@/app/api/getPageMetadata';
+import Head from 'next/head';
 
-export const metadata = {
-  title: 'Tailor-made Online',
-  description: 'Solutions',
+export async function metadata() {
+  return await getPageMetadata(345);
 }
 
 export default async function page() {
+  const metadataValue = await metadata();
+
   let pageData = await getPageData();
   const topBannerData = pageData.data?.pages?.edges[0]?.node;
   const pageSectionsData = pageData.data?.pages?.edges[0]?.node?.tMO;
   
   return <>
+    <Head>
+      <title>{metadataValue.title}</title>
+      <meta name="description" content={metadataValue.description} />
+      {metadataValue.links.map((link, index) => (
+        <link key={index} rel={link.rel} href={link.href} />
+      ))}
+    </Head>
+
     <HeroBanner data={topBannerData} />
     <PageContent data={pageSectionsData} />
   </>

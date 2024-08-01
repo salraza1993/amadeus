@@ -1,19 +1,20 @@
+import Head from 'next/head';
 import '@/app/scss/pages/SolutionsPage.scss';
 import HeroBanner from "../components/HeroBanner";
-import bannerImage from "/public/assets/images/solution-hero-banner.png";
 import ProvidersCarousel from '../components/ProvidersCarousel';
 import PaymentProvidersCarousel from '../components/PaymentProvidersCarousel';
 import SolutionsBlocks from '../components/SolutionsPage/SolutionsBlocks';
 import Solution4thSection from '../components/SolutionsPage/Solution4thSection';
 import { graphQLPromise } from '../common/CommonFunctions';
+import { getPageMetadata } from '../api/getPageMetadata';
 
-export const metadata = {
-  title: 'Solutions',
-  description: 'Solutions',
+export async function metadata() {
+  return await getPageMetadata(70);
 }
 
 export default async function Solutions() {
-  
+  const metadataValue = await metadata();
+
   // Fetching Top Banner Data
   let pageData = await getPageData();
   pageData = pageData.data?.pages?.edges[0]?.node;
@@ -24,6 +25,13 @@ export default async function Solutions() {
   const section4thData = pageData?.solution4thSection;
   
   return <>
+    <Head>
+      <title>{metadataValue.title}</title>
+      <meta name="description" content={metadataValue.description} />
+      {metadataValue.links.map((link, index) => (
+        <link key={index} rel={link.rel} href={link.href} />
+      ))}
+    </Head>
     <HeroBanner data={pageData} />
     <SolutionsBlocks data={solutionBlocks} />    
     <section className="providers-section">

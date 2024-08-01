@@ -3,13 +3,6 @@ import { useRef } from 'react';
 import { useInView } from "framer-motion";
 
 import ImageTag from '@/app/components/ImageTag';
-
-import b2b2ndImage from "/public/assets/images/b2c-enterprise-image-1st.png";
-import b2b3rdImage from "/public/assets/images/b2c-enterprise-image-2nd.png";
-import b2b4thImage from "/public/assets/images/b2c-enterprise-image-3rd.png";
-import b2b5thImage from "/public/assets/images/b2c-enterprise-image-4th.png";
-import b2b6thImage from "/public/assets/images/b2c-image-5th.png";
-import b2bModelImage from "/public/assets/images/b2-enterprise-model-image.png";
 import Link from 'next/link';
 
 function useBlockInView() {

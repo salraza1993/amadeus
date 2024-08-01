@@ -5,8 +5,16 @@ import Link from 'next/link';
 import ResourcesVideoSection from '../components/ResourcesVideoSection';
 import ImageTag from '../components/ImageTag';
 import { graphQLPromise } from '../common/CommonFunctions';
+import { getPageMetadata } from '../api/getPageMetadata';
+import Head from 'next/head';
+
+export async function metadata() {
+  return await getPageMetadata(72);
+}
 
 export default async function Resources() {
+  const metadataValue = await metadata();
+
   // Fetching Top Banner Data
   let pageData = await getPageData();
   const topBannerData = pageData.data?.pages?.edges[0]?.node;
@@ -16,6 +24,14 @@ export default async function Resources() {
   const lastSectionContent = pageData.data?.pages?.edges[0]?.node?.resourcesLastSection;
 
   return <>
+    <Head>
+      <title>{metadataValue.title}</title>
+      <meta name="description" content={metadataValue.description} />
+      {metadataValue.links.map((link, index) => (
+        <link key={index} rel={link.rel} href={link.href} />
+      ))}
+    </Head>
+
     <HeroBanner data={topBannerData} />
     {/* <ResourcesVideoSection /> */}
     

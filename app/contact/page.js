@@ -3,8 +3,16 @@ import HeroBanner from '../components/HeroBanner';
 import ImageTag from '../components/ImageTag';
 import ContactForm from '../components/ContactForm';
 import { graphQLPromise } from '../common/CommonFunctions';
+import { getPageMetadata } from '../api/getPageMetadata';
+import Head from 'next/head';
+
+export async function metadata() {
+  return await getPageMetadata(81);
+}
 
 export default async function Contact() {
+  const metadataValue = await metadata();
+
   // Fetching Page Data
   let pageData = await getPageData();
   const topBannerData = pageData.data?.pages?.edges[0]?.node;
@@ -12,6 +20,13 @@ export default async function Contact() {
   
   return (
     <>
+      <Head>
+        <title>{metadataValue.title}</title>
+        <meta name="description" content={metadataValue.description} />
+        {metadataValue.links.map((link, index) => (
+          <link key={index} rel={link.rel} href={link.href} />
+        ))}
+      </Head>
       <HeroBanner data={topBannerData} />
       <section className="contact-form-section">
         <div className="container">

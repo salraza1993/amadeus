@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import '@/app/scss/pages/HomePage.scss';
 import Slider from './components/Slider';
 import Testimonial from './components/Testimonial';
@@ -7,31 +8,18 @@ import HomeHeroVideo from './components/HomeHeroVideo';
 import Link from 'next/link';
 import Subscription from './components/Subscription';
 import { graphQLPromise } from './common/CommonFunctions';
+import { getPageMetadata } from './api/getPageMetadata';
 
-export async function generateMetadata({ params, searchParams }, parent) {
-  // read route params
-  const id = params.id;
-
-  // fetch data
-  const product = await getPageMetadata();
-
-  // optionally access and extend (rather than replace) parent metadata
-  // const previousImages = (await parent).openGraph?.images || [];
-
-  return {
-    title: product?.data?.pages?.edges[0]?.node?.homePageMetadata?.homeMetadataTitle,
-    description: product?.data?.pages?.edges[0]?.node?.homePageMetadata?.homeMetadataDescription,
-    // openGraph: {
-    //   images: ['/some-specific-page-image.jpg', ...previousImages],
-    // },
-  };
+export async function metadata() {
+  return await getPageMetadata(10);
 }
 
 export default async function Home() {
+  const metadataValue = await metadata();
+
   // about section data fetching
   let homePageContent = await getAboutSectionData();
   homePageContent = homePageContent?.data?.pages?.edges[0]?.node;
-  console.log('home: ', homePageContent.featuredImage.node.altText);
   // Fetching Counter
   let counterContent = await getCounters();
   counterContent = counterContent.data?.pages?.edges[0]?.node?.homeCounter?.counter;
@@ -44,11 +32,25 @@ export default async function Home() {
   let newsletterContent = await getNewsletterContent();
   newsletterContent = newsletterContent.data?.pages?.edges[0]?.node?.newsletterSection;  
 
+  // Fetching Newsletter Content
+  let testimonials = await getTestimonials();
+  testimonials = testimonials?.data?.testimonials?.edges;  
+
   return (
     <>
+      <Head>
+        <title>{metadataValue.title}</title>
+        <meta name="description" content={metadataValue.description} />
+        {metadataValue.links.map((link, index) => (
+          <link key={index} rel={link.rel} href={link.href} />
+        ))}
+      </Head>
+
       <HomeHeroVideo />
       {/* <Slider /> */}
-
+      {metadataValue.links.map((link, index) => (
+        <link key={index} rel={link.rel} href={link.href} />
+      ))}
       <section className="home-about-section">
         <div className="container">
           <div className="home-about-container">
@@ -95,24 +97,24 @@ export default async function Home() {
                 <div className="why-amadeus__image">
                   <ImageTag
                     src={whyAmadeusData?.whyBlockImage?.node?.sourceUrl}
-                    alt={whyAmadeusData?.whyBlockImage?.node?.atlText} />
+                    alt={whyAmadeusData?.whyBlockImage?.node?.altText} />
 
                   <ul className="points">
                     <li className="points__item">
                       <span className="icon">
-                        <ImageTag src="/assets/images/icon-ticket.png" />
+                        <ImageTag src="/assets/images/icon-ticket.png" alt="Ticket Icon" />
                       </span>
                       <span>Flexible Payments</span>
                     </li>
                     <li className="points__item">
                       <span className="icon">
-                        <ImageTag src="/assets/images/icon-clock.png" />
+                        <ImageTag src="/assets/images/icon-clock.png" alt="Clock Icon" />
                       </span>
                       <span>Realtime</span>
                     </li>
                     <li className="points__item">
                       <span className="icon">
-                        <ImageTag src="/assets/images/icon-revenue.png" />
+                        <ImageTag src="/assets/images/icon-revenue.png" altText="Revenue Icon" />
                       </span>
                       <span>Revenues</span>
                     </li>
@@ -127,7 +129,7 @@ export default async function Home() {
                       whyAmadeusData?.list.map((item, index) => {
                         return <li className="content-list__item" key={index}>
                           <span className="icon">
-                            <ImageTag src={item.listIcon?.node?.sourceUrl} alt={item?.listIcon?.node?.atlText} />
+                            <ImageTag src={item.listIcon?.node?.sourceUrl} alt={item?.listIcon?.node?.altText} />
                           </span>
                           <div className="text">
                             <h5 className='fw-bold'>{item?.listHeading}</h5>
@@ -154,7 +156,7 @@ export default async function Home() {
           <div className="testimonial-container">
             <h2 className='fs-1 text-center font-amadeus-medium'>What Our Customers Say</h2>
             <div className="testimonial-card-container">
-              <Testimonial />
+              <Testimonial data={testimonials} />
             </div>
           </div>
         </div>
@@ -165,16 +167,26 @@ export default async function Home() {
   );
 }
 
-async function getPageMetadata() {
+async function getTestimonials() {
   return await graphQLPromise(
-    "homeMetadata",
-    `query homeMetadata {
-      pages(where: {id: 10}) {
+    "testimonials",
+    `query testimonials {
+      testimonials {
         edges {
           node {
-            homePageMetadata {
-              homeMetadataTitle
-              homeMetadataDescription
+            featuredImage {
+              node {
+                altText
+                sourceUrl
+                title
+              }
+            }
+            content
+            title
+            testimonialAdditionalInfo {
+              nameAgency
+              designation
+              linkedinPath
             }
           }
         }
