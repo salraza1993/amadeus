@@ -6,19 +6,8 @@ import ContactShortIcon from './ContactShortIcon';
 import { graphQLPromise } from '../common/CommonFunctions';
 
 export default async function Footer() {
-  
-  // const popularLinks = [
-  //   { label: "What’s New", path: '' },
-  // ];
-  // const resources = [
-  //   { label: "Download", path: '/resources' },
-  //   { label: "FAQ", path: '/resources' },
-  //   { label: "Privacy Policy", path: 'https://amadeus.com/en/policies/privacy-policy' },
-  // ];
-  // const aboutAmadeus = [
-  //   { label: "Contact us", path: '/contact' },
-  //   { label: "Subscribe to know more", path: '/' },
-  // ];
+  let socialList = await getSocialLinks();
+  socialList = socialList?.data?.socialLinks?.edges;  
 
   const solutionsMenus = await getSolutionsMenus();
   const solutionTitle = solutionsMenus?.data?.menu?.name;
@@ -35,7 +24,6 @@ export default async function Footer() {
   const aboutListMenus = await getAboutMenus();
   const aboutListTitle = aboutListMenus?.data?.menu?.name;
   const aboutMenus = aboutListMenus?.data?.menu?.menuItems?.nodes;
-
   
 
   return <>
@@ -112,31 +100,15 @@ export default async function Footer() {
             <p className="m-0">© Copyright 2024 - Amadeus Gulf LLC</p>
           </div>
           <ul className="footer-social">
-            <li className="footer-social__item">
-              <Link target="_blank" href={"https://www.linkedin.com/company/amadeus/"}>
-                <i className="fa-brands fa-linkedin-in"></i>
-              </Link>
-            </li>
-            <li className="footer-social__item">
-              <Link target="_blank" href={"https://www.facebook.com/AmadeusITGroup/"}>
-                <i className="fa-brands fa-facebook-f"></i>
-              </Link>
-            </li>
-            <li className="footer-social__item">
-              <Link target="_blank" href="https://twitter.com/AmadeusITGroup">
-                <i className="fa-brands fa-x-twitter"></i>
-              </Link>
-            </li>
-            <li className="footer-social__item">
-              <Link target="_blank" href={"https://www.instagram.com/amadeusitgroup/"}>
-                <i className="fa-brands fa-instagram"></i>
-              </Link>
-            </li>
-            <li className="footer-social__item">
-              <Link target="_blank" href={"https://www.youtube.com/user/AmadeusITGroup"}>
-                <i className="fa-brands fa-youtube"></i>
-              </Link>
-            </li>
+            {
+              socialList.map((item, index) => 
+                <li className="footer-social__item" key={index}>
+                  <Link target="_blank" href={item?.node?.socialLinksInfo?.link}>
+                    <i className={item?.node?.socialLinksInfo?.iconName}></i>
+                  </Link>
+                </li>
+              )
+            }
           </ul>
         </div>
       </div>
@@ -144,6 +116,24 @@ export default async function Footer() {
   </>;
 };
 
+// Social Links
+async function getSocialLinks() {
+  return await graphQLPromise(
+    "social_link",
+    `query social_link {
+      socialLinks {
+        edges {
+          node {
+            socialLinksInfo {
+              iconName
+              link
+            }
+          }
+        }
+      }
+    }`
+  );
+}
 
 // Solutions Menus fetching
 async function getSolutionsMenus() {

@@ -17,6 +17,14 @@ export async function metadata() {
 export default async function Home() {
   const metadataValue = await metadata();
 
+  // Checking video || Carousel
+  let videoOrCarousel = await getVideoOrCarouseSelection();
+  videoOrCarousel = videoOrCarousel?.data?.pages?.edges[0]?.node?.homeVideoOrCarousel?.video;
+
+  // Carousel
+  let carousels = await getCarousels();
+  carousels = carousels?.data?.sliders?.edges;
+  
   // about section data fetching
   let homePageContent = await getAboutSectionData();
   homePageContent = homePageContent?.data?.pages?.edges[0]?.node;
@@ -45,9 +53,10 @@ export default async function Home() {
           <link key={index} rel={link.rel} href={link.href} />
         ))}
       </Head>
-
-      <HomeHeroVideo />
-      {/* <Slider /> */}
+      {
+        !videoOrCarousel ? <HomeHeroVideo /> : <Slider data={carousels} />
+      }
+      
       {metadataValue.links.map((link, index) => (
         <link key={index} rel={link.rel} href={link.href} />
       ))}
@@ -167,6 +176,29 @@ export default async function Home() {
   );
 }
 
+// Carousels
+async function getCarousels() {
+  return await graphQLPromise(
+    "sliders",
+    `query sliders {
+      sliders {
+        edges {
+          node {
+            content
+            featuredImage {
+              node {
+                altText
+                sourceUrl
+              }
+            }
+          }
+        }
+      }
+    }`
+  );
+}
+
+// Testimonials
 async function getTestimonials() {
   return await graphQLPromise(
     "testimonials",
@@ -196,6 +228,22 @@ async function getTestimonials() {
 }
 
 // about section data fetching
+async function getVideoOrCarouseSelection() {
+  return await graphQLPromise(
+    "videoOrCarouse",
+    `query videoOrCarouse {
+      pages(where: {id: 10}) {
+        edges {
+          node {
+            homeVideoOrCarousel {
+              video
+            }
+          }
+        }
+      }
+    }`
+  );
+}
 async function getAboutSectionData() {
   return await graphQLPromise(
     "homePageContent",

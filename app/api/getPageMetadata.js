@@ -35,8 +35,8 @@ export async function getPageMetadata(pageId) {
   // const previousImages = (await parent).openGraph?.images || [];
 
   return {
-    title: response.title,
-    description: response.description,
+    title: response?.title,
+    description: response?.description,
     links: generatedLinks,
     // openGraph: {
     //   images: ['/some-specific-page-image.jpg', ...previousImages],
