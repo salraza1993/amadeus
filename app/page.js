@@ -219,6 +219,7 @@ async function getTestimonials() {
               nameAgency
               designation
               linkedinPath
+              icon
             }
           }
         }

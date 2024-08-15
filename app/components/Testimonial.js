@@ -39,10 +39,10 @@ function Testimonial({ data }) {
 
                 {
                   testimonial?.node?.testimonialAdditionalInfo?.linkedinPath &&
-                  <ul className="social-links">
+                  <ul className="social-links">                      
                     <li className="social-links__item">
-                      <a href={testimonial.linkedinPath} target='_blank'>
-                        <i className="fa-brands fa-linkedin-in"></i>
+                        <a href={testimonial?.node?.testimonialAdditionalInfo?.linkedinPath} target='_blank'>
+                          <i className={testimonial?.node?.testimonialAdditionalInfo?.icon}></i>
                       </a>
                     </li>
                   </ul>
@@ -58,10 +58,10 @@ function Testimonial({ data }) {
               <div dangerouslySetInnerHTML={{ __html: testimonial?.node?.content }}></div>
             </div>
           </div>
-        </SwiperSlide>
+        </SwiperSlide>;
       })
     }
-  </Swiper>
+  </Swiper>;
 }
 
-export default Testimonial
+export default Testimonial;
