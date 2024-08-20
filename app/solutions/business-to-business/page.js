@@ -5,7 +5,6 @@ import PageContent from './PageContent';
 import { graphQLPromise } from '@/app/common/CommonFunctions';
 import { getPageMetadata } from '@/app/api/getPageMetadata';
 import Head from 'next/head';
-import MetaTagCommonForAll from '@/app/components/MetaTagCommonForAll';
 
 export async function metadata() {
   return await getPageMetadata(271);

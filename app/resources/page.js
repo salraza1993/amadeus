@@ -7,7 +7,6 @@ import ImageTag from '../components/ImageTag';
 import { graphQLPromise } from '../common/CommonFunctions';
 import { getPageMetadata } from '../api/getPageMetadata';
 import Head from 'next/head';
-import MetaTagCommonForAll from '../components/MetaTagCommonForAll';
 
 export async function metadata() {
   return await getPageMetadata(72);

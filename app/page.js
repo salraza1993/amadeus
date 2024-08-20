@@ -9,7 +9,6 @@ import Link from 'next/link';
 import Subscription from './components/Subscription';
 import { graphQLPromise } from './common/CommonFunctions';
 import { getPageMetadata } from './api/getPageMetadata';
-import MetaTagCommonForAll from './components/MetaTagCommonForAll';
 
 export async function metadata() {
   return await getPageMetadata(10);

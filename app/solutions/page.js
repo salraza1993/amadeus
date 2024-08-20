@@ -7,7 +7,6 @@ import SolutionsBlocks from '../components/SolutionsPage/SolutionsBlocks';
 import Solution4thSection from '../components/SolutionsPage/Solution4thSection';
 import { graphQLPromise } from '../common/CommonFunctions';
 import { getPageMetadata } from '../api/getPageMetadata';
-import MetaTagCommonForAll from '../components/MetaTagCommonForAll';
 
 export async function metadata() {
   return await getPageMetadata(70);
