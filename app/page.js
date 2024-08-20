@@ -9,6 +9,7 @@ import Link from 'next/link';
 import Subscription from './components/Subscription';
 import { graphQLPromise } from './common/CommonFunctions';
 import { getPageMetadata } from './api/getPageMetadata';
+import MetaTagCommonForAll from './components/MetaTagCommonForAll';
 
 export async function metadata() {
   return await getPageMetadata(10);
@@ -49,6 +50,7 @@ export default async function Home() {
       <Head>
         <title>{metadataValue.title}</title>
         <meta name="description" content={metadataValue.description} />
+        <meta name="keywords" content="Travel Technology, Travel Software, Travel technology Company, Online Travel Booking solution, Online Travel Solutions, Software Company, OnlineTravel Software Solutions, travel software company, travel agency software, travel agent software, travel agent software, hotel booking engine, travel technology solutions, agent software, travel agency software, Booking Engine, Grow Online, Grow travel business, go online, secure online solution" />
         {metadataValue.links.map((link, index) => (
           <link key={index} rel={link.rel} href={link.href} />
         ))}
