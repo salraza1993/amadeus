@@ -10,12 +10,10 @@ export async function getPageMetadata(pageId) {
             pageMetadata {
               title
               description
-              metaLinks {
+              metaTags
+              meta_links {
+                type
                 url
-                attributes {
-                  attributeKey
-                  attributeValue
-                }
               }
             }
           }
@@ -26,20 +24,16 @@ export async function getPageMetadata(pageId) {
 
   response = response?.data?.pages?.edges[0]?.node?.pageMetadata;
 
-  const generatedLinks = response?.metaLinks?.map(link => ({
-    rel: link.attributes.find(attr => attr.attributeKey === 'rel').attributeValue,
-    href: link.url,
-  })) || [];
-
-  // optionally access and extend (rather than replace) parent metadata
-  // const previousImages = (await parent).openGraph?.images || [];
-
+  const canonicalLinks = response?.meta_links.find(link => link.type === 'canonical').url;
+  const alternateLinks = response?.meta_links.find(link => link.type === 'alternate').url;
+  const keywords = response?.metaTags.split(', ')
   return {
     title: response?.title,
     description: response?.description,
-    links: generatedLinks,
-    // openGraph: {
-    //   images: ['/some-specific-page-image.jpg', ...previousImages],
-    // },
+    keywords: keywords,
+    alternates: {
+      canonical: canonicalLinks,
+      languages: { 'en-US': alternateLinks },
+    },
   };
 }

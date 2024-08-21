@@ -8,12 +8,9 @@ import Solution4thSection from '../components/SolutionsPage/Solution4thSection';
 import { graphQLPromise } from '../common/CommonFunctions';
 import { getPageMetadata } from '../api/getPageMetadata';
 
-export async function metadata() {
-  return await getPageMetadata(70);
-}
+export const metadata = await getPageMetadata(70);
 
 export default async function Solutions() {
-  const metadataValue = await metadata();
 
   // Fetching Top Banner Data
   let pageData = await getPageData();
@@ -25,14 +22,6 @@ export default async function Solutions() {
   const section4thData = pageData?.solution4thSection;
   
   return <>
-    <Head>
-      <title>{metadataValue.title}</title>
-      <meta name="description" content={metadataValue.description} />
-      <meta name="keywords" content="Travel Technology, Travel Software, Travel technology Company, Online Travel Booking solution, Online Travel Solutions, Software Company, OnlineTravel Software Solutions, travel software company, travel agency software, travel agent software, travel agent software, hotel booking engine, travel technology solutions, agent software, travel agency software, Booking Engine, Grow Online, Grow travel business, go online, secure online solution" />
-      {metadataValue.links.map((link, index) => (
-        <link key={index} rel={link.rel} href={link.href} />
-      ))}
-    </Head>
     <HeroBanner data={pageData} />
     <SolutionsBlocks data={solutionBlocks} />    
     <section className="providers-section">

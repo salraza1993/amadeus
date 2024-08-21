@@ -10,13 +10,20 @@ import Subscription from './components/Subscription';
 import { graphQLPromise } from './common/CommonFunctions';
 import { getPageMetadata } from './api/getPageMetadata';
 
-export async function metadata() {
-  return await getPageMetadata(10);
+export async function metadataFunc() {
+  let obj = await getPageMetadata(10);
+  // if (obj?.tags) {
+  //   let finalArr = obj.tags.find(x => x.name == 'keywords');
+  //   obj.keywords = finalArr.content?.split(', ');
+  // }
+  // obj.title = 'saud';
+  // console.log(obj);
+  return obj;
 }
 
-export default async function Home() {
-  const metadataValue = await metadata();
+export const metadata = await getPageMetadata(10);
 
+export default async function Home() {
   // Checking video || Carousel
   let videoOrCarousel = await getVideoOrCarouseSelection();
   videoOrCarousel = videoOrCarousel?.data?.pages?.edges[0]?.node?.homeVideoOrCarousel?.video;
@@ -46,21 +53,9 @@ export default async function Home() {
 
   return (
     <>
-      <Head>
-        <title>{metadataValue.title}</title>
-        <meta name="description" content={metadataValue.description} />
-        <meta name="keywords" content="Travel Technology, Travel Software, Travel technology Company, Online Travel Booking solution, Online Travel Solutions, Software Company, OnlineTravel Software Solutions, travel software company, travel agency software, travel agent software, travel agent software, hotel booking engine, travel technology solutions, agent software, travel agency software, Booking Engine, Grow Online, Grow travel business, go online, secure online solution" />
-        {metadataValue.links.map((link, index) => (
-          <link key={index} rel={link.rel} href={link.href} />
-        ))}
-      </Head>
       {
         !videoOrCarousel ? <HomeHeroVideo /> : <Slider data={carousels} />
-      }
-      
-      {metadataValue.links.map((link, index) => (
-        <link key={index} rel={link.rel} href={link.href} />
-      ))}
+      }      
       <section className="home-about-section">
         <div className="container">
           <div className="home-about-container">
