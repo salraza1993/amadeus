@@ -9,4 +9,38 @@ Disallow:
 User-agent: *
 Disallow: 
 
-Sitemap: https://www.amadeusonlinesuite.net/sitemap
+Sitemap: https://amadeusonlinesuite.net/sitemap.xml
+
+
+User-agent: *
+# Allowable pages
+Allow: /js/
+Allow: /css/
+
+# Directories
+Disallow: /bin/
+Disallow: /dev/
+Disallow: /lib/
+Disallow: /var/
+
+# Paths (clean URLs)
+Disallow: /index.php/
+Disallow: /tag/
+Disallow: /sitemap/
+
+# Blocked files and folders for Googlebot
+User-agent: Googlebot
+Disallow: /bin/
+Disallow: /dev/
+Disallow: /lib/
+Disallow: /var/
+
+# Blocked files and folders for Bingbot
+User-agent: Bingbot
+Disallow: /bin/
+Disallow: /dev/
+Disallow: /lib/
+Disallow: /var/
+
+# Sitemap location
+Sitemap: https://amadeusonlinesuite.net/sitemap.xml

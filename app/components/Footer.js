@@ -1,9 +1,9 @@
-import React from 'react';
-import Logo from './icons/Logo';
 import '@/app/scss/components/Footer.scss';
-import Link from 'next/link';
+import Logo from './icons/Logo';
 import ContactShortIcon from './ContactShortIcon';
 import { graphQLPromise } from '../common/CommonFunctions';
+import FooterLinks from './FooterLinks';
+import FooterSocialLinks from './FooterSocialLinks';
 
 export default async function Footer() {
   let socialList = await getSocialLinks();
@@ -31,66 +31,22 @@ export default async function Footer() {
     <footer className="main-footer">
       <div className="container">
         <div className="row g-4">
-          <div className="col-12 col-lg-4 col-xl-4">
+          <div className="col-12 col-lg-4 col-xl-3">
             <div className="main-footer-logo"><Logo /></div>
           </div>
-          <div className="col-12 col-lg-8 col-xl-8">
+          <div className="col-12 col-lg-8 col-xl-9">
             <div className="row">
-              <div className="col-12 col-md-3 col-lg-3">
-                <div className="main-footer__content">
-                  <h6 className="__heading mb-3 fw-bold">{solutionTitle}</h6>
-                  <ul className="main-footer__content__links">
-                    {
-                      solutionMenus.map((item, index) => {
-                        return <li className="main-footer__content__links__item" key={item?.id}>
-                          <Link href={item?.url}>{item?.label}</Link>
-                        </li>;
-                      })
-                    }
-                  </ul>
-                </div>
+              <div className="col-12 col-md-3 col-lg-4">
+                <FooterLinks data={solutionMenus} title={solutionTitle} />
+              </div>
+              <div className="col-12 col-md-3 col-lg-2">
+                <FooterLinks data={popularLinkMenus} title={popularLinksTitle} />
               </div>
               <div className="col-12 col-md-3 col-lg-3">
-                <div className="main-footer__content">
-                  <h6 className="__heading mb-3 fw-bold">{ popularLinksTitle }</h6>
-                  <ul className="main-footer__content__links">
-                    {
-                      popularLinkMenus.map((item, index) => {
-                        return <li className="main-footer__content__links__item" key={item?.id}>
-                          <Link href={item?.url}>{item?.label}</Link>
-                        </li>;
-                      })
-                    }
-                  </ul>
-                </div>
+                <FooterLinks data={resourceMenus} title={resourcesTitle} />
               </div>
               <div className="col-12 col-md-3 col-lg-3">
-                <div className="main-footer__content">
-                  <h6 className="__heading mb-3 fw-bold">{resourcesTitle}</h6>
-                  <ul className="main-footer__content__links">
-                    {
-                      resourceMenus.map((item, index) => {
-                        return <li className="main-footer__content__links__item" key={item?.id}>
-                          <Link href={item?.url}>{item?.label}</Link>
-                        </li>;
-                      })
-                    }
-                  </ul>
-                </div>
-              </div>
-              <div className="col-12 col-md-3 col-lg-3">
-                <div className="main-footer__content">
-                  <h6 className="__heading mb-3 fw-bold">{aboutListTitle}</h6>
-                  <ul className="main-footer__content__links">
-                    {
-                      aboutMenus.map((item, index) => {
-                        return <li className="main-footer__content__links__item" key={item?.id}>
-                          <Link href={item?.url}>{item?.label}</Link>
-                        </li>;
-                      })
-                    }
-                  </ul>
-                </div>
+                <FooterLinks data={aboutMenus} title={aboutListTitle} />
               </div>
             </div>
           </div>
@@ -99,17 +55,7 @@ export default async function Footer() {
           <div className="copyrights__links">
             <p className="m-0">© Copyright 2024 - Amadeus Gulf LLC</p>
           </div>
-          <ul className="footer-social">
-            {
-              socialList.map((item, index) => 
-                <li className="footer-social__item" key={index}>
-                  <Link target="_blank" href={item?.node?.socialLinksInfo?.link}>
-                    <i className={item?.node?.socialLinksInfo?.iconName}></i>
-                  </Link>
-                </li>
-              )
-            }
-          </ul>
+          <FooterSocialLinks links={socialList} />
         </div>
       </div>
     </footer>
@@ -224,12 +170,13 @@ async function getPopularLinksMenus() {
     }`
   );
 }
+
 // About Menus Menus fetching
 async function getAboutMenus() {
   return await graphQLPromise(
-    "popularLinks",
-    `query popularLinks {
-      menu(id: "about amadeus", idType: NAME) {
+    "aboutLinks",
+    `query aboutLinks {
+      menu(id: "about", idType: NAME) {
         count
         id
         databaseId
