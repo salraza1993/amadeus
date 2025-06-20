@@ -19,6 +19,7 @@ import "./scss/style.scss";
 import kanit from "./Fonts";
 import Script from "next/script";
 import { graphQLPromise } from "./common/CommonFunctions";
+import { SchemaLocalBusiness, SchemaOrganization, SchemaWebSiteSearchAction } from "./scripts/scripts";
 
 export const metadata = {
   title: {
@@ -63,6 +64,30 @@ export default function RootLayout({ children }) {
         `}
       </Script>
       {/* <!-- End Google Tag Manager --> */}
+      
+      <Script
+        id="jsonld-localbusiness"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{__html: JSON.stringify(SchemaLocalBusiness)}}
+      />
+
+      {/* JSON-LD for WebSite */}
+      <Script
+        id="jsonld-website"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{__html: JSON.stringify(SchemaWebSiteSearchAction)}}
+      />
+
+      {/* JSON-LD for Organization */}
+      <Script
+        id="jsonld-organization"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{__html: JSON.stringify(SchemaOrganization)}}
+      />
+
       <body
         className={`
           ${amadeusLight.variable}
