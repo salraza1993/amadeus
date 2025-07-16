@@ -6,6 +6,7 @@ import FooterLinks from './FooterLinks';
 import FooterSocialLinks from './FooterSocialLinks';
 
 export default async function Footer() {
+  const currentYear = new Date().getFullYear();
   let socialList = await getSocialLinks();
   socialList = socialList?.data?.socialLinks?.edges;  
 
@@ -53,7 +54,7 @@ export default async function Footer() {
         </div>
         <div className="copyrights">
           <div className="copyrights__links">
-            <p className="m-0">© Copyright 2024 - Amadeus Gulf LLC</p>
+            <p className="m-0">© Copyright {currentYear} - Amadeus Gulf LLC</p>
           </div>
           <FooterSocialLinks links={socialList} />
         </div>
