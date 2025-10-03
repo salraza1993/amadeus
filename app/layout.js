@@ -89,6 +89,7 @@ export default function RootLayout({ children }) {
       />
 
       <body
+        id="root-body"
         className={`
           ${amadeusLight.variable}
           ${amadeusLightItalic.variable}

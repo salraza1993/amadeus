@@ -8,7 +8,7 @@ function HeroBanner({data}) {
   return <div className='hero-banner-container'>
     <ImageTag src={data?.featuredImage?.node?.sourceUrl} alt={data?.featuredImage?.node?.altText} />
     <div className="content">
-      <div className="container">
+      <div className="container content-container">
         <motion.div
           initial={{ y: "30%", opacity: 0 }}
           animate={{ y: "0", opacity: 1 }}

@@ -1,4 +1,4 @@
-.text{
+.text {
   &-primary {
     color: var(--bs-primary) !important;
   }
@@ -7,5 +7,20 @@
   }
   &-body-color {
     color: var(--bs-body-color) !important;
+  }
+}
+
+.max-width {
+  &--max-content {
+    max-width: max-content !important;
+  }
+  &--min-content {
+    min-width: min-content !important;
+  }
+  &--100 {
+    max-width: 100% !important;
+  }
+  &--50 {
+    max-width: 50% !important;
   }
 }

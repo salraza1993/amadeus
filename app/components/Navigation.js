@@ -10,6 +10,7 @@ function Navigation({ mobileState, hideMobileMenuHandler }) {
     { label: "Home", path: '/' },
     { label: "Solutions", path: '/solutions' },
     { label: "Resources", path: '/resources' },
+    { label: "Blog", path: '/blog' },
     { label: "Contact", path: '/contact' },
   ];
   return (

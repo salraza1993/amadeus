@@ -9,23 +9,27 @@ import Link from 'next/link';
 import Subscription from './components/Subscription';
 import { graphQLPromise } from './common/CommonFunctions';
 import { getPageMetadata } from './api/getPageMetadata';
+import HomeAboutSection from './components/homePage/HomeAboutSection';
+import HomeCounterSection from './components/homePage/HomeCounterSection';
+import HomeWhySection from './components/homePage/HomeWhySection';
+import HomeTestimonials from './components/homePage/HomeTestimonials';
+import HomeContentCarousel from './components/homePage/HomeContentCarousel';
+import HomeTrustPilotSection from './components/homePage/HomeTrustPilotSection';
+import HomeSpecialSection from './components/homePage/HomeSpecialSection';
+import { GetFooterFeaturedPageData } from './api/getFooterFeaturedData';
+import { pagesIds } from './helpers/helpers';
 
 export async function metadataFunc() {
   let obj = await getPageMetadata(10);
-  // if (obj?.tags) {
-  //   let finalArr = obj.tags.find(x => x.name == 'keywords');
-  //   obj.keywords = finalArr.content?.split(', ');
-  // }
-  // obj.title = 'saud';
-  // console.log(obj);
   return obj;
 }
 
 export const metadata = await getPageMetadata(10);
 
 export default async function Home() {
+  const pageID = pagesIds.homePage;
   // Checking video || Carousel
-  let videoOrCarousel = await getVideoOrCarouseSelection();
+  let videoOrCarousel = await getVideoOrCarouseSelection(pageID);
   videoOrCarousel = videoOrCarousel?.data?.pages?.edges[0]?.node?.homeVideoOrCarousel?.video;
 
   // Carousel
@@ -33,141 +37,41 @@ export default async function Home() {
   carousels = carousels?.data?.sliders?.edges;
   
   // about section data fetching
-  let homePageContent = await getAboutSectionData();
+  let homePageContent = await getAboutSectionData(pageID);
   homePageContent = homePageContent?.data?.pages?.edges[0]?.node;
   // Fetching Counter
-  let counterContent = await getCounters();
+  let counterContent = await getCounters(pageID);
   counterContent = counterContent.data?.pages?.edges[0]?.node?.homeCounter?.counter;
   
   // Fetching Why Amadeus Data
-  let whyAmadeusData = await getWhySectionData();
+  let whyAmadeusData = await getWhySectionData(pageID);
   whyAmadeusData = whyAmadeusData.data?.pages?.edges[0]?.node?.homeWhySection;
 
   // Fetching Newsletter Content
-  let newsletterContent = await getNewsletterContent();
+  let newsletterContent = await getNewsletterContent(pageID);
   newsletterContent = newsletterContent.data?.pages?.edges[0]?.node?.newsletterSection;  
 
   // Fetching Newsletter Content
   let testimonials = await getTestimonials();
   testimonials = testimonials?.data?.testimonials?.edges;  
 
+  const footerFeatureContent = await GetFooterFeaturedPageData(pageID);
+  const carouselContentResponse = await getContentCarousel(pageID);
+  const carouselsContent = carouselContentResponse?.data?.pages?.nodes[0]?.homePageContent?.contentCarousel;
+
   return (
     <>
       {
         !videoOrCarousel ? <HomeHeroVideo /> : <Slider data={carousels} />
       }      
-      <section className="home-about-section">
-        <div className="container">
-          <div className="home-about-container">
-            <div className="row align-items-center gy-4">
-              <div className="col-12 col-lg-6 col-xl-6">
-                <div className="content">
-                  <div className='d-flex flex-column gap-2'
-                    dangerouslySetInnerHTML={{ __html: homePageContent?.content }}></div>
-                  <Link
-                    href={homePageContent?.homeAboutCTA?.ctaButton.url}
-                    target={homePageContent?.homeAboutCTA?.ctaButton.target}
-                    className='btn btn-primary btn-lg'>
-                    {homePageContent?.homeAboutCTA?.ctaButton.title}
-                  </Link>
-                </div>
-              </div>
-              <div className="col-12 col-lg-6 col-xl-6 d-flex justify-content-end">
-                <div className="image">
-                  <ImageTag
-                    src={homePageContent?.featuredImage?.node?.sourceUrl}
-                    alt={homePageContent?.featuredImage?.node?.altText} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="counters-section">
-        <div className="container">
-          <div className="counters-container">
-            <ul className="counters">
-              {counterContent.map((count, index) => <Counter key={index} data={count} />)}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="why-amadeus-section">
-        <div className="container">
-          <div className="why-amadeus-container">
-            <div className="row">
-              <div className="col-12 col-xl-6">
-                <div className="why-amadeus__image">
-                  <ImageTag
-                    src={whyAmadeusData?.whyBlockImage?.node?.sourceUrl}
-                    alt={whyAmadeusData?.whyBlockImage?.node?.altText} />
-
-                  <ul className="points">
-                    <li className="points__item">
-                      <span className="icon">
-                        <ImageTag src="/assets/images/icon-ticket.png" alt="Ticket Icon" />
-                      </span>
-                      <span>Flexible Payments</span>
-                    </li>
-                    <li className="points__item">
-                      <span className="icon">
-                        <ImageTag src="/assets/images/icon-clock.png" alt="Clock Icon" />
-                      </span>
-                      <span>Realtime</span>
-                    </li>
-                    <li className="points__item">
-                      <span className="icon">
-                        <ImageTag src="/assets/images/icon-revenue.png" altText="Revenue Icon" />
-                      </span>
-                      <span>Revenues</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="col-12 col-xl-6">
-                <div className="why-amadeus__content">
-                  <div dangerouslySetInnerHTML={{ __html: whyAmadeusData?.whyContent }}></div>
-                  <ul className="content-list">
-                    {
-                      whyAmadeusData?.list.map((item, index) => {
-                        return <li className="content-list__item" key={index}>
-                          <span className="icon">
-                            <ImageTag src={item.listIcon?.node?.sourceUrl} alt={item?.listIcon?.node?.altText} />
-                          </span>
-                          <div className="text">
-                            <h5 className='fw-bold'>{item?.listHeading}</h5>
-                            <div dangerouslySetInnerHTML={{ __html: item?.listContent}}></div>
-                          </div>
-                        </li>;
-                      })
-                    }
-                  </ul>
-                  <Link
-                    href={whyAmadeusData?.linkButton.url}
-                    target={whyAmadeusData?.linkButton?.target}
-                    className='btn btn-primary btn-lg mt-4'>{whyAmadeusData?.linkButton?.title}</Link>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="testimonial-section">
-        <div className="container">
-          <div className="testimonial-container">
-            <h2 className='fs-1 text-center font-amadeus-medium'>What Our Customers Say</h2>
-            <div className="testimonial-card-container">
-              <Testimonial data={testimonials} />
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <HomeAboutSection sectionContent={homePageContent} />
+      <HomeContentCarousel data={carouselsContent} />
+      <HomeCounterSection counter={counterContent} />
+      <HomeWhySection data={whyAmadeusData} />
+      <HomeTestimonials data={testimonials} />
+      <HomeTrustPilotSection />
       <Subscription content={newsletterContent} />
+      <HomeSpecialSection data={footerFeatureContent} />
     </>
   );
 }
@@ -225,11 +129,11 @@ async function getTestimonials() {
 }
 
 // about section data fetching
-async function getVideoOrCarouseSelection() {
+async function getVideoOrCarouseSelection(pageID) {
   return await graphQLPromise(
     "videoOrCarouse",
     `query videoOrCarouse {
-      pages(where: {id: 10}) {
+      pages(where: {id: ${pageID}}) {
         edges {
           node {
             homeVideoOrCarousel {
@@ -241,11 +145,11 @@ async function getVideoOrCarouseSelection() {
     }`
   );
 }
-async function getAboutSectionData() {
+async function getAboutSectionData(pageID) {
   return await graphQLPromise(
     "homePageContent",
     `query homePageContent {
-      pages(where: {id: 10}) {
+      pages(where: {id: ${pageID}}) {
         edges {
           node {
             content
@@ -269,11 +173,11 @@ async function getAboutSectionData() {
   );
 }
 // Fetching Counter
-async function getCounters() {
+async function getCounters(pageID) {
   return await graphQLPromise(
     "getCounters",
     `query getCounters {
-      pages(where: {id: 10}) {
+      pages(where: {id: ${pageID}}) {
         edges {
           node {
             homeCounter {
@@ -290,11 +194,11 @@ async function getCounters() {
   );
 }
 // Fetching Why Amadeus Section Data
-async function getWhySectionData() {
+async function getWhySectionData(pageID) {
   return await graphQLPromise(
     "homeWhyAmadeusSection",
     `query homeWhyAmadeusSection {
-      pages(where: {id: 10}) {
+      pages(where: {id: ${pageID}}) {
         edges {
           node {
             homeWhySection {
@@ -329,16 +233,45 @@ async function getWhySectionData() {
 }
 
 // Newsletter Content Fetching
-async function getNewsletterContent() {
+async function getNewsletterContent(pageID) {
   return await graphQLPromise(
     "homeNewsletterSection",
     `query homeNewsletterSection {
-      pages(where: {id: 10}) {
+      pages(where: {id: ${pageID}}) {
         edges {
           node {
             newsletterSection {
               newsletterText
               newsletterHeading
+            }
+          }
+        }
+      }
+    }`
+  );
+}
+
+// Content Carousel Fetching
+async function getContentCarousel(pageID) {
+  return await graphQLPromise(
+    "homeContentCarousel",
+    `query homeContentCarousel {
+      pages(where: {id: ${pageID}}) {
+        nodes {
+          homePageContent {
+            contentCarousel {
+              content
+              image {
+                node {
+                  altText
+                  sourceUrl
+                }
+              }
+              button {
+                target
+                url
+                title
+              }
             }
           }
         }

@@ -25,7 +25,6 @@ export default async function Footer() {
   const aboutListMenus = await getAboutMenus();
   const aboutListTitle = aboutListMenus?.data?.menu?.name;
   const aboutMenus = aboutListMenus?.data?.menu?.menuItems?.nodes;
-  
 
   return <>
     <ContactShortIcon />

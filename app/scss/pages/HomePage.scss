@@ -192,7 +192,7 @@
   background-color: var(--bs-primary);
 
   @media (prefers-color-scheme: dark) {
-    background-color: #09186c;
+    background-color: var(--bs-primary);
   }
 
   .counters-container {
@@ -576,6 +576,61 @@
   }
 }
 
+.home-trustpilot-section {
+  position: relative;
+  padding-block: calc(2rem + 1vw);
+
+  @media (width < 1200px) {
+    .container {
+      padding: 0;
+    }
+  }
+}
+
+.home-special-section {
+  position: relative;
+  padding: calc(1rem + 1vw);
+
+  @media (width < 1200px) {
+    .container { padding: 0; }
+  }
+
+  .content-block {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: var(--bs-white);
+    color: var(--bs-dark);
+    flex: 1 1 auto;
+    @media (width > 1024px) {
+      flex-direction: row;
+      > * {
+        flex: 1 1 50%;
+      }
+    }
+    
+    .content {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      padding: calc(1rem + 1.5vw);
+      flex-direction: column;
+    }
+    .image {
+      position: relative;
+      width: 100%;
+      margin-inline: auto;
+      
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
 .subscribe-section {
   position: relative;
   background-color: #F5F7FF;
@@ -730,6 +785,53 @@
 
         &:hover {
           scale: 1.25;
+        }
+      }
+    }
+  }
+}
+
+.home-content-carousel-section {
+  position: relative;
+  width: 100%;
+  
+  .home-content-carousel {
+    position: relative;
+    padding-block-start: calc(1rem + 1vw);
+    padding-block-end: calc(2rem + 1vw);
+    padding-inline: calc(1rem + 1vw);
+
+    .slide-content {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: calc(2rem + 1vw);
+      @media (width > 1024px) {
+        flex-direction: row;
+      }
+
+      .hone-content-carousel-image {
+        position: relative;
+        width: 100%;
+        height: 30vh;
+        overflow: clip;
+        flex-shrink: 0;
+        @media (width > 768px) {
+          height: 50vh;
+          max-height: 50vh;
+        }
+        @media (width > 1024px) {
+          max-width: calc(400px + 5vw);
+          height: auto;
+          max-height: 100%;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
         }
       }
     }

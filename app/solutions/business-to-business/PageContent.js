@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { useInView } from "framer-motion";
 import ImageTag from '@/app/components/ImageTag';
 import Link from 'next/link';
+import PageFirstSection from '../components/PageFirstSection';
 
 function useBlockInView() {
   const imageRef = useRef(null);
@@ -30,6 +31,7 @@ function PageContent({data}) {
   
   // Benefit Lists
   const benefitLists = sec_5th_data?.b2bSec5thList;
+
 
   return <>
     <section className="sub-page-block sub-page-block-1st">
@@ -210,23 +212,19 @@ function PageContent({data}) {
       </div>
     </section>
 
-    <section className='sub-page-last-block'>
-      <div className="b2b-block__content" ref={block6th.contentRef}
-        style={{
-          transform: block6th.contentInView ? "none" : "translateY(25%)",
-          opacity: block6th.contentInView ? 1 : 0,
-          transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
-        }}>
-        <div className="text" dangerouslySetInnerHTML={{ __html: sec_6th_data?.b2bSec6thContent }}></div>
-        <Link
-          href={sec_6th_data?.b2bSec6thButton?.url}
-          target={sec_6th_data?.b2bSec6thButton?.target}
-          className='btn btn-light btn-lg'>{sec_6th_data?.b2bSec6thButton?.title}</Link>
-      </div>
-      <div className="b2b-block__image">
-        <ImageTag
-          src={sec_6th_data?.b2bSec6thImage?.node?.sourceUrl}
-          alt={sec_6th_data?.b2bSec6thImage?.node?.altText} />
+    <section className="inner-special-section">
+      <div className="inner-section-content" style={{ backgroundImage: 'url(/assets/images/be-ahead-bg.jpg)' }}>
+        <div className="section-content">
+          <h2>
+            Be ahead in the travel industry by using a B2B travel platform that covers your entire distribution network. 
+          </h2>
+          <p>
+            Our solution helps you to expand the market, improve customer experience and maximise revenue opportunities. Join the many who use our platform to transform their travel business and deliver value to their customers and sub-agents.
+          </p>
+          <p>
+            Try the travel technology of the future with a platform designed for the changing needs of travel consolidators and agencies. Contact us today to see how our customizable B2B travel booking solution can help you.
+          </p>
+        </div>
       </div>
     </section>
   </>

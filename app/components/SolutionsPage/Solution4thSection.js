@@ -22,7 +22,7 @@ function Solution4thSection({ data }) {
             }}    
             className="content">
             <div className='d-flex flex-column gap-2' dangerouslySetInnerHTML={{ __html: data?.s4thContent }}></div>
-            <Link href={data?.s4thLink?.url} target={data?.s4thLink?.target} className='btn btn-secondary btn-lg'>{data?.s4thLink?.title}</Link>
+            <Link href={data?.s4thLink?.url} target={data?.s4thLink?.target} className='btn btn-secondary btn-lg px-4'>{data?.s4thLink?.title}</Link>
           </div>
         </div>
         <div className="col-12 col-lg-6 d-flex justify-content-end">

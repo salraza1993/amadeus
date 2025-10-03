@@ -10,7 +10,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  
+  scroll-behavior: smooth;
 }
 
 body {
@@ -58,6 +58,9 @@ a {
     font-family: var(--amadeus--black-italic) !important;
   }
 }
+
+h1, h2, h3 { font-family: var(--amadeus--bold); }
+h4, h5, h6 { font-family: var(--amadeus--medium); }
 
 .btn {
   border-radius: 0;
@@ -119,7 +122,7 @@ a {
 }
 
 .hero-banner-container {
-  --hero-banner-height: 600px;
+  --hero-banner-height: calc(350px + 5vw);
   position: relative;
   width: 100%;
   height: var(--hero-banner-height);
@@ -145,10 +148,15 @@ a {
     z-index: 1;
     padding: 5vw;
     color: var(--bs-white);
-    .title-heading {
+    .title-heading, 
+    .title-content {
       max-width: 550px;
     }
-
+    .content-container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
   }
  
   @media (width < 1200px) {
@@ -195,6 +203,28 @@ a {
   }
 }
 
+.section-bg-type {
+  &--white {
+    background-color: var(--bs-white);
+    color: var(--bs-dark);
+  }
+  &--light {
+    background-color: #F2F6FE;
+    color: var(--bs-dark);
+  }
+  &--dark, &--primary {
+    background-color: var(--bs-primary);
+    color: var(--bs-white);
+  }
+  &--secondary {
+    background-color: var(--bs-secondary);
+    color: var(--bs-white);
+  }
+  &--blue {
+    background-color: var(--bs-blue);
+    color: var(--bs-white);
+  }
+}
 
 @media (width < 1200px) {
   .container {
@@ -202,3 +232,55 @@ a {
     padding-inline: 5vw;
   }
 }
+
+
+.sub-page-last-block {
+  position: relative;
+  width: 100%;
+  padding-block: calc(2rem + 5vw);
+  background-color: var(--bs-primary);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #09186c;
+  }
+
+  .b2b-block {
+    &__image {
+      z-index: 0;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: rgba(var(--bs-black-rgb), 0.5);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__content {
+      position: relative;
+      z-index: 1;
+      color: var(--bs-white);
+      max-width: 900px;
+      margin-inline: auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+
+      @media (width < 768px) {
+        padding-inline: 5vw;
+      }
+    }
+  }
+}
+

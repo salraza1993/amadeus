@@ -31,8 +31,8 @@ function BlockContent({ title, subTitle, description, path, index }) {
       transitionDelay: `${1 * index / 10}s`
     }}    
     className={index % 2 === 0 ? "content odd" : 'content even'}>
-    <h2>{title}</h2>
-    <h5>{subTitle}</h5>
+    <h2 className='fw-bold'>{title}</h2>
+    <h5 className='fw-bolder'>{subTitle}</h5>
     <p>{description}</p>
     
     <a href={path} className='btn btn-secondary btn-lg' >Discover More</a>

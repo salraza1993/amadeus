@@ -27,7 +27,7 @@ export default async function Solutions() {
     <section className="providers-section">
       <div className="container">
         <div className="providers-container">
-          <h2 className='text-center'>Connect to multiple travel providers with Amadeus Online Suite</h2>
+          <h2 className='text-center fw-bold'>Connect to multiple travel providers with Amadeus Online Suite</h2>
           <ProvidersCarousel data={providersLogos} />
         </div>
       </div>
@@ -36,7 +36,7 @@ export default async function Solutions() {
     <section className="providers-section payment-providers-section">
       <div className="container">
         <div className="providers-container">
-          <h2 className='text-center'>A World of Payment Solutions to Grow Your Revenues</h2>
+          <h2 className='text-center fw-bold'>A World of Payment Solutions to Grow Your Revenues</h2>
           <PaymentProvidersCarousel data={paymentLogos} />
         </div>
       </div>
