@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
-import VideoOverlay from './VideoOverlay';
-import ImageTag from './ImageTag';
+import VideoOverlay from '../../components/VideoOverlay';
+import ImageTag from '../../components/ImageTag';
 
 function ResourcesVideoSection() {
   const videoUrl = "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm";

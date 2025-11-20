@@ -52,6 +52,8 @@ export async function PageFooterFeaturedBlock(postId) {
                 sourceUrl
               }
             }
+            backgroundColor
+            textColor
           }
         }
       }

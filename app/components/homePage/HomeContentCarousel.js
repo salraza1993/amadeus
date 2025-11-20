@@ -9,7 +9,6 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 function HomeContentCarousel({ data }) {
-  console.log(data)
   const [homeContentSlides, setHomeContentSlides] = useState([data]);
 
   useEffect(() => {

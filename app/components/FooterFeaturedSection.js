@@ -15,11 +15,13 @@ function FooterFeaturedSection({ data }) {
         altText: "Girl typing on computer",
         sourceUrl: "/assets/images/b2c-image-5th.png"
       }
-    }
+    },
+    backgroundColor: "#f1f1f1",
+    textColor: "#000000",
   }
   const content = data ? data : fallBackData;
 
-  return <section className='sub-page-last-block'>
+  return <section className='sub-page-last-block' style={{ '--block-bg': content?.backgroundColor, '--block-color': content?.textColor }}>
       <div className="b2b-block__content">
         <div className="text" dangerouslySetInnerHTML={{ __html: content?.content }}></div>
         {content?.button?.url && <Link
@@ -27,11 +29,14 @@ function FooterFeaturedSection({ data }) {
           target={content?.button?.target}
           className='btn btn-light btn-lg'>{content?.button?.title}</Link>}
       </div>
-      <div className="b2b-block__image">
-        <ImageTag
-          src={content?.banner?.node?.sourceUrl}
-          alt={content?.banner?.node?.altText} />
-      </div>
+      {
+        content?.banner?.node &&
+        <div className="b2b-block__image">
+          <ImageTag
+            src={content?.banner?.node?.sourceUrl}
+            alt={content?.banner?.node?.altText} />
+        </div>
+      }
     </section>
 }
 

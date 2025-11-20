@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import '@/app/scss/pages/SolutionsPage.scss';
 import HeroBanner from "../components/HeroBanner";
 import ProvidersCarousel from '../components/ProvidersCarousel';
@@ -7,22 +6,24 @@ import SolutionsBlocks from '../components/SolutionsPage/SolutionsBlocks';
 import Solution4thSection from '../components/SolutionsPage/Solution4thSection';
 import { graphQLPromise } from '../common/CommonFunctions';
 import { getPageMetadata } from '../api/getPageMetadata';
+import { pagesIds } from '../helpers/helpers';
+import { GetPageHeroBanner } from '../api/getSolutionsSubPagesData';
 
 export const metadata = await getPageMetadata(70);
 
 export default async function Solutions() {
-
-  // Fetching Top Banner Data
+  const pageId = pagesIds.solutionsPage;
+  const heroBannerContent = await GetPageHeroBanner(pageId);  
+  
   let pageData = await getPageData();
   pageData = pageData.data?.pages?.edges[0]?.node;
   const solutionBlocks = pageData.solutionBlocks?.solutionsPages;
-
   const providersLogos = pageData?.solutionTravelProviders?.travelProviders?.edges;
   const paymentLogos = pageData?.solutionPaymentProviders?.paymentProviders?.edges;
   const section4thData = pageData?.solution4thSection;
   
   return <>
-    <HeroBanner data={pageData} />
+    <HeroBanner data={heroBannerContent} />
     <SolutionsBlocks data={solutionBlocks} />    
     <section className="providers-section">
       <div className="container">
@@ -41,9 +42,7 @@ export default async function Solutions() {
         </div>
       </div>
     </section>
-
     <Solution4thSection data={section4thData} />
-
   </>;
 }
 
@@ -55,31 +54,24 @@ async function getPageData() {
       pages(where: {id: 70}) {
         edges {
           node {
-            content
-              featuredImage {
-                node {
-                  altText
-                  sourceUrl
+            solutionBlocks {
+              solutionsPages {
+                sCtaButton {
+                  target
+                  title
+                  url
                 }
-              }
-              solutionBlocks {
-                solutionsPages {
-                  sCtaButton {
-                    target
-                    title
-                    url
+                sDescription
+                sImage {
+                  node {
+                    altText
+                    sourceUrl
                   }
-                  sDescription
-                  sImage {
-                    node {
-                      altText
-                      sourceUrl
-                    }
-                  }
-                  sSubtitle
-                  sTitle
                 }
+                sSubtitle
+                sTitle
               }
+            }
             solutionTravelProviders {
               travelProviders (first:100) {
                 edges {

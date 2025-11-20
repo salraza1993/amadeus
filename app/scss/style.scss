@@ -122,7 +122,7 @@ h4, h5, h6 { font-family: var(--amadeus--medium); }
 }
 
 .hero-banner-container {
-  --hero-banner-height: calc(350px + 5vw);
+  --hero-banner-height: calc(500px + 5vw);
   position: relative;
   width: 100%;
   height: var(--hero-banner-height);
@@ -238,7 +238,7 @@ h4, h5, h6 { font-family: var(--amadeus--medium); }
   position: relative;
   width: 100%;
   padding-block: calc(2rem + 5vw);
-  background-color: var(--bs-primary);
+  background-color: var(--block-bg, var(--bs-primary));
 
   @media (prefers-color-scheme: dark) {
     background-color: #09186c;
@@ -268,7 +268,7 @@ h4, h5, h6 { font-family: var(--amadeus--medium); }
     &__content {
       position: relative;
       z-index: 1;
-      color: var(--bs-white);
+      color: var(--block-color, var(--bs-white));
       max-width: 900px;
       margin-inline: auto;
       text-align: center;

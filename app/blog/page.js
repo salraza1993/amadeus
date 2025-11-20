@@ -7,20 +7,21 @@ import { getPageMetadata } from '../api/getPageMetadata';
 import BlogCardListing from './components/BlogCardListing';
 import FooterFeaturedSection from '../components/FooterFeaturedSection';
 import { GetFooterFeaturedPageData } from '../api/getFooterFeaturedData';
+import { GetPageHeroBanner } from '../api/getSolutionsSubPagesData';
+import { pagesIds } from '../helpers/helpers';
 
 export const metadata = await getPageMetadata(878);
 
-async function BlogPage() {
-  const pageId = 878;
-  let pageData = await getPageData();
-  const topBannerData = pageData.data?.pages?.edges[0]?.node;
+export default async function BlogPage() {
+  const pageId = pagesIds.blogPage;
+  const heroBannerContent = await GetPageHeroBanner(pageId);  
   const blogLists = await getPosts();
   const featuredBlogPosts = await featuredPosts();
   const footerFeaturedBlock = await GetFooterFeaturedPageData(pageId);
 
   return (
     <>
-      <HeroBanner data={topBannerData} />
+      <HeroBanner data={heroBannerContent} />
       <BlogFeaturedSection data={featuredBlogPosts.data.posts.nodes} />
       <BlogCardListing data={blogLists?.data?.posts} />
       {
@@ -28,30 +29,6 @@ async function BlogPage() {
       }
     </>
   )
-}
-
-export default BlogPage;
-
-// Fetching Counter
-async function getPageData() {
-  return await graphQLPromise(
-    "topBanner",
-    `query topBanner {
-      pages(where: {id: 878}) {
-        edges {
-          node {
-            content
-            featuredImage {
-              node {
-                altText
-                sourceUrl
-              }
-            }
-          }
-        }
-      }
-    }`
-  );
 }
 
 // fetching blog posts

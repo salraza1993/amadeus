@@ -4,18 +4,21 @@ import ImageTag from '../components/ImageTag';
 import ContactForm from '../components/ContactForm';
 import { graphQLPromise } from '../common/CommonFunctions';
 import { getPageMetadata } from '../api/getPageMetadata';
+import { pagesIds } from '../helpers/helpers';
+import { GetPageHeroBanner } from '../api/getSolutionsSubPagesData';
 
 export const metadata = await getPageMetadata(81);
 
 export default async function Contact() {
   // Fetching Page Data
+  const pageId = pagesIds.contactPage;
+  const heroBannerContent = await GetPageHeroBanner(pageId);  
   let pageData = await getPageData();
-  const topBannerData = pageData.data?.pages?.edges[0]?.node;
   const formAsideImage = pageData.data?.pages?.edges[0]?.node?.contactFormSideImage?.contactAsideImage?.node;
   
   return (
     <>
-      <HeroBanner data={topBannerData} />
+      <HeroBanner data={heroBannerContent} />
       <section className="contact-form-section">
         <div className="container">
           <div className="contact-form-container">

@@ -159,3 +159,30 @@ export async function GetInfographicsSectionsData(pageId) {
   const data = response?.data?.pages?.nodes[0]?.solutionSubPages?.infographic;
   return data;
 }
+
+// Top Hero Banner
+export async function FetchPageHeroBanner(pageId) {
+  return await graphQLPromise(
+    "pageHeroBanner",
+    `query pageHeroBanner {
+      pages(where: {id: ${pageId}}) {
+        edges {
+          node {
+            content
+            featuredImage {
+              node {
+                altText
+                sourceUrl
+              }
+            }
+          }
+        }
+      }
+    }`
+  );
+}
+export async function GetPageHeroBanner(pageId) {
+  const response = await FetchPageHeroBanner(pageId);
+  const data = response?.data?.pages?.edges[0]?.node;
+  return data;
+}
