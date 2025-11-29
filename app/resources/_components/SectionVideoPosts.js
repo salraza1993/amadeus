@@ -3,9 +3,6 @@ import ImageTag from '@/app/components/ImageTag'
 export default function SectionVideoPosts({ data, showVideo }) {
   const sectionTitle = data?.sectionTitle;
   const moreVideos = data?.videosPosts;
-
-  console.log(moreVideos)
-  
   return <section className="browse-content-section">
     <div className="container">
       <div className="browse-content-container">

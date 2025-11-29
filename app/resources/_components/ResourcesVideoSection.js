@@ -11,7 +11,6 @@ function ResourcesVideoSection({ data }) {
   const [showVideoState, setShowVideoState] = useState(false);
   const showVideo = (url) => { 
     setVideoUrl(url);
-    console.log(url)
     setShowVideoState(true); 
   };
   const hideVideo = (e) => { 
