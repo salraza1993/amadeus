@@ -1,6 +1,6 @@
 .video-section {
   position: relative;
-  padding-block: calc(1.5rem + 2vw);
+  padding-block-start: calc(1rem + 2vw);
   .video-container {
     position: relative;
     width: 100%;
@@ -39,6 +39,7 @@
 
 .browse-content-section {
   position: relative;
+  padding-block-start: calc(1.5rem + 1vw);
   padding-block-end: calc(1rem + 2vw);
   .browse-content-container {
     position: relative;

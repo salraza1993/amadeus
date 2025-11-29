@@ -22,7 +22,7 @@ export default function SectionVideoPosts({ data, showVideo }) {
                     </div>
                   </div>
                   <div className="__content">
-                    <h5>{video?.title}</h5>
+                    <h5>{video?.videoTitle}</h5>
                   </div>
                 </div>
               </div>

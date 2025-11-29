@@ -7,6 +7,7 @@ import FullSizeVideo from './FullSizeVideo';
 function ResourcesVideoSection({ data }) {
   const fullSizeVideo = data?.fullSizeVideo;
   const moreVideos = data?.moreVideos;
+  const isMoreVideosAvailable = moreVideos?.videosPosts && moreVideos.videosPosts.length > 0;
   const [videoUrl, setVideoUrl] = useState(null);  
   const [showVideoState, setShowVideoState] = useState(false);
   const showVideo = (url) => { 
@@ -19,9 +20,9 @@ function ResourcesVideoSection({ data }) {
   };
 
   return <>
-    {fullSizeVideo.videoUrl && <FullSizeVideo data={fullSizeVideo} showVideo={showVideo} />}
-    {moreVideos.length > 0 && <SectionVideoPosts data={moreVideos} showVideo={showVideo} />}
-    {showVideoState && <VideoOverlay show={showVideoState} videoUrl={videoUrl} hideVideo={hideVideo} />}
+    { fullSizeVideo.videoUrl && <FullSizeVideo data={fullSizeVideo} showVideo={showVideo} /> }
+    { isMoreVideosAvailable && <SectionVideoPosts data={moreVideos} showVideo={showVideo} /> }
+    { showVideoState && <VideoOverlay show={showVideoState} videoUrl={videoUrl} hideVideo={hideVideo} /> }
   </>;
 }
 
