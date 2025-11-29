@@ -1,26 +1,28 @@
 "use client";
 import React, { useState } from 'react';
 import VideoOverlay from '../../components/VideoOverlay';
-import ImageTag from '../../components/ImageTag';
+import SectionVideoPosts from './SectionVideoPosts';
+import FullSizeVideo from './FullSizeVideo';
 
-function ResourcesVideoSection() {
-  const videoUrl = "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm";
+function ResourcesVideoSection({ data }) {
+  const fullSizeVideo = data?.fullSizeVideo;
+  const moreVideos = data?.moreVideos;
+  const [videoUrl, setVideoUrl] = useState(null);  
   const [showVideoState, setShowVideoState] = useState(false);
-  const showVideo = () => { setShowVideoState(true); };
-  const hideVideo = (e) => { setShowVideoState(e); };
+  const showVideo = (url) => { 
+    setVideoUrl(url);
+    console.log(url)
+    setShowVideoState(true); 
+  };
+  const hideVideo = (e) => { 
+    setVideoUrl(null);
+    setShowVideoState(e); 
+  };
+
   return <>
-    <section className="video-section">
-      <div className="container">
-        <h2 className='fs-1 mb-4'>Explore Amadeus Online Suite</h2>
-        <div className="video-container" onClick={() => showVideo()} >
-          <ImageTag src={"/assets/images/video-thumbnail.png"} />
-          <span className="icon">
-            <ImageTag src={"/assets/images/video-icon.svg"} />
-          </span>
-        </div>
-      </div>
-    </section>
-    {showVideoState && <VideoOverlay show={showVideoState} videoUrl={videoUrl} sendDataToParent={hideVideo} />}
+    {fullSizeVideo.videoUrl && <FullSizeVideo data={fullSizeVideo} showVideo={showVideo} />}
+    {moreVideos.length > 0 && <SectionVideoPosts data={moreVideos} showVideo={showVideo} />}
+    {showVideoState && <VideoOverlay show={showVideoState} videoUrl={videoUrl} hideVideo={hideVideo} />}
   </>;
 }
 

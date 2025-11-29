@@ -1,7 +1,9 @@
 import ImageTag from "@/app/components/ImageTag";
 import FaqsAccordion from "./FaqsAccordion";
 
-export default function SectionFaqs({ faqsData, faqsSideImage }) {
+export default function SectionFaqs({ data }) {
+  const faqsData = data?.rFaqs;
+  const faqsSideImage = data?.rFaqsSideImage;
   return <section className="faqs-section">
     <div className="container">
       <div className="faqs-container">

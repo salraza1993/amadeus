@@ -1,10 +1,10 @@
 import Link from 'next/link';
 
 export default function SectionDownload({ data }) {
-  const downloadableBlocks = data;
+  const downloadableBlocks = data?.rDownloads;
   return <section className="download-section">
     <div className="container">
-      <h2 className='fs-1 text-white text-center'>Download the Docs</h2>
+      <h2 className='fs-1 text-white text-center'>{data?.sectionTitle}</h2>
       <div className="download-container">
         {
           downloadableBlocks.map((item, index) => {

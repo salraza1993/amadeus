@@ -6,7 +6,20 @@ import { useRef, useState, useEffect } from "react";
 import ImageTag from "./ImageTag";
 import videoFallbackImage from "/public/assets/images/slider-1.jpg";
 
-function HomeHeroVideo({ videoUrl = "/assets/video.mp4" }) {
+function HomeHeroVideo({ data }) {
+  const videoUrl = data?.videoPath || "/assets/video.mp4";
+  const staticContent = {
+    content: '<h1 class="fs-1 font-amadeus-bold heading text-balance m-0">Going Online Made Easy for Travel Businesses</h1>\n' +
+    '<p>Whether you are a single-site travel agency or an ambitious startup, scaling your travel business to multiple markets, Amadeus Online Suite can help you succeed.</p>\n' +     
+    '<p>&nbsp;</p>\n',
+    button: {
+      target: '_self',
+      title: 'Discover More',
+      url: '/solutions'
+    }
+  }
+  const videoContent = { content: data?.videoContent, button: data?.videoButton} || staticContent;
+
   const contentRef = useRef(null);
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -55,7 +68,6 @@ function HomeHeroVideo({ videoUrl = "/assets/video.mp4" }) {
           <video ref={videoRef} autoPlay loop muted>
               <source src={videoUrl} type="video/mp4" alt="Lady With Laptop | Video" />
               <p>Lady With Laptop | Video</p>
-              {/* <img src={videoFallbackImage} */}
               <ImageTag src={videoFallbackImage} title="Your browser does not support the <video> tag" alt={"Lady With Laptop | Video"} />
           </video>
         )}
@@ -71,15 +83,13 @@ function HomeHeroVideo({ videoUrl = "/assets/video.mp4" }) {
             }}
             ref={contentRef}
           >
-            <h1 className="fs-1 font-amadeus-bold heading text-balance m-0">
-              Going Online Made Easy for Travel Businesses
-            </h1>
-            <p>
-              Whether you are a single-site travel agency or an ambitious startup, scaling your travel business to multiple markets, Amadeus Online Suite can help you succeed.
-            </p>
-            <Link href={"/solutions"} className="btn btn-lg btn-secondary">
-              Discover More
-            </Link>
+            <div dangerouslySetInnerHTML={{ __html: videoContent.content }} />
+            {
+              videoContent.button.url &&
+              <Link href={videoContent.button.url} className="btn btn-lg btn-secondary" target={videoContent.button.target}>
+                {videoContent.button.title}
+              </Link>
+            }
           </div>
           <button className="play-icon" onClick={togglePlay} aria-label={isPlaying ? "Pause video" : "Play video"}>
             <i className={isPlaying ? "fa-regular fa-circle-pause" : "fa-solid fa-circle-play"}></i>

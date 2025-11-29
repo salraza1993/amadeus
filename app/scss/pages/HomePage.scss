@@ -576,9 +576,19 @@
   }
 }
 
-.home-trustpilot-section {
+.home-partners-section {
   position: relative;
   padding-block: calc(2rem + 1vw);
+
+  .partner-logo {
+    position: relative;
+    display: flex;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  }
 
   @media (width < 1200px) {
     .container {
@@ -762,6 +772,13 @@
         align-items: flex-start;
         flex-direction: column;
         gap: 1rem;
+
+        > div {
+          display: inherit;
+          flex-direction: inherit;
+          gap: inherit;
+          align-items: inherit;
+        }
 
         .heading {
           font-size: clamp(1.25rem, 8vw, 2.5rem) !important;
